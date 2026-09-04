@@ -360,9 +360,9 @@ html.static .pre img{transform:none}
 .train-rule{display:block;width:64px;height:4px;background:var(--red-hot);margin-bottom:28px}
 .train h2{font-family:'Fjalla One',Impact,'Arial Narrow',sans-serif;font-size:var(--d3);line-height:.98;text-transform:uppercase;letter-spacing:.005em;margin:0 0 20px}
 .train p{max-width:44ch;font-size:clamp(15px,1.25vw,19px);line-height:1.55;color:#E2E2E2;margin:0 0 26px}
-.train-photo{margin:0;min-height:320px}
-.train-photo img{width:100%;height:100%;object-fit:cover;display:block}
-@media (max-width:899px){.train{grid-template-columns:1fr}.train-photo{order:-1;min-height:0}.train-photo img{aspect-ratio:16/10}}
+.train-photo{margin:0;min-height:320px;overflow:hidden;position:relative}
+.train-photo img{position:absolute;left:0;top:-8%;width:100%;height:116%;object-fit:cover;display:block}
+@media (max-width:899px){.train{grid-template-columns:1fr}.train-photo{order:-1;min-height:0;aspect-ratio:16/10}.train-photo img{position:absolute;inset:auto;left:0;top:-8%;height:116%}}
 
 /* ============================= THE FLOOR — filmstrip */
 .strip-wrap{background:#0f0f0f;padding:clamp(40px,7vw,88px) 0 clamp(48px,8vw,104px)}
