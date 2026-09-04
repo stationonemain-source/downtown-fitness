@@ -35,7 +35,7 @@
     PRE_S: 6.0,           // the opening photograph's code push (CSS transform, GPU)
     HEAD_S: 3.2,          // the film starts this early BEHIND the still, so the decoder's one-time ~0.4s handoff stall happens covered
     SIGN_EXIT_T: 5.6,     // the fascia sign leaves the frame → wordmark + nav hand off (instant, not a fade)
-    FLIP_T: 9.65,          // the cut: outside becomes inside → chrome near-black → white, OPEN pill outline → red-filled
+    FLIP_T: 9.7,          // the cut: outside becomes inside → chrome near-black → white, OPEN pill outline → red-filled
 
     LUM_THRESHOLD: 138,   // sampled top-strip luminance above which outside chrome is near-black
     SAMPLE_MS: 400,

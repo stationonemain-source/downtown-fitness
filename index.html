@@ -18,7 +18,7 @@
 
 <meta property="og:description" content="Norman's neighborhood gym. Open every hour of every day. 1610 W Lindsey St · (405) 801-2929">
 
-<meta property="og:image" content="img/og.jpg?v=20260904c">
+<meta property="og:image" content="img/og.jpg?v=20260904d">
 
 <meta property="og:type" content="website">
 
@@ -42,11 +42,11 @@
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Source+Sans+Pro:wght@400;600&display=swap">
 
-<link rel="stylesheet" href="css/site.css?v=20260904c">
+<link rel="stylesheet" href="css/site.css?v=20260904d">
 
-<link rel="preload" as="image" href="media/open_1920.webp?v=20260904c" fetchpriority="high" media="(min-width: 900px)">
+<link rel="preload" as="image" href="media/open_1920.webp?v=20260904d" fetchpriority="high" media="(min-width: 900px)">
 
-<link rel="preload" as="image" href="media/open_1280.webp?v=20260904c" fetchpriority="high" media="(max-width: 899px)">
+<link rel="preload" as="image" href="media/open_1280.webp?v=20260904d" fetchpriority="high" media="(max-width: 899px)">
 
 
 
@@ -202,7 +202,7 @@
 
   <video class="hero-video" id="hero" muted playsinline preload="metadata"
 
-         poster="media/poster.jpg?v=20260904c"
+         poster="media/poster.jpg?v=20260904d"
 
          disablepictureinpicture disableremoteplayback
 
@@ -210,9 +210,9 @@
 
     <!-- no-JS fallback selection; with JS the src is chosen below (media on <source> is not universal) -->
 
-    <source src="media/hero_960.mp4?v=20260904c" type="video/mp4" media="(max-width: 899px)">
+    <source src="media/hero_960.mp4?v=20260904d" type="video/mp4" media="(max-width: 899px)">
 
-    <source src="media/hero.mp4?v=20260904c" type="video/mp4">
+    <source src="media/hero.mp4?v=20260904d" type="video/mp4">
 
   </video>
 
@@ -228,7 +228,7 @@
 
       if (document.documentElement.classList.contains('static')) { v.preload = 'none'; }
 
-      v.src = (window.innerWidth < 900 ? 'media/hero_960.mp4' : 'media/hero.mp4') + '?v=20260904c';
+      v.src = (window.innerWidth < 900 ? 'media/hero_960.mp4' : 'media/hero.mp4') + '?v=20260904d';
 
     })();
 
@@ -246,9 +246,9 @@
 
     <picture>
 
-      <source media="(max-width: 899px)" srcset="media/open_1280.webp?v=20260904c">
+      <source media="(max-width: 899px)" srcset="media/open_1280.webp?v=20260904d">
 
-      <img id="preImg" src="media/open_1920.webp?v=20260904c" alt="" decoding="async" fetchpriority="high">
+      <img id="preImg" src="media/open_1920.webp?v=20260904d" alt="" decoding="async" fetchpriority="high">
 
     </picture>
 
@@ -288,7 +288,7 @@
 
   <!-- 1. THE LOT — the photograph, pushing in. No headline: the sign on the building is the logo. -->
 
-  <div class="beat beat-lot" id="b-lot" data-tin="-1" data-tpeak="0" data-thold="1.5" data-tout="2.3">
+  <div class="beat beat-lot" id="b-lot" data-tin="-1" data-tpeak="0" data-thold="2.3" data-tout="3.1">
 
     <span aria-hidden="true">&darr;&nbsp;</span>Come on in
 
@@ -298,7 +298,7 @@
 
   <!-- 2. THE NAME — lands on the concrete while the still pushes. -->
 
-  <div class="beat beat-out" id="b-sign" data-tin="2.6" data-tpeak="3.2" data-thold="5.0" data-tout="5.8">
+  <div class="beat beat-out" id="b-sign" data-tin="3.4" data-tpeak="4.0" data-thold="5.4" data-tout="6.0">
 
     <h2>The gym on West&nbsp;Lindsey.</h2>
 
@@ -310,7 +310,7 @@
 
   <!-- 3. THE GLASS — the film starts at 4.6: real footage, walking at the doors. -->
 
-  <div class="beat beat-out" id="b-glass" data-tin="6.3" data-tpeak="6.8" data-thold="8.4" data-tout="9.1">
+  <div class="beat beat-out" id="b-glass" data-tin="6.4" data-tpeak="6.9" data-thold="8.6" data-tout="9.3">
 
     <h2>It says 24 hours<br>on the glass.</h2>
 
@@ -322,7 +322,7 @@
 
   <!-- 4. THE CUT — 7.8 s: outside becomes inside. NOTHING on screen. The chrome flips with it. -->
 
-  <div class="beat beat-in beat-first" id="b-in" data-tin="9.95" data-tpeak="10.5" data-thold="12.4" data-tout="13.1">
+  <div class="beat beat-in beat-first" id="b-in" data-tin="10.1" data-tpeak="10.6" data-thold="12.3" data-tout="13.0">
 
     <h2>You're in.</h2>
 
@@ -334,7 +334,7 @@
 
   <!-- 5. THE HALL — the walk-through tour. -->
 
-  <div class="beat beat-in" id="b-hall" data-tin="13.3" data-tpeak="13.8" data-thold="15.8" data-tout="16.5">
+  <div class="beat beat-in" id="b-hall" data-tin="13.3" data-tpeak="13.8" data-thold="15.0" data-tout="15.4">
 
     <h2>Cardio on the left.<br>Machines on the right.</h2>
 
@@ -344,13 +344,19 @@
 
 
 
-  <!-- 6. THE AISLE. -->
+  <!-- 5b. THE MACHINE CORRIDOR — the third room the film walks. -->
+  <div class="beat beat-in" id="b-machines" data-tin="16.0" data-tpeak="16.5" data-thold="19.2" data-tout="19.9">
+    <h2>Every station.<br>Pick&nbsp;one.</h2>
+    <p>The full selectorized floor, front to back.</p>
+  </div>
 
-  <div class="beat beat-in" id="b-aisle" data-tin="16.7" data-tpeak="17.2" data-thold="19.2" data-tout="20.0">
+  <!-- 6. THE FREE-WEIGHT FLOOR. -->
 
-    <h2>Keep going.</h2>
+  <div class="beat beat-in" id="b-aisle" data-tin="21.2" data-tpeak="21.7" data-thold="24.2" data-tout="24.9">
 
-    <p>Free weights, racks and platforms through the glass at the back. Locker rooms and the cedar sauna past that.</p>
+    <h2>And the&nbsp;iron.</h2>
+
+    <p>Dumbbells, benches, racks and platforms. Locker rooms and the cedar sauna past that.</p>
 
   </div>
 
@@ -358,7 +364,7 @@
 
   <!-- FINALE — rises into the hold on the last frame. Never fades (no data-tout). -->
 
-  <div class="beat beat-in beat-finale" id="b-finale" data-tin="20.3" data-tpeak="21.4">
+  <div class="beat beat-in beat-finale" id="b-finale" data-tin="25.2" data-tpeak="26.0">
 
     <h2>
 
@@ -417,7 +423,7 @@
 
   <article class="room room-img reveal-clip">
 
-    <figure class="room-fig"><img class="plx" src="img/g2/P082.webp?v=20260904c" srcset="img/g2/P082_s.webp?v=20260904c 800w, img/g2/P082.webp?v=20260904c 1600w"
+    <figure class="room-fig"><img class="plx" src="img/g2/P082.webp?v=20260904d" srcset="img/g2/P082_s.webp?v=20260904d 800w, img/g2/P082.webp?v=20260904d 1600w"
 
          sizes="(max-width: 899px) 100vw, 72vw" loading="lazy" decoding="async"
 
@@ -441,7 +447,7 @@
 
   <article class="room room-img reveal-clip">
 
-    <figure class="room-fig"><img class="plx" src="img/g2/P096.webp?v=20260904c" srcset="img/g2/P096_s.webp?v=20260904c 800w, img/g2/P096.webp?v=20260904c 1600w"
+    <figure class="room-fig"><img class="plx" src="img/g2/P096.webp?v=20260904d" srcset="img/g2/P096_s.webp?v=20260904d 800w, img/g2/P096.webp?v=20260904d 1600w"
 
          sizes="(max-width: 899px) 100vw, 72vw" loading="lazy" decoding="async"
 
@@ -469,7 +475,7 @@
 
   <article class="room room-img reveal-clip">
 
-    <figure class="room-fig"><img class="plx" src="img/g2/P002.webp?v=20260904c" srcset="img/g2/P002_s.webp?v=20260904c 800w, img/g2/P002.webp?v=20260904c 1600w"
+    <figure class="room-fig"><img class="plx" src="img/g2/P002.webp?v=20260904d" srcset="img/g2/P002_s.webp?v=20260904d 800w, img/g2/P002.webp?v=20260904d 1600w"
 
          sizes="(max-width: 899px) 100vw, 72vw" loading="lazy" decoding="async"
 
@@ -493,7 +499,7 @@
 
   <article class="room room-img reveal-clip">
 
-    <figure class="room-fig"><img class="plx" src="img/g2/N1.webp?v=20260904c" srcset="img/g2/N1_s.webp?v=20260904c 800w, img/g2/N1.webp?v=20260904c 1600w"
+    <figure class="room-fig"><img class="plx" src="img/g2/N1.webp?v=20260904d" srcset="img/g2/N1_s.webp?v=20260904d 800w, img/g2/N1.webp?v=20260904d 1600w"
 
          sizes="(max-width: 899px) 100vw, 72vw" loading="lazy" decoding="async"
 
@@ -514,7 +520,7 @@
 
   <article class="room room-img room-dark reveal-clip">
 
-    <figure class="room-fig"><img class="plx" src="img/g2/P097.webp?v=20260904c" srcset="img/g2/P097_s.webp?v=20260904c 800w, img/g2/P097.webp?v=20260904c 1600w"
+    <figure class="room-fig"><img class="plx" src="img/g2/P097.webp?v=20260904d" srcset="img/g2/P097_s.webp?v=20260904d 800w, img/g2/P097.webp?v=20260904d 1600w"
 
          sizes="(max-width: 899px) 100vw, 72vw" loading="lazy" decoding="async"
 
@@ -589,7 +595,7 @@
   </div>
 
   <figure class="train-photo reveal" aria-hidden="true">
-    <img src="img/g2/N5.webp?v=20260904c" srcset="img/g2/N5_s.webp?v=20260904c 800w, img/g2/N5.webp?v=20260904c 1600w"
+    <img src="img/g2/N5.webp?v=20260904d" srcset="img/g2/N5_s.webp?v=20260904d 800w, img/g2/N5.webp?v=20260904d 1600w"
          sizes="(max-width: 899px) 100vw, 46vw" loading="lazy" decoding="async" alt="Three of the Downtown Fitness crew flexing at the front desk"></figure>
 
 </section>
@@ -609,14 +615,14 @@
   <h2 class="strip-title reveal">Around the&nbsp;gym.</h2>
 
   <div class="strip" tabindex="0" role="group" aria-label="Photo strip">
-    <img src="img/g2/N4.webp?v=20260904c" loading="lazy" decoding="async" alt="The red room: ellipticals, bikes and rowers against the red brick wall under two TVs">
-    <img src="img/g2/N6.webp?v=20260904c" loading="lazy" decoding="async" alt="Green, yellow and blue bumper plates on the rack, up close">
-    <img src="img/g2/P098.webp?v=20260904c" loading="lazy" decoding="async" alt="The locker room: cedar bench, lockers and the sauna door">
-    <img src="img/g2/P004.webp?v=20260904c" loading="lazy" decoding="async" alt="The dumbbell rack running away down the mirror wall">
-    <img src="img/g2/P095.webp?v=20260904c" loading="lazy" decoding="async" alt="The cardio row from the front, treadmills and ellipticals under mounted TVs">
-    <img src="img/g2/N5.webp?v=20260904c" loading="lazy" decoding="async" alt="Three of the Downtown Fitness crew at the front desk">
-    <img src="img/g2/P097.webp?v=20260904c" loading="lazy" decoding="async" alt="Inside the cedar sauna: warm timber benches and walls">
-    <img src="img/g2/P025.webp?v=20260904c" loading="lazy" decoding="async" alt="Hex dumbbells receding in a diagonal along the mirror">
+    <img src="img/g2/N4.webp?v=20260904d" loading="lazy" decoding="async" alt="The red room: ellipticals, bikes and rowers against the red brick wall under two TVs">
+    <img src="img/g2/N6.webp?v=20260904d" loading="lazy" decoding="async" alt="Green, yellow and blue bumper plates on the rack, up close">
+    <img src="img/g2/P098.webp?v=20260904d" loading="lazy" decoding="async" alt="The locker room: cedar bench, lockers and the sauna door">
+    <img src="img/g2/P004.webp?v=20260904d" loading="lazy" decoding="async" alt="The dumbbell rack running away down the mirror wall">
+    <img src="img/g2/P095.webp?v=20260904d" loading="lazy" decoding="async" alt="The cardio row from the front, treadmills and ellipticals under mounted TVs">
+    <img src="img/g2/N5.webp?v=20260904d" loading="lazy" decoding="async" alt="Three of the Downtown Fitness crew at the front desk">
+    <img src="img/g2/P097.webp?v=20260904d" loading="lazy" decoding="async" alt="Inside the cedar sauna: warm timber benches and walls">
+    <img src="img/g2/P025.webp?v=20260904d" loading="lazy" decoding="async" alt="Hex dumbbells receding in a diagonal along the mirror">
   </div>
 
 </section>
@@ -687,7 +693,7 @@
 
       <p class="tagline reveal">
 
-        <img class="badge" src="img/logo.png?v=20260904c" width="250" height="108" alt="Downtown Fitness — On West Lindsey" loading="lazy">
+        <img class="badge" src="img/logo.png?v=20260904d" width="250" height="108" alt="Downtown Fitness — On West Lindsey" loading="lazy">
 
         <span>Kickstarting Healthy Lifestyles.</span>
 
@@ -711,7 +717,7 @@
 
 <footer class="foot">
 
-  <img class="badge badge-foot" src="img/logo.png?v=20260904c" width="250" height="108" alt="" loading="lazy">
+  <img class="badge badge-foot" src="img/logo.png?v=20260904d" width="250" height="108" alt="" loading="lazy">
 
   <p class="foot-line">Downtown Fitness <span aria-hidden="true">·</span> On West Lindsey <span aria-hidden="true">·</span> <a href="https://dfnorman.com" rel="noopener">dfnorman.com</a></p>
 
@@ -771,9 +777,9 @@
 
 <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
 
-<script defer src="js/film.js?v=20260904c"></script>
+<script defer src="js/film.js?v=20260904d"></script>
 
-<script defer src="js/sections.js?v=20260904c"></script>
+<script defer src="js/sections.js?v=20260904d"></script>
 
 </body>
 
