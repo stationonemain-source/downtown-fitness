@@ -33,7 +33,8 @@
     // Hero timings on the UNIFIED clock: 0..PRE_S is the still push (page-driven),
     // PRE_S + video.currentTime after that. Beat envelopes live on the .beat elements.
     PRE_S: 6.0,           // the opening photograph's code push (CSS transform, GPU)
-    HEAD_S: 3.2,          // the film starts this early BEHIND the still, so the decoder's one-time ~0.4s handoff stall happens covered
+    HEAD_S: 1.6,          // real footage that plays BEHIND the opening photograph: the decoder warms on live
+                          // motion (a frozen clone here read as a dead photo jerking alive)
     SIGN_EXIT_T: 5.6,     // the fascia sign leaves the frame → wordmark + nav hand off (instant, not a fade)
     FLIP_T: 9.7,          // the cut: outside becomes inside → chrome near-black → white, OPEN pill outline → red-filled
 
