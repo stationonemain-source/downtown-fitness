@@ -419,7 +419,7 @@ html.sections-settled .lid-line .w>span{transform:none;opacity:1}
 
 /* ============================= THE 24/7 PROMISE (replaces specials) */
 .promise{background:var(--red);color:#fff;text-align:center;padding:clamp(64px,9vw,132px) var(--gutter)}
-.promise-kicker{font-family:'Fjalla One',Impact,sans-serif;text-transform:uppercase;letter-spacing:.22em;font-size:clamp(11px,1vw,13px);margin:0 0 18px;color:rgba(255,255,255,.82)}
+.promise-kicker{font-family:'Fjalla One',Impact,sans-serif;text-transform:uppercase;letter-spacing:.22em;font-size:clamp(11px,1vw,13px);margin:0 0 18px;color:#fff}
 .promise h2{font-family:'Fjalla One',Impact,sans-serif;text-transform:uppercase;font-size:var(--d5);line-height:.95;margin:0 0 20px}
 .promise-sub{max-width:52ch;margin:0 auto 30px;font-size:clamp(15px,1.3vw,19px);line-height:1.55;color:rgba(255,255,255,.92)}
 .promise .actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
