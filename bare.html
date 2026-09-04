@@ -1,0 +1,10 @@
+<!doctype html><meta charset="utf-8"><title>bare</title>
+<video id="v" muted playsinline preload="metadata" style="width:100vw;height:100vh;object-fit:cover" src="media/hero.mp4?v=bare"></video>
+<script>
+window.__jankMax = 0; window.__jankOver50 = 0; let last = 0;
+function tick(now){ if (last){ const dt = now - last; if (dt > window.__jankMax) window.__jankMax = dt; if (dt > 50) { window.__jankOver50++; console.log('long frame ' + dt.toFixed(0) + 'ms at video t=' + v.currentTime.toFixed(2) + ' page t=' + (now/1000).toFixed(2) + 's'); } } last = now; requestAnimationFrame(tick); }
+requestAnimationFrame(tick);
+const v = document.getElementById('v');
+setTimeout(() => v.play(), 3000);
+window.__ready = true;
+</script>
