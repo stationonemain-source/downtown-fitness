@@ -86,10 +86,13 @@
       scrollTrigger: { trigger: el, start: 'top 85%', once: true } });
   }
 
-  /* The strip drives itself: continuous loop, pauses while you're over it.
-     The loop distance MUST be measured AFTER the images have real dimensions.
-     Lazy images report scrollWidth ~0, so the track wrapped almost immediately
-     and the same two photos repeated on screen. */
+  /* The strip is a seamless marquee.
+     Previous version stopped at the end because ONE cloned track was not wide
+     enough to cover the viewport during the wrap, so the tail ran out and the
+     jump was visible. This one fills the viewport with as many copies as it
+     takes, then wraps on the width of a single copy — the seam is always
+     off-screen. Distance is measured only after every image has decoded,
+     because lazy images report scrollWidth 0. */
   const strip = document.querySelector('.strip');
   if (strip) {
     const imgs = Array.from(strip.querySelectorAll('img'));
@@ -98,19 +101,29 @@
     track.className = 'strip-track';
     while (strip.firstChild) track.appendChild(strip.firstChild);
     strip.appendChild(track);
-    strip.appendChild(track.cloneNode(true));
     strip.style.overflow = 'hidden';
-    let roll = null;
-    const start = () => {
-      const dist = track.scrollWidth + 14;
-      if (dist < 600) return;                        // not laid out yet
-      if (roll) roll.kill();
-      roll = gsap.to(strip.children, { x: () => -dist, ease: 'none', duration: dist / 62, repeat: -1,
-        modifiers: { x: gsap.utils.unitize(x => parseFloat(x) % dist) } });
-    };
+    let roll = null, clones = [];
+    function build() {
+      if (roll) { roll.kill(); roll = null; }
+      clones.forEach(c => c.remove()); clones = [];
+      const unit = track.scrollWidth;
+      if (unit < 600) return;                        // not decoded yet
+      const need = Math.ceil((strip.clientWidth * 2) / unit) + 1;
+      for (let i = 0; i < need; i++) {
+        const c = track.cloneNode(true);
+        c.setAttribute('aria-hidden', 'true');
+        strip.appendChild(c); clones.push(c);
+      }
+      const all = [track, ...clones];
+      gsap.set(all, { x: 0 });
+      roll = gsap.to(all, {
+        x: -unit, ease: 'none', duration: unit / 58, repeat: -1,
+        modifiers: { x: gsap.utils.unitize(x => (parseFloat(x) % unit)) },
+      });
+    }
     Promise.all(imgs.map(i => i.complete ? Promise.resolve() : new Promise(r => { i.onload = i.onerror = r; })))
-      .then(() => { start(); ST.refresh(); });
-    let rt; window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(start, 200); });
+      .then(() => { build(); ST.refresh(); });
+    let rt; window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(build, 250); });
     strip.addEventListener('pointerenter', () => roll && gsap.to(roll, { timeScale: 0, duration: 0.5 }));
     strip.addEventListener('pointerleave', () => roll && gsap.to(roll, { timeScale: 1, duration: 0.5 }));
   }
