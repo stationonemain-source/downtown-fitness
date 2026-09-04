@@ -1,0 +1,108 @@
+<!-- Downtown Fitness — schematic floor plan, drawn from the walk in IMG_2026/IMG_2080.
+     Entrance bottom centre (West Lindsey). Depth runs upward.
+     Every path carries a class so film.js can sequence the draw-on and light rooms. -->
+<svg id="planSvg" viewBox="0 0 420 620" fill="none" xmlns="http://www.w3.org/2000/svg"
+     role="img" aria-label="Schematic floor plan of Downtown Fitness">
+
+  <!-- ============ SHELL ============ -->
+  <g class="pl-shell" stroke="var(--line)" stroke-width="2.2" stroke-linecap="square">
+    <path class="pd" d="M30 590 L30 30 L390 30 L390 590 L252 590 M168 590 L30 590"/>
+  </g>
+
+  <!-- entrance doors, drawn as a swing -->
+  <g class="pl-door" stroke="var(--red-hot)" stroke-width="2.2">
+    <path class="pd" d="M168 590 L168 556"/>
+    <path class="pd" d="M252 590 L252 556"/>
+    <path class="pd" d="M168 556 A42 42 0 0 1 210 590" stroke-dasharray="3 4" opacity=".55"/>
+  </g>
+
+  <!-- ============ PARTITIONS ============ -->
+  <g class="pl-wall" stroke="var(--line)" stroke-width="1.4">
+    <path class="pd" d="M30 470 L390 470"/>          <!-- front zone / floor -->
+    <path class="pd" d="M30 176 L390 176"/>          <!-- floor / iron -->
+    <path class="pd" d="M30 96 L390 96"/>            <!-- iron / recovery -->
+  </g>
+  <!-- the glass partition the film walks past: dashed = glazed -->
+  <g class="pl-glass" stroke="var(--line)" stroke-width="1.4" stroke-dasharray="7 5" opacity=".75">
+    <path class="pd" d="M262 470 L262 176"/>
+  </g>
+
+  <!-- ============ ROOM 01 — THE FRONT ============ -->
+  <g class="pl-room" data-room="1">
+    <rect class="pl-fill" x="31" y="471" width="358" height="118"/>
+    <g class="pl-kit" stroke="var(--steel)" stroke-width="1.2">
+      <circle class="pd" cx="96" cy="522" r="13"/><circle class="pd" cx="140" cy="522" r="13"/>
+      <path class="pd" d="M286 500 L370 500 L370 540 L286 540 Z"/>   <!-- desk -->
+      <path class="pd" d="M196 504 h34 v34 h-34 Z"/>                  <!-- high-top -->
+    </g>
+  </g>
+
+  <!-- ============ ROOM 02 — CARDIO (left) ============ -->
+  <g class="pl-room" data-room="2">
+    <rect class="pl-fill" x="31" y="177" width="130" height="293"/>
+    <g class="pl-kit" stroke="var(--steel)" stroke-width="1.2">
+      <path class="pd" d="M44 200 h44 v26 h-44 Z"/><path class="pd" d="M44 236 h44 v26 h-44 Z"/>
+      <path class="pd" d="M44 272 h44 v26 h-44 Z"/><path class="pd" d="M44 308 h44 v26 h-44 Z"/>
+      <path class="pd" d="M44 344 h44 v26 h-44 Z"/><path class="pd" d="M44 380 h44 v26 h-44 Z"/>
+      <path class="pd" d="M44 416 h44 v26 h-44 Z"/>
+      <circle class="pd" cx="126" cy="214" r="9"/><circle class="pd" cx="126" cy="252" r="9"/>
+      <circle class="pd" cx="126" cy="290" r="9"/><circle class="pd" cx="126" cy="328" r="9"/>
+    </g>
+  </g>
+
+  <!-- ============ ROOM 03 — MACHINES (right, behind glass) ============ -->
+  <g class="pl-room" data-room="3">
+    <rect class="pl-fill" x="263" y="177" width="126" height="293"/>
+    <g class="pl-kit" stroke="var(--steel)" stroke-width="1.2">
+      <path class="pd" d="M276 196 h44 v30 h-44 Z"/><path class="pd" d="M334 196 h44 v30 h-44 Z"/>
+      <path class="pd" d="M276 238 h44 v30 h-44 Z"/><path class="pd" d="M334 238 h44 v30 h-44 Z"/>
+      <path class="pd" d="M276 280 h44 v30 h-44 Z"/><path class="pd" d="M334 280 h44 v30 h-44 Z"/>
+      <path class="pd" d="M276 322 h44 v30 h-44 Z"/><path class="pd" d="M334 322 h44 v30 h-44 Z"/>
+      <path class="pd" d="M276 364 h44 v30 h-44 Z"/><path class="pd" d="M334 364 h44 v30 h-44 Z"/>
+      <path class="pd" d="M276 406 h44 v30 h-44 Z"/><path class="pd" d="M334 406 h44 v30 h-44 Z"/>
+    </g>
+  </g>
+
+  <!-- ============ ROOM 04 — THE IRON (back) ============ -->
+  <g class="pl-room" data-room="4">
+    <rect class="pl-fill" x="31" y="97" width="358" height="79"/>
+    <g class="pl-kit" stroke="var(--steel)" stroke-width="1.2">
+      <path class="pd" d="M52 110 h52 v22 h-52 Z"/><path class="pd" d="M118 110 h52 v22 h-52 Z"/>
+      <path class="pd" d="M184 110 h52 v22 h-52 Z"/><path class="pd" d="M250 110 h52 v22 h-52 Z"/>
+      <path class="pd" d="M316 110 h52 v22 h-52 Z"/>
+      <path class="pd" d="M52 146 h316 v18 h-316 Z"/>                 <!-- dumbbell run -->
+    </g>
+  </g>
+
+  <!-- ============ ROOM 05 — RECOVERY ============ -->
+  <g class="pl-room" data-room="5">
+    <rect class="pl-fill" x="31" y="31" width="358" height="65"/>
+    <g class="pl-kit" stroke="var(--steel)" stroke-width="1.2">
+      <path class="pd" d="M46 44 h96 v38 h-96 Z"/>                    <!-- lockers -->
+      <path class="pd" d="M158 44 h84 v38 h-84 Z"/>                   <!-- lockers -->
+      <path class="pd" d="M280 44 h92 v38 h-92 Z"/>                   <!-- sauna -->
+      <path class="pd" d="M292 56 h68 v14 h-68 Z"/>
+    </g>
+  </g>
+
+  <!-- ============ THE AISLE — the path the film walks ============ -->
+  <path class="pl-path" d="M210 578 L210 470 L210 176 L210 140" stroke="var(--red-hot)"
+        stroke-width="2" stroke-linecap="round" fill="none"/>
+
+  <!-- you-are-here marker, positioned by script -->
+  <g class="pl-you" opacity="0">
+    <circle class="pl-you-halo" cx="210" cy="530" r="16"/>
+    <circle class="pl-you-dot"  cx="210" cy="530" r="4.5"/>
+  </g>
+
+  <!-- ============ ANNOTATIONS ============ -->
+  <g class="pl-note" font-family="'IBM Plex Mono', ui-monospace, monospace" font-size="11" letter-spacing=".08em">
+    <text x="46"  y="512">01 · FRONT</text>
+    <text x="46"  y="196">02 · CARDIO</text>
+    <text x="278" y="192">03 · MACHINES</text>
+    <text x="52"  y="90">04 · IRON</text>
+    <text x="46"  y="26">05 · RECOVERY</text>
+    <text class="pl-dim" x="196" y="608" text-anchor="middle">W LINDSEY ST</text>
+    <text class="pl-dim" x="300" y="330" transform="rotate(90 300 330)" text-anchor="middle">GLAZED</text>
+  </g>
+</svg>
