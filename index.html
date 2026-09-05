@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#161616">
 <meta property="og:title" content="Downtown Fitness · On West Lindsey">
 <meta property="og:description" content="Norman's neighborhood gym. Open every hour of every day. 1610 W Lindsey St · (405) 801-2929">
-<meta property="og:image" content="img/og.jpg?v=20260904i">
+<meta property="og:image" content="img/og.jpg?v=20260904j">
 <meta property="og:type" content="website">
 
 <!-- flip the no-js gate before first paint so JS-only / no-JS-only copy never flashes;
@@ -20,9 +20,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Source+Sans+Pro:wght@400;600&display=swap">
-<link rel="stylesheet" href="css/site.css?v=20260904i">
-<link rel="preload" as="image" href="media/open_1920.webp?v=20260904i" fetchpriority="high" media="(min-width: 900px)">
-<link rel="preload" as="image" href="media/open_1280.webp?v=20260904i" fetchpriority="high" media="(max-width: 899px)">
+<link rel="stylesheet" href="css/site.css?v=20260904j">
+<link rel="preload" as="image" href="media/open_1920.webp?v=20260904j" fetchpriority="high" media="(min-width: 900px)">
+<link rel="preload" as="image" href="media/open_1280.webp?v=20260904j" fetchpriority="high" media="(max-width: 899px)">
 
 <!-- ExerciseGym schema: only facts from the brief. 24-hour openingHours on every day. -->
 <script type="application/ld+json">
@@ -100,12 +100,12 @@
   <h1 class="sr-only">Downtown Fitness — On West Lindsey. Norman's neighborhood gym, open 24 hours.</h1>
 
   <video class="hero-video" id="hero" muted playsinline preload="metadata"
-         poster="media/poster.jpg?v=20260904i"
+         poster="media/poster.jpg?v=20260904j"
          disablepictureinpicture disableremoteplayback
          aria-label="A walk up to the doors of Downtown Fitness and down the centre aisle inside — all real footage">
     <!-- no-JS fallback selection; with JS the src is chosen below (media on <source> is not universal) -->
-    <source src="media/hero_960.mp4?v=20260904i" type="video/mp4" media="(max-width: 899px)">
-    <source src="media/hero.mp4?v=20260904i" type="video/mp4">
+    <source src="media/hero_960.mp4?v=20260904j" type="video/mp4" media="(max-width: 899px)">
+    <source src="media/hero.mp4?v=20260904j" type="video/mp4">
   </video>
   <script>
     // Runs synchronously right after the element: picks the size for this viewport.
@@ -113,7 +113,7 @@
     (function () {
       var v = document.getElementById('hero');
       if (document.documentElement.classList.contains('static')) { v.preload = 'none'; }
-      v.src = (window.innerWidth < 900 ? 'media/hero_960.mp4' : 'media/hero.mp4') + '?v=20260904i';
+      v.src = (window.innerWidth < 900 ? 'media/hero_960.mp4' : 'media/hero.mp4') + '?v=20260904j';
     })();
   </script>
 
@@ -122,8 +122,8 @@
        logo. film.js swaps to the film the instant the push lands. -->
   <div class="pre" id="pre" aria-hidden="true">
     <picture>
-      <source media="(max-width: 899px)" srcset="media/open_1280.webp?v=20260904i">
-      <img id="preImg" src="media/open_1920.webp?v=20260904i" alt="" decoding="async" fetchpriority="high">
+      <source media="(max-width: 899px)" srcset="media/open_1280.webp?v=20260904j">
+      <img id="preImg" src="media/open_1920.webp?v=20260904j" alt="" decoding="async" fetchpriority="high">
     </picture>
   </div>
 
@@ -143,47 +143,44 @@
        grade change, the chrome flip) lands at 7.8. -->
 
   <!-- 1. THE LOT — the photograph, pushing in. No headline: the sign on the building is the logo. -->
-  <div class="beat beat-lot" id="b-lot" data-tin="-1" data-tpeak="0" data-thold="2.3" data-tout="3.1">
-    <span aria-hidden="true">&darr;&nbsp;</span>Come on in
-  </div>
 
   <!-- 2. THE NAME — lands on the concrete while the still pushes. -->
-  <div class="beat beat-out" id="b-sign" data-tin="3.4" data-tpeak="4.0" data-thold="5.4" data-tout="6.0">
+  <div class="beat beat-in" id="b-sign" data-tin="0.2" data-tpeak="0.7" data-thold="2.4" data-tout="3.0">
     <h2>Downtown Fitness.</h2>
     <p>1610 W Lindsey St, Norman.</p>
   </div>
 
   <!-- 3. THE GLASS — the film starts at 4.6: real footage, walking at the doors. -->
-  <div class="beat beat-out" id="b-glass" data-tin="6.4" data-tpeak="6.9" data-thold="8.6" data-tout="9.3">
+  <div class="beat beat-in" id="b-glass" data-tin="3.3" data-tpeak="3.8" data-thold="5.3" data-tout="6.0">
     <h2>Open 24 hours.<br>Every day.</h2>
     
   </div>
 
   <!-- 4. THE CUT — 7.8 s: outside becomes inside. NOTHING on screen. The chrome flips with it. -->
-  <div class="beat beat-in beat-first" id="b-in" data-tin="9.9" data-tpeak="10.4" data-thold="11.9" data-tout="12.6">
+  <div class="beat beat-in beat-first" id="b-in" data-tin="6.2" data-tpeak="6.7" data-thold="7.9" data-tout="8.4">
     <h2>Cardio hall.</h2>
     <p>Treadmills, bikes, ellipticals, rowers.</p>
   </div>
 
   <!-- 5. THE HALL — the walk-through tour. -->
-  <div class="beat beat-in" id="b-hall" data-tin="12.9" data-tpeak="13.4" data-thold="14.3" data-tout="14.7">
+  <div class="beat beat-in" id="b-hall" data-tin="8.7" data-tpeak="9.2" data-thold="10.4" data-tout="10.9">
     <h2>Machine floor.</h2>
     <p>Full selectorized circuit behind the glass.</p>
   </div>
 
   <!-- 5b. THE MACHINE CORRIDOR — the third room the film walks. -->
-  <div class="beat beat-in" id="b-machines" data-tin="15.0" data-tpeak="15.5" data-thold="17.4" data-tout="18.1">
+  <div class="beat beat-in" id="b-machines" data-tin="11.1" data-tpeak="11.6" data-thold="12.8" data-tout="13.3">
     <h2>Free weights.</h2>
     <p>Racks, platforms, dumbbells to 100&nbsp;lb.</p>
   </div>
   <!-- 6. THE FREE-WEIGHT FLOOR. -->
-  <div class="beat beat-in" id="b-aisle" data-tin="18.6" data-tpeak="19.1" data-thold="20.6" data-tout="21.3">
+  <div class="beat beat-in" id="b-aisle" data-tin="13.5" data-tpeak="14.0" data-thold="14.9" data-tout="15.3">
     <h2>Locker rooms.<br>Cedar sauna.</h2>
     <p>At the back. Earn it.</p>
   </div>
 
   <!-- FINALE — rises into the hold on the last frame. Never fades (no data-tout). -->
-  <div class="beat beat-in beat-finale" id="b-finale" data-tin="21.6" data-tpeak="22.4">
+  <div class="beat beat-in beat-finale" id="b-finale" data-tin="15.0" data-tpeak="15.8">
     <h2>
       <span class="js-only">It's <time class="clock hot" aria-live="off">&nbsp;</time> in Norman.</span>
       <span class="no-js-only">Open 24 hours.</span>
@@ -202,7 +199,7 @@
 <div class="lid">
 <section class="lid-band" aria-label="There's more through the glass">
   <h2 class="lid-line" data-split>The rooms.</h2>
-  <p class="lid-sub reveal">Five rooms, one floor, no closing time. Photographed this month.</p>
+  <p class="lid-sub reveal">Five rooms. One floor. No closing time.</p>
 </section>
 
 <!-- ============================================================
@@ -213,7 +210,7 @@
   <h2 class="sr-only" id="rooms-h">The gym</h2>
 
   <article class="room room-img reveal-clip">
-    <figure class="room-fig"><img class="plx" src="img/g2/P082.webp?v=20260904i" srcset="img/g2/P082_s.webp?v=20260904i 800w, img/g2/P082.webp?v=20260904i 1600w"
+    <figure class="room-fig"><img class="plx" src="img/g2/P082.webp?v=20260904j" srcset="img/g2/P082_s.webp?v=20260904j 800w, img/g2/P082.webp?v=20260904j 1600w"
          sizes="(max-width: 899px) 100vw, 72vw" loading="lazy" decoding="async"
          alt="The cardio hall: a runner mid-stride on a treadmill, the row of machines receding under the TVs"></figure>
     <div class="room-copy">
@@ -225,7 +222,7 @@
   </article>
 
   <article class="room room-img reveal-clip">
-    <figure class="room-fig"><img class="plx" src="img/g2/P096.webp?v=20260904i" srcset="img/g2/P096_s.webp?v=20260904i 800w, img/g2/P096.webp?v=20260904i 1600w"
+    <figure class="room-fig"><img class="plx" src="img/g2/P096.webp?v=20260904j" srcset="img/g2/P096_s.webp?v=20260904j 800w, img/g2/P096.webp?v=20260904j 1600w"
          sizes="(max-width: 899px) 100vw, 72vw" loading="lazy" decoding="async"
          alt="The machine floor behind the glass: cable towers, plate-loaded machines and dumbbell racks across the room"></figure>
     <div class="room-copy">
@@ -239,7 +236,7 @@
   
 
   <article class="room room-img reveal-clip">
-    <figure class="room-fig"><img class="plx" src="img/g2/P002.webp?v=20260904i" srcset="img/g2/P002_s.webp?v=20260904i 800w, img/g2/P002.webp?v=20260904i 1600w"
+    <figure class="room-fig"><img class="plx" src="img/g2/P002.webp?v=20260904j" srcset="img/g2/P002_s.webp?v=20260904j 800w, img/g2/P002.webp?v=20260904j 1600w"
          sizes="(max-width: 899px) 100vw, 72vw" loading="lazy" decoding="async"
          alt="Squat racks loaded with green, yellow and blue bumper plates on wood platforms against the black wall"></figure>
     <div class="room-copy">
@@ -251,7 +248,7 @@
   </article>
 
   <article class="room room-img reveal-clip">
-    <figure class="room-fig"><img class="plx" src="img/g2/P004.webp?v=20260904i" srcset="img/g2/P004_s.webp?v=20260904i 800w, img/g2/P004.webp?v=20260904i 1600w"
+    <figure class="room-fig"><img class="plx" src="img/g2/P004.webp?v=20260904j" srcset="img/g2/P004_s.webp?v=20260904j 800w, img/g2/P004.webp?v=20260904j 1600w"
          sizes="(max-width: 899px) 100vw, 72vw" loading="lazy" decoding="async"
          alt="A two-tier dumbbell rack running away down the full-height mirror wall"></figure>
     <div class="room-copy">
@@ -263,7 +260,7 @@
   </article>
 
   <article class="room room-img room-dark reveal-clip">
-    <figure class="room-fig"><img class="plx" src="img/g2/P097.webp?v=20260904i" srcset="img/g2/P097_s.webp?v=20260904i 800w, img/g2/P097.webp?v=20260904i 1600w"
+    <figure class="room-fig"><img class="plx" src="img/g2/P097.webp?v=20260904j" srcset="img/g2/P097_s.webp?v=20260904j 800w, img/g2/P097.webp?v=20260904j 1600w"
          sizes="(max-width: 899px) 100vw, 72vw" loading="lazy" decoding="async"
          alt="Inside the cedar sauna: warm timber benches and walls"></figure>
     <div class="room-copy">
@@ -273,80 +270,14 @@
       <p>Past the locker rooms. Earn it first.</p>
     </div>
   </article>
-
-  <ul class="amenities reveal" aria-label="What's here">
-    <li>24-hour access</li>
-    <li>Cardio hall</li>
-    <li>Full selectorized floor</li>
-    <li>Free-weight room with platforms</li>
-    <li>Nationally certified personal training</li>
-    <li>Locker rooms</li>
-    <li>Cedar sauna</li>
-  </ul>
 </section>
 
 <!-- Velocity marquee divider -->
-<div class="marq" aria-hidden="true"><div class="marq-track" id="marq">
-  <span>Open 24 hours&nbsp;·&nbsp;</span><span>4.7&#9733; from 83 reviews&nbsp;·&nbsp;</span><span>Cedar sauna&nbsp;·&nbsp;</span><span>Racks and platforms&nbsp;·&nbsp;</span><span>Nationally certified training&nbsp;·&nbsp;</span><span>On West Lindsey&nbsp;·&nbsp;</span><span>Open 24 hours&nbsp;·&nbsp;</span><span>4.7&#9733; from 83 reviews&nbsp;·&nbsp;</span><span>Cedar sauna&nbsp;·&nbsp;</span><span>Racks and platforms&nbsp;·&nbsp;</span><span>Nationally certified training&nbsp;·&nbsp;</span><span>On West Lindsey&nbsp;·&nbsp;</span>
-</div></div>
 
 <!-- ============================================================
      TRAINING — the owner's flag on the hill: nationally certified
      personal training. A statement band, the film's red on near-black.
      ============================================================ -->
-<section class="train" id="training" aria-labelledby="train-h">
-  <div class="train-inner">
-    <span class="train-rule" aria-hidden="true"></span>
-    <h2 id="train-h" class="reveal">Nationally certified<br>personal&nbsp;training.</h2>
-    <p class="reveal">Real coaching on a real floor — one-on-one, programmed for you, from trainers who hold national certification. Call the desk and ask about training.</p>
-    <p class="reveal"><a class="btn btn-red" href="tel:4058012929" data-track="call_training">Call the desk about training</a></p>
-  </div>
-  <figure class="train-photo reveal" aria-hidden="true">
-    <img src="img/g2/N5.webp?v=20260904i" srcset="img/g2/N5_s.webp?v=20260904i 800w, img/g2/N5.webp?v=20260904i 1600w"
-         sizes="(max-width: 899px) 100vw, 46vw" loading="lazy" decoding="async" alt="Three of the Downtown Fitness crew flexing at the front desk"></figure>
-</section>
-
-<!-- ============================================================
-     THE FLOOR — a filmstrip of the client's own photographs.
-     scroll-snap, lazy, cheap.
-     ============================================================ -->
-<section class="strip-wrap" aria-label="Around the gym">
-  <h2 class="strip-title reveal">Around the&nbsp;gym.</h2>
-  <div class="strip" tabindex="0" role="group" aria-label="Photo strip">
-    <img src="img/g2/N4.webp?v=20260904i" loading="lazy" decoding="async" alt="The red room: ellipticals, bikes and rowers against the red brick wall">
-    <img src="img/g2/P095.webp?v=20260904i" loading="lazy" decoding="async" alt="The cardio row: treadmills and ellipticals under the mounted TVs">
-    <img src="img/g2/P093.webp?v=20260904i" loading="lazy" decoding="async" alt="The centre aisle of the machine floor, stations receding into the room">
-    <img src="img/g2/N6.webp?v=20260904i" loading="lazy" decoding="async" alt="Green, yellow and blue bumper plates racked up close">
-    <img src="img/g2/P003.webp?v=20260904i" loading="lazy" decoding="async" alt="Squat racks loaded with coloured bumper plates on wood platforms">
-    <img src="img/g2/P025.webp?v=20260904i" loading="lazy" decoding="async" alt="Hex dumbbells receding in a hard diagonal along the mirror">
-    <img src="img/g2/P098.webp?v=20260904i" loading="lazy" decoding="async" alt="The locker room: cedar bench, lockers and the sauna door">
-    <img src="img/g2/P097.webp?v=20260904i" loading="lazy" decoding="async" alt="Inside the cedar sauna: warm timber benches and walls">
-    <img src="img/g2/P096.webp?v=20260904i" loading="lazy" decoding="async" alt="Across the machine and free-weight floor, cable towers and racks">
-    <img src="img/g2/P079.webp?v=20260904i" loading="lazy" decoding="async" alt="Members on the treadmills down the length of the cardio floor">
-    <img src="img/g2/P018.webp?v=20260904i" loading="lazy" decoding="async" alt="The front lobby with the Downtown Fitness banner">
-    <img src="img/g2/P022.webp?v=20260904i" loading="lazy" decoding="async" alt="Looking straight through the open doors down the length of the gym">
-    <img src="img/g2/N5.webp?v=20260904i" loading="lazy" decoding="async" alt="Three of the Downtown Fitness crew at the front desk">
-    <img src="img/g2/P081.webp?v=20260904i" loading="lazy" decoding="async" alt="Down the cardio aisle mid-session">
-  </div>
-</section>
-
-<!-- ============================================================
-     THE 24/7 PROMISE — replaces the specials block. The gym is not
-     running published offers or online booking yet: nothing here
-     asks for either.
-     ============================================================ -->
-<section class="story" id="story" aria-labelledby="story-h">
-  <div class="story-grid">
-    <div class="story-copy">
-      <p class="story-kicker reveal">Why West Lindsey</p>
-      <h2 id="story-h" class="reveal">A neighborhood gym,<br>not a franchise.</h2>
-      <p class="reveal">One floor on West Lindsey, a few minutes from campus. A cardio hall, a full machine floor, a free-weight room with platforms, locker rooms and a cedar sauna. Nationally certified trainers on the floor.</p>
-      <p class="reveal">It is open every hour of every day because the people who train here do not keep the same hours. Nurses, students, shift workers, early risers. The door is never locked.</p>
-      <p class="story-proof reveal"><strong>4.7 stars</strong> from 83 members on Google.</p>
-    </div>
-  </div>
-</section>
-
 <section class="join" id="join" aria-labelledby="join-h">
   <div class="join-grid">
     <div class="join-copy">
@@ -392,6 +323,32 @@
   </div>
 </section>
 
+<section class="train" id="training" aria-labelledby="train-h">
+  <div class="train-inner">
+    <span class="train-rule" aria-hidden="true"></span>
+    <h2 id="train-h" class="reveal">Nationally certified<br>personal&nbsp;training.</h2>
+    <p class="reveal">Real coaching on a real floor — one-on-one, programmed for you, from trainers who hold national certification. Call the desk and ask about training.</p>
+    <p class="reveal"><a class="btn btn-red" href="tel:4058012929" data-track="call_training">Call the desk about training</a></p>
+  </div>
+  <figure class="train-photo reveal" aria-hidden="true">
+    <img src="img/g2/N5.webp?v=20260904j" srcset="img/g2/N5_s.webp?v=20260904j 800w, img/g2/N5.webp?v=20260904j 1600w"
+         sizes="(max-width: 899px) 100vw, 46vw" loading="lazy" decoding="async" alt="Three of the Downtown Fitness crew flexing at the front desk"></figure>
+</section>
+
+<!-- ============================================================
+     THE FLOOR — a filmstrip of the client's own photographs.
+     scroll-snap, lazy, cheap.
+     ============================================================ -->
+
+<!-- ============================================================
+     THE 24/7 PROMISE — replaces the specials block. The gym is not
+     running published offers or online booking yet: nothing here
+     asks for either.
+     ============================================================ -->
+
+
+
+
 <!-- ============================================================
      4.7&#9733; — the badge only. No quotes: none may be written.
      ============================================================ -->
@@ -409,6 +366,18 @@
 <!-- ============================================================
      VISIT
      ============================================================ -->
+<section class="story" id="story" aria-labelledby="story-h">
+  <div class="story-grid">
+    <div class="story-copy">
+      <p class="story-kicker reveal">Why West Lindsey</p>
+      <h2 id="story-h" class="reveal">A neighborhood gym,<br>not a franchise.</h2>
+      <p class="reveal">One floor on West Lindsey, a few minutes from campus. A cardio hall, a full machine floor, a free-weight room with platforms, locker rooms and a cedar sauna. Nationally certified trainers on the floor.</p>
+      <p class="reveal">Open every hour of every day, because the people who train here do not keep the same hours. The door is never locked.</p>
+      <p class="story-proof reveal"><strong>4.7 stars</strong> from 83 members on Google.</p>
+    </div>
+  </div>
+</section>
+
 <section class="visit" id="visit" aria-labelledby="visit-h">
   <div class="visit-grid">
     <div class="visit-copy">
@@ -420,7 +389,7 @@
       </address>
       <p class="reveal"><a class="btn btn-red btn-xl" href="#join">Leave your number</a></p>
       <p class="tagline reveal">
-        <img class="badge" src="img/logo.png?v=20260904i" width="250" height="108" alt="Downtown Fitness — On West Lindsey" loading="lazy">
+        <img class="badge" src="img/logo.png?v=20260904j" width="250" height="108" alt="Downtown Fitness — On West Lindsey" loading="lazy">
         <span>Kickstarting Healthy Lifestyles.</span>
       </p>
     </div>
@@ -432,7 +401,7 @@
 </section>
 
 <footer class="foot">
-  <img class="badge badge-foot" src="img/logo.png?v=20260904i" width="250" height="108" alt="" loading="lazy">
+  <img class="badge badge-foot" src="img/logo.png?v=20260904j" width="250" height="108" alt="" loading="lazy">
   <p class="foot-line">Downtown Fitness <span aria-hidden="true">·</span> On West Lindsey <span aria-hidden="true">·</span> <a href="https://dfnorman.com" rel="noopener">dfnorman.com</a></p>
   <p class="foot-sub"><a href="tel:4058012929">(405) 801-2929</a> <span aria-hidden="true">·</span> 1610 W Lindsey St, Norman, OK <span aria-hidden="true">·</span> <span class="status-word">Open</span> <time class="clock">&nbsp;</time></p>
 </footer>
@@ -463,7 +432,7 @@
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
-<script defer src="js/film.js?v=20260904i"></script>
-<script defer src="js/sections.js?v=20260904i"></script>
+<script defer src="js/film.js?v=20260904j"></script>
+<script defer src="js/sections.js?v=20260904j"></script>
 </body>
 </html>

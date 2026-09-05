@@ -344,7 +344,7 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
 .pre img{width:100%;height:100%;object-fit:cover;object-position:50% 42%;transform:scale(1);transform-origin:50% 42%;will-change:transform}
 .hero-video{transform:translateZ(0)} /* promoted from first paint: no layer promotion stall at the handoff */
 .hero.film .pre img{will-change:auto}
-.hero.pre-run .pre img{transition:transform 6.8s cubic-bezier(.25,.1,.5,1);transform:scale(1.10)}
+.hero.pre-run .pre img{transition:transform 3.8s cubic-bezier(.25,.1,.5,1);transform:scale(1.10)}
 .hero.film .pre{opacity:0;transition:opacity .55s ease .05s;pointer-events:none} /* smooth hand-off into the film */
 html.static .pre img{transform:none}
 

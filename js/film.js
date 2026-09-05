@@ -37,11 +37,11 @@
 
     // Hero timings on the UNIFIED clock: 0..PRE_S is the still push (page-driven),
     // PRE_S + video.currentTime after that. Beat envelopes live on the .beat elements.
-    PRE_S: 6.0,           // the opening photograph's code push (CSS transform, GPU)
-    HEAD_S: 1.6,          // real footage that plays BEHIND the opening photograph: the decoder warms on live
+    PRE_S: 3.0,           // the opening photograph's code push (CSS transform, GPU)
+    HEAD_S: 1.4,          // real footage that plays BEHIND the opening photograph: the decoder warms on live
                           // motion (a frozen clone here read as a dead photo jerking alive)
-    SIGN_EXIT_T: 5.6,     // the fascia sign leaves the frame → wordmark + nav hand off (instant, not a fade)
-    FLIP_T: 9.5,          // the cut: outside becomes inside → chrome near-black → white, OPEN pill outline → red-filled
+    SIGN_EXIT_T: 0,     // the fascia sign leaves the frame → wordmark + nav hand off (instant, not a fade)
+    FLIP_T: 0,          // the cut: outside becomes inside → chrome near-black → white, OPEN pill outline → red-filled
 
     LUM_THRESHOLD: 138,   // sampled top-strip luminance above which outside chrome is near-black
     SAMPLE_MS: 400,
