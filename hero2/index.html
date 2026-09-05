@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Downtown Fitness · Hero concept B · Full-screen rooms</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0a0a0a">
+<script>document.documentElement.className='js'+(matchMedia('(prefers-reduced-motion: reduce)').matches?' static':'');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Source+Sans+Pro:wght@400;600&display=swap">
+<style>
+/* ---- Downtown Fitness · concept B: the 21st.dev full-screen-scroll-fx pattern, native ----
+   One pinned stage. Scroll steps through the five rooms: background photo fades with a
+   drift, the room name rises through a word mask, the left/right rails re-centre on the
+   active row, a progress bar counts 01/05. Same brand system as the main site. */
+:root{--ink:#0a0a0a;--cream:#F7F7F7;--g1:#A4A4A4;--red:#C72828;--red-hot:#EB3D3D;
+  --display:'Fjalla One','Arial Narrow',Impact,sans-serif;--body:'Source Sans Pro','Segoe UI',Roboto,Arial,sans-serif;--gutter:clamp(20px,5vw,72px)}
+*{box-sizing:border-box}html,body{margin:0;background:var(--ink);color:var(--cream);font-family:var(--body)}
+a{color:inherit}
+.chrome{position:fixed;inset:0 0 auto 0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:18px var(--gutter);font-family:var(--display);text-transform:uppercase;letter-spacing:.08em;font-size:13px}
+.chrome .wm span{color:var(--g1);font-size:11px;margin-left:8px;letter-spacing:.14em}
+.chrome nav a{text-decoration:none;margin-left:22px}
+.chrome .pill{background:var(--red);color:#fff;border-radius:999px;padding:9px 16px}
+.fx-scroll{position:relative;height:600vh}
+.fx-fixed{position:sticky;top:0;height:100vh;overflow:hidden}
+.fx-bgs{position:absolute;inset:0;background:#000}
+.fx-bg{position:absolute;inset:-6% 0;width:100%;height:112%;object-fit:cover;opacity:0;filter:brightness(.62) saturate(1.05);will-change:transform,opacity}
+.fx-bg.on{opacity:1}
+.fx-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.15) 40%,rgba(0,0,0,.55) 100%)}
+.fx-grid{position:absolute;inset:0;display:grid;grid-template-rows:auto 1fr auto;padding:84px var(--gutter) 5vh}
+.fx-head{font-family:var(--display);text-transform:uppercase;text-align:center;line-height:.86;font-size:clamp(28px,7vw,112px);letter-spacing:-.01em;margin:0}
+.fx-head small{display:block;font-size:clamp(10px,1vw,13px);letter-spacing:.34em;color:var(--g1);margin-bottom:14px;font-family:var(--body);font-weight:600}
+.fx-content{display:grid;grid-template-columns:1fr 1.4fr 1fr;align-items:center;gap:var(--gutter)}
+.fx-rail{height:52vh;overflow:hidden;display:grid;align-content:center}
+.fx-rail.r{justify-items:end;text-align:right}
+.fx-track{will-change:transform}
+.fx-item{font-family:var(--display);text-transform:uppercase;font-size:clamp(15px,2vw,26px);line-height:1;padding:7px 0;opacity:.32;cursor:pointer;position:relative;transition:opacity .35s ease,transform .35s ease;letter-spacing:.02em}
+.fx-item small{display:block;font-family:var(--body);text-transform:none;letter-spacing:0;font-size:clamp(12px,1.05vw,15px);color:var(--g1);margin-top:3px}
+.fx-item.active{opacity:1;transform:translateX(10px)}.fx-rail.r .fx-item.active{transform:translateX(-10px)}
+.fx-item.active::before{content:'';position:absolute;left:-16px;top:50%;width:7px;height:7px;background:var(--red-hot);border-radius:50%;transform:translateY(-50%)}
+.fx-rail.r .fx-item.active::before{left:auto;right:-16px}
+.fx-center{position:relative;height:52vh;display:grid;place-items:center;text-align:center}
+.fx-title{position:absolute;margin:0;font-family:var(--display);text-transform:uppercase;font-size:clamp(40px,7.6vw,124px);line-height:.92;letter-spacing:-.012em;visibility:hidden}
+.fx-title.active{visibility:visible}
+.fx-title .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.06em}
+.fx-title .w>span{display:inline-block;will-change:transform}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.fx-foot{text-align:center}
+.fx-foot .line{font-family:var(--display);text-transform:uppercase;font-size:clamp(14px,1.6vw,22px);letter-spacing:.12em;color:var(--g1)}
+.fx-foot .line b{color:var(--red-hot);font-weight:400}
+.fx-progress{position:relative;width:220px;height:2px;margin:16px auto 0;background:rgba(247,247,247,.25)}
+.fx-fill{position:absolute;inset:0 auto 0 0;width:0;background:var(--cream);transition:width .35s ease}
+.fx-nums{position:absolute;inset:auto 0 100% 0;display:flex;justify-content:space-between;font-size:12px;letter-spacing:.14em;color:var(--g1);padding-bottom:6px;font-family:var(--display)}
+.fx-end{min-height:100vh;display:grid;place-items:center;text-align:center;padding:10vh var(--gutter)}
+.fx-end h2{font-family:var(--display);text-transform:uppercase;font-size:clamp(34px,6.4vw,100px);line-height:.94;margin:0 0 18px}
+.fx-end p{color:var(--g1);font-size:clamp(16px,1.3vw,19px);max-width:44ch;margin:0 auto 26px}
+.btn{display:inline-block;font-family:var(--display);text-transform:uppercase;letter-spacing:.12em;font-size:14px;padding:16px 26px;background:var(--red);color:#fff;text-decoration:none}
+.btn.ghost{background:transparent;border:2px solid rgba(247,247,247,.4);margin-left:10px}
+.note{position:fixed;left:var(--gutter);bottom:18px;z-index:20;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--g1);margin:0}
+@media (max-width:900px){
+  .fx-content{grid-template-columns:1fr;gap:3vh;align-content:center}
+  .fx-rail{display:none}
+  .fx-center{height:auto;min-height:40vh}
+  .fx-grid{padding-top:72px}
+  .fx-head{font-size:clamp(26px,9vw,54px)}
+  .btn.ghost{margin:12px 0 0}
+}
+html.static .fx-scroll{height:auto}html.static .fx-fixed{position:relative;height:auto;overflow:visible}
+html.static .fx-bg.on{position:relative;inset:auto;height:60vh}html.static .fx-title{visibility:visible;position:static}
+</style>
+</head>
+<body>
+<header class="chrome">
+  <a class="wm" href="../" style="text-decoration:none">Downtown Fitness<span>· On West Lindsey</span></a>
+  <nav><a href="../#rooms">The gym</a><a href="../#join" class="pill">Open · <time id="clock">&nbsp;</time></a></nav>
+</header>
+
+<main>
+<div class="fx-scroll" id="fx">
+  <div class="fx-fixed">
+    <div class="fx-bgs" aria-hidden="true">
+      <img class="fx-bg on" src="../img/g2/P022.webp" alt="">
+      <img class="fx-bg" src="../img/g2/P082.webp" alt="">
+      <img class="fx-bg" src="../img/g2/P096.webp" alt="">
+      <img class="fx-bg" src="../img/g2/P004.webp" alt="">
+      <img class="fx-bg" src="../img/g2/P097.webp" alt="">
+      <div class="fx-veil"></div>
+    </div>
+    <div class="fx-grid">
+      <h1 class="fx-head"><small>1610 W Lindsey St · Norman, Oklahoma</small>Every room.<br>Every hour.</h1>
+      <div class="fx-content">
+        <div class="fx-rail l" role="group" aria-label="Rooms"><div class="fx-track" id="railL">
+          <div class="fx-item" role="button" tabindex="0">01 · The front<small>Glass doors, staffed desk by day</small></div>
+          <div class="fx-item" role="button" tabindex="0">02 · Cardio hall<small>Treadmills, bikes, ellipticals, rowers</small></div>
+          <div class="fx-item" role="button" tabindex="0">03 · Machine floor<small>Full selectorized circuit</small></div>
+          <div class="fx-item" role="button" tabindex="0">04 · The iron<small>Racks, platforms, dumbbells</small></div>
+          <div class="fx-item" role="button" tabindex="0">05 · Recovery<small>Lockers, showers, cedar sauna</small></div>
+        </div></div>
+        <div class="fx-center" id="center" aria-live="polite">
+          <h2 class="sr-only">The rooms</h2>
+          <p class="fx-title active">The door is never locked.</p>
+          <p class="fx-title" aria-hidden="true">The long room on the left.</p>
+          <p class="fx-title" aria-hidden="true">Every station. Pick one.</p>
+          <p class="fx-title" aria-hidden="true">The only colour is on the plates.</p>
+          <p class="fx-title" aria-hidden="true">There is a cedar sauna. Really.</p>
+        </div>
+        <div class="fx-rail r" role="group" aria-label="What is there"><div class="fx-track" id="railR">
+          <div class="fx-item" role="button" tabindex="0">Open 24 hours<small>365 days</small></div>
+          <div class="fx-item" role="button" tabindex="0">Under the screens<small>Somebody is always on one</small></div>
+          <div class="fx-item" role="button" tabindex="0">Behind the glass<small>The room you pass on the aisle</small></div>
+          <div class="fx-item" role="button" tabindex="0">Back of house<small>The room people come for</small></div>
+          <div class="fx-item" role="button" tabindex="0">Past the lockers<small>Earn it first</small></div>
+        </div></div>
+      </div>
+      <div class="fx-foot">
+        <div class="line">Open <b>24 hours</b> · 4.7★ from 83 · Nationally certified training</div>
+        <div class="fx-progress"><div class="fx-nums"><span id="cur">01</span><span>05</span></div><div class="fx-fill" id="fill"></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="fx-end">
+    <div>
+      <h2>Come on in.</h2>
+      <p>Walk in any hour, or leave your number and someone from the desk will call you back.</p>
+      <a class="btn" href="../#join">Leave your number</a><a class="btn ghost" href="tel:4058012929">Call (405) 801-2929</a>
+    </div>
+  </div>
+</div>
+<p class="note">Concept B · full-screen rooms</p>
+</main>
+
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const fmt = new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'America/Chicago' });
+  const tick = () => { document.getElementById('clock').textContent = fmt.format(new Date()); }; tick(); setInterval(tick, 15000);
+  if (document.documentElement.classList.contains('static') || !window.gsap) { window.__ready = true; return; }
+  gsap.registerPlugin(ScrollTrigger);
+  const bgs = Array.from(document.querySelectorAll('.fx-bg')), titles = Array.from(document.querySelectorAll('.fx-title'));
+  const L = Array.from(document.querySelectorAll('#railL .fx-item')), R = Array.from(document.querySelectorAll('#railR .fx-item'));
+  const N = titles.length; let idx = 0, busy = false, pending = null;
+  titles.forEach(h => { h.innerHTML = h.textContent.trim().split(/\s+/).map(w => '<span class="w"><span>' + w + '</span></span>').join(' '); });
+  const words = titles.map(h => Array.from(h.querySelectorAll('.w > span')));
+  words.forEach((ws, i) => gsap.set(ws, { yPercent: i ? 110 : 0 }));
+  const centre = (track, items, to, anim) => {
+    const rowH = items[1].getBoundingClientRect().top - items[0].getBoundingClientRect().top;
+    const y = track.parentElement.clientHeight / 2 - items[0].getBoundingClientRect().height / 2 - to * rowH;
+    if (anim) gsap.to(track, { y: y, duration: .6, ease: 'power3.out' }); else gsap.set(track, { y: y });
+  };
+  const paint = (to) => {
+    L.forEach((el, i) => el.classList.toggle('active', i === to)); R.forEach((el, i) => el.classList.toggle('active', i === to));
+    document.getElementById('cur').textContent = String(to + 1).padStart(2, '0');
+    document.getElementById('fill').style.width = (to / (N - 1)) * 100 + '%';
+  };
+  const go = (to) => {
+    to = Math.max(0, Math.min(N - 1, to)); if (to === idx || busy) return; busy = true;
+    const down = to > idx, from = idx; idx = to;
+    gsap.to(words[from], { yPercent: down ? -110 : 110, duration: .45, stagger: down ? .03 : -.03, ease: 'power3.in', onComplete: () => { titles[from].classList.remove('active'); titles[from].setAttribute('aria-hidden', 'true'); } });
+    titles[to].classList.add('active'); titles[to].removeAttribute('aria-hidden'); gsap.set(words[to], { yPercent: down ? 110 : -110 });
+    gsap.to(words[to], { yPercent: 0, duration: .7, stagger: down ? .05 : -.05, ease: 'power3.out', delay: .12 });
+    gsap.set(bgs[to], { opacity: 0, scale: 1.05, yPercent: down ? 1.5 : -1.5 }); bgs[to].classList.add('on');
+    gsap.to(bgs[to], { opacity: 1, scale: 1, yPercent: 0, duration: .8, ease: 'power2.out' });
+    gsap.to(bgs[from], { opacity: 0, yPercent: down ? -4 : 4, duration: .8, ease: 'power2.out', onComplete: () => bgs[from].classList.remove('on') });
+    centre(document.getElementById('railL'), L, to, true); centre(document.getElementById('railR'), R, to, true); paint(to);
+    gsap.delayedCall(.75, () => { busy = false; if (typeof pending === 'number' && pending !== idx) { const t = pending; pending = null; go(idx + (t > idx ? 1 : -1)); } });
+  };
+  const fx = document.getElementById('fx');
+  ScrollTrigger.create({ trigger: fx, start: 'top top', end: () => '+=' + (fx.offsetHeight - innerHeight),
+    onUpdate: s => { const target = Math.min(N - 1, Math.floor(s.progress * N)); if (target === idx) { pending = null; return; } if (busy) { pending = target; return; } go(idx + (target > idx ? 1 : -1)); } });
+  const jump = i => { const top = fx.offsetTop + ((fx.offsetHeight - innerHeight) * i) / N + 2; window.scrollTo({ top: top, behavior: 'smooth' }); };
+  L.concat(R).forEach((el, i) => { const k = i % N; el.addEventListener('click', () => jump(k)); el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); jump(k); } }); });
+  const settle = () => { centre(document.getElementById('railL'), L, idx, false); centre(document.getElementById('railR'), R, idx, false); paint(idx); };
+  settle(); addEventListener('resize', () => { settle(); ScrollTrigger.refresh(); });
+  gsap.from(L.concat(R), { opacity: 0, y: 16, duration: .5, stagger: .05, ease: 'power3.out', clearProps: 'opacity,transform' });
+  window.__ready = true;
+});
+</script>
+</body>
+</html>

@@ -128,5 +128,38 @@
     strip.addEventListener('pointerleave', () => roll && gsap.to(roll, { timeScale: 1, duration: 0.5 }));
   }
 
+
+  /* Review columns drift upward and loop — the 21st.dev "testimonials columns"
+     effect, written natively. Each track is duplicated once so yPercent:-50 is a
+     seamless loop, and the column is clipped to ONE copy's height so the seam is
+     never on screen. Pauses on hover. With motion off it is a plain grid. */
+  const rvcols = document.getElementById('rvcols');
+  if (rvcols) {
+    const cols = Array.from(rvcols.querySelectorAll('.rv-col'));
+    const build = () => {
+      cols.forEach(col => {
+        const track = col.querySelector('.rv-track');
+        track.querySelectorAll('[data-clone]').forEach(c => c.remove());
+        gsap.set(track, { yPercent: 0 });
+        const originals = Array.from(track.children);
+        const gap = parseFloat(getComputedStyle(track).gap) || 16;
+        const copyH = originals.reduce((h, el) => h + el.getBoundingClientRect().height + gap, 0);
+        if (window.matchMedia('(max-width: 899px)').matches) {
+          // one column on phones: merge everything into the first track, hide the rest
+          return;
+        }
+        originals.forEach(el => { const c = el.cloneNode(true); c.setAttribute('data-clone', ''); c.setAttribute('aria-hidden', 'true'); track.appendChild(c); });
+        col.style.maxHeight = Math.min(copyH, Math.round(window.innerHeight * 0.72)) + 'px';
+        if (col._roll) col._roll.kill();
+        col._roll = gsap.to(track, { yPercent: -50, ease: 'none', repeat: -1, duration: +col.dataset.speed || 30 });
+      });
+      rvcols.classList.toggle('rolling', !window.matchMedia('(max-width: 899px)').matches);
+    };
+    build();
+    let rt; window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(build, 250); });
+    rvcols.addEventListener('pointerenter', () => cols.forEach(c => c._roll && gsap.to(c._roll, { timeScale: 0, duration: .5 })));
+    rvcols.addEventListener('pointerleave', () => cols.forEach(c => c._roll && gsap.to(c._roll, { timeScale: 1, duration: .5 })));
+  }
+
   ST.refresh();
 })();

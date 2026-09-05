@@ -497,3 +497,11 @@ html.sections-settled .lid-line .w>span{transform:none;opacity:1}
 .rv-who{margin-top:auto;font-size:14px;color:var(--g1)}
 .rv-who strong{color:var(--cream);font-weight:600}
 @media (max-width:899px){.reviews-head{grid-template-columns:1fr;gap:12px}.rv-grid{grid-template-columns:1fr}}
+
+/* ============================= REVIEWS as drifting columns (21st.dev testimonials-columns, done natively) */
+.rv-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,1.6vw,24px);align-items:start}
+.rv-col{overflow:hidden}
+.rv-track{display:flex;flex-direction:column;gap:clamp(14px,1.6vw,24px);will-change:transform}
+.rv-cols.rolling .rv-col{-webkit-mask-image:linear-gradient(to bottom,transparent,#000 16%,#000 84%,transparent);mask-image:linear-gradient(to bottom,transparent,#000 16%,#000 84%,transparent)}
+.rv-cols.rolling .rv-track{padding-bottom:clamp(14px,1.6vw,24px)}
+@media (max-width:899px){.rv-cols{grid-template-columns:1fr}}
