@@ -29,7 +29,7 @@
     // shows its thank-you, and logs to dataLayer/console, but nothing is delivered.
     // Paste a Formspree id ('https://formspree.io/f/xxxx'), a GHL form webhook, or any
     // endpoint that accepts JSON. Set it once; nothing else on the page changes.
-    LEAD_ENDPOINT: '',
+    LEAD_ENDPOINT: 'https://n8n.srv1748596.hstgr.cloud/webhook/downtown-fitness-lead',
     WE_ARE_OPEN: true,
 
     TIMEZONE: 'America/Chicago',
