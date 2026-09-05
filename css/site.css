@@ -464,21 +464,21 @@ html.sections-settled .lid-line .w>span{transform:none;opacity:1}
 
 /* ============================= JOIN — the page's one conversion */
 .join{background:var(--red);color:#fff;padding:clamp(72px,9vw,132px) var(--gutter)}
-.join-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,80px);align-items:start;max-width:1480px;margin:0 auto}
+.join-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,5vw,80px);align-items:center;max-width:1320px;margin:0 auto}
 .join-kicker{font-family:var(--display);text-transform:uppercase;letter-spacing:.22em;font-size:clamp(11px,1vw,13px);color:#fff;margin:0 0 16px}
 .join h2{font-family:var(--display);text-transform:uppercase;font-size:var(--d4);line-height:.96;margin:0 0 20px}
 .join-copy p{font-size:clamp(16px,1.25vw,19px);line-height:1.6;max-width:44ch;margin:0 0 14px}
 .join .text-link{color:#fff;font-weight:600;text-decoration:none;border-bottom:2px solid rgba(255,255,255,.55)}
 .join .text-link:hover{border-color:#fff}
-.lead{background:#fff;color:#111;padding:clamp(22px,2.6vw,36px);display:grid;gap:16px;box-shadow:0 30px 70px rgba(0,0,0,.35)}
+.lead{background:#fff;color:#111;padding:clamp(24px,3vw,44px);display:grid;gap:18px;box-shadow:0 30px 70px rgba(0,0,0,.35);width:100%}
 .lead-row{display:grid;gap:6px}
 .lead label{font-family:var(--display);text-transform:uppercase;letter-spacing:.1em;font-size:12px;color:#333}
 .lead label .opt{font-family:var(--body);text-transform:none;letter-spacing:0;color:#777;font-weight:400;margin-left:6px}
-.lead input,.lead select{font:inherit;font-size:17px;padding:13px 14px;border:1.5px solid #cfcfcf;border-radius:0;background:#fff;color:#111;width:100%;min-height:50px}
+.lead input,.lead select{font:inherit;font-size:18px;padding:15px 16px;border:1.5px solid #cfcfcf;border-radius:0;background:#fff;color:#111;width:100%;min-height:56px}
 .lead input:focus,.lead select:focus{outline:3px solid var(--red-hot);outline-offset:1px;border-color:var(--red)}
 .lead input[aria-invalid="true"],.lead select[aria-invalid="true"]{border-color:var(--red);background:#fff5f5}
 .lead .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
-.lead .btn{justify-self:start}
+.lead .btn{justify-self:stretch;text-align:center;padding:20px 28px;font-size:16px}
 .lead-note{margin:0;font-size:14px;color:#666}
 .lead-done{margin:0;font-size:18px;font-weight:600;color:#161616;padding:14px 16px;background:#f2f2f2;border-left:4px solid var(--red)}
 .lead-err{margin:0;font-size:15px;color:#a11;padding:12px 14px;background:#fff1f1}
