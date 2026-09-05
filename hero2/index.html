@@ -164,11 +164,11 @@ document.addEventListener('DOMContentLoaded', () => {
     gsap.to(bgs[to], { opacity: 1, scale: 1, yPercent: 0, duration: .8, ease: 'power2.out' });
     gsap.to(bgs[from], { opacity: 0, yPercent: down ? -4 : 4, duration: .8, ease: 'power2.out', onComplete: () => bgs[from].classList.remove('on') });
     centre(document.getElementById('railL'), L, to, true); centre(document.getElementById('railR'), R, to, true); paint(to);
-    gsap.delayedCall(.75, () => { busy = false; if (typeof pending === 'number' && pending !== idx) { const t = pending; pending = null; go(idx + (t > idx ? 1 : -1)); } });
+    gsap.delayedCall(.75, () => { busy = false; if (pending !== null && pending !== idx) go(idx + (pending > idx ? 1 : -1)); else pending = null; });
   };
   const fx = document.getElementById('fx');
   ScrollTrigger.create({ trigger: fx, start: 'top top', end: () => '+=' + (fx.offsetHeight - innerHeight),
-    onUpdate: s => { const target = Math.min(N - 1, Math.floor(s.progress * N)); if (target === idx) { pending = null; return; } if (busy) { pending = target; return; } go(idx + (target > idx ? 1 : -1)); } });
+    onUpdate: s => { const target = Math.min(N - 1, Math.floor(s.progress * N)); if (target === idx) { pending = null; return; } pending = target; if (!busy) go(idx + (target > idx ? 1 : -1)); } });
   const jump = i => { const top = fx.offsetTop + ((fx.offsetHeight - innerHeight) * i) / N + 2; window.scrollTo({ top: top, behavior: 'smooth' }); };
   L.concat(R).forEach((el, i) => { const k = i % N; el.addEventListener('click', () => jump(k)); el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); jump(k); } }); });
   const settle = () => { centre(document.getElementById('railL'), L, idx, false); centre(document.getElementById('railR'), R, idx, false); paint(idx); };
