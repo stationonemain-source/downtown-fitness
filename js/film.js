@@ -22,9 +22,14 @@
   'use strict';
 
   /* ---------------------------------------------------------------- CONFIG */
-  const CONFIG = {
+  const CONFIG = window.__DF_CONFIG = {
     // Flip this ONE line for a genuine closure (weather, emergency). The pill
     // reads CLOSED and the finale swaps WE'RE OPEN for WE'RE CLOSED RIGHT NOW.
+    // Where the lead form POSTs (JSON). Empty = no endpoint yet: the form still validates,
+    // shows its thank-you, and logs to dataLayer/console, but nothing is delivered.
+    // Paste a Formspree id ('https://formspree.io/f/xxxx'), a GHL form webhook, or any
+    // endpoint that accepts JSON. Set it once; nothing else on the page changes.
+    LEAD_ENDPOINT: '',
     WE_ARE_OPEN: true,
 
     TIMEZONE: 'America/Chicago',
@@ -36,7 +41,7 @@
     HEAD_S: 1.6,          // real footage that plays BEHIND the opening photograph: the decoder warms on live
                           // motion (a frozen clone here read as a dead photo jerking alive)
     SIGN_EXIT_T: 5.6,     // the fascia sign leaves the frame → wordmark + nav hand off (instant, not a fade)
-    FLIP_T: 9.7,          // the cut: outside becomes inside → chrome near-black → white, OPEN pill outline → red-filled
+    FLIP_T: 9.5,          // the cut: outside becomes inside → chrome near-black → white, OPEN pill outline → red-filled
 
     LUM_THRESHOLD: 138,   // sampled top-strip luminance above which outside chrome is near-black
     SAMPLE_MS: 400,
@@ -349,4 +354,87 @@
 
   wake();
   if (DEBUG) window.__hero = { CONFIG, video, get zone() { return zone; }, get forceFinale() { return forceFinale; } };
+})();
+
+/* ============================================================================
+   CONVERSION — the only reason the page exists.
+   1. every phone tap is counted, labelled by the section it sits in
+   2. the lead form: validates, carries attribution (source + referrer + UTM +
+      page), posts JSON to CONFIG.LEAD_ENDPOINT, shows a thank-you
+   3. the sheet's "Leave your number" closes the sheet and lands on the form
+   Everything goes to window.dataLayer so GA4 / GTM can read it without edits.
+   ========================================================================= */
+(function () {
+  'use strict';
+  const $ = (s, r) => (r || document).querySelector(s);
+  const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
+  const CFG = (window.__DF_CONFIG || {});
+  const ENDPOINT = CFG.LEAD_ENDPOINT || '';
+  window.dataLayer = window.dataLayer || [];
+  const track = (ev, data) => { const row = Object.assign({ event: ev }, data || {}); window.dataLayer.push(row); if (new URLSearchParams(location.search).has('debug')) console.log('[df:track]', row); };
+
+  // attribution captured once, on landing, before anything else is clicked
+  const qs = new URLSearchParams(location.search);
+  const utm = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].filter(k => qs.get(k)).map(k => k + '=' + qs.get(k)).join('&');
+  let ref = '';
+  try { ref = document.referrer ? new URL(document.referrer).hostname : ''; } catch (e) {}
+  try { if (!sessionStorage.getItem('df_land')) sessionStorage.setItem('df_land', JSON.stringify({ ref, utm, at: new Date().toISOString() })); } catch (e) {}
+
+  // 1. every tel: tap, labelled by where it is on the page
+  $$('a[href^="tel:"]').forEach(a => {
+    a.addEventListener('click', () => {
+      const sec = a.closest('section, header, nav, footer, dialog');
+      const where = a.dataset.track || ('call_' + ((sec && (sec.id || sec.className.split(' ')[0])) || 'page'));
+      track('phone_click', { where });
+    });
+  });
+
+  // 3. sheet -> form
+  $$('[data-sheet-jump]').forEach(a => a.addEventListener('click', e => {
+    e.preventDefault();
+    const d = a.closest('dialog'); if (d && d.open) d.close();
+    const el = $('#join'); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setTimeout(() => { const f = $('#lead-name'); if (f) f.focus({ preventScroll: true }); }, 700);
+    track('cta_click', { where: 'sheet_leave_number' });
+  }));
+
+  // 2. the form
+  const form = $('#lead');
+  if (!form) return;
+  const done = $('.lead-done', form), err = $('.lead-err', form), btn = $('button[type="submit"]', form);
+  try { const land = JSON.parse(sessionStorage.getItem('df_land') || '{}'); $('#lead-ref').value = land.ref || ref; $('#lead-utm').value = land.utm || utm; } catch (e) {}
+  $('#lead-page').value = location.pathname + location.search;
+
+  function valid() {
+    let ok = true;
+    for (const f of $$('[required]', form)) {
+      const bad = !f.value || (f.type === 'tel' && f.value.replace(/\D/g, '').length < 10);
+      f.setAttribute('aria-invalid', bad ? 'true' : 'false');
+      if (bad && ok) { f.focus(); ok = false; }
+    }
+    return ok;
+  }
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    err.hidden = true;
+    if ($('.hp', form).value) { form.dataset.state = 'sent'; done.hidden = false; return; }   // bot
+    if (!valid()) return;
+    const data = Object.fromEntries(new FormData(form).entries()); delete data.website;
+    data.sent_at = new Date().toISOString();
+    btn.disabled = true; btn.textContent = 'Sending…';
+    track('lead_submit', { source: data.source, has_goal: !!data.goal, endpoint: ENDPOINT ? 'set' : 'none' });
+    let sent = false;
+    if (ENDPOINT) {
+      try {
+        const r = await fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data) });
+        sent = r.ok;
+      } catch (x) { sent = false; }
+    } else {
+      console.warn('[df] LEAD_ENDPOINT is empty — lead not delivered:', data);
+      sent = true;   // the visitor still gets the thank-you; the owner must set the endpoint
+    }
+    btn.disabled = false; btn.textContent = 'Call me back';
+    if (sent) { form.dataset.state = 'sent'; done.hidden = false; track('lead_sent', { source: data.source }); done.focus && done.setAttribute('tabindex', '-1'); done.focus(); }
+    else { err.hidden = false; track('lead_error', { source: data.source }); }
+  });
 })();
