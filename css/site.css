@@ -87,7 +87,7 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
 }
 .btn:active { transform: translateY(1px); }
 .btn-red { background: var(--red); color: var(--cream); border-color: var(--red); }
-.btn-red:hover { background: var(--red-hot); border-color: var(--red-hot); }
+.btn-red:hover { background: #A61F1F; border-color: #A61F1F; }
 .btn-ink { background: var(--ink); color: var(--cream); border-color: var(--ink); }
 .btn-ink:hover { background: var(--black); }
 .btn-outline-cream { background: transparent; color: var(--cream); border-color: var(--cream); }
@@ -354,154 +354,169 @@ html.static .pre img{transform:none}
    video occlusion re-init (fixed via .pre opacity .999), and auto-sizing was reserving
    wrong heights = scroll jump. Sections raster normally now. */
 
-/* ============================= TRAINING — the certification band */
-.train{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:0;background:#161616;color:#F7F7F7}
-.train-inner{padding:clamp(48px,9vw,120px) var(--gutter);display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
-.train-rule{display:block;width:64px;height:4px;background:var(--red-hot);margin-bottom:28px}
-.train h2{font-family:'Fjalla One',Impact,'Arial Narrow',sans-serif;font-size:var(--d3);line-height:.98;text-transform:uppercase;letter-spacing:.005em;margin:0 0 20px}
-.train p{max-width:44ch;font-size:clamp(15px,1.25vw,19px);line-height:1.55;color:#E2E2E2;margin:0 0 26px}
-.train-photo{margin:0;min-height:320px;overflow:hidden;position:relative}
-.train-photo img{position:absolute;left:0;top:-8%;width:100%;height:116%;object-fit:cover;display:block}
-@media (max-width:899px){.train{grid-template-columns:1fr}.train-photo{order:-1;min-height:0;aspect-ratio:16/10}.train-photo img{position:absolute;inset:auto;left:0;top:-8%;height:116%}}
 
-/* ============================= THE FLOOR — filmstrip */
-.strip-wrap{background:#0f0f0f;padding:clamp(40px,7vw,88px) 0 clamp(48px,8vw,104px)}
-.strip-title{font-family:'Fjalla One',Impact,'Arial Narrow',sans-serif;color:#F7F7F7;text-transform:uppercase;font-size:var(--d1);margin:0 0 26px;padding:0 var(--gutter)}
-.strip{display:flex;gap:14px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;padding:0 var(--gutter) 18px;scrollbar-color:#C72828 #262626}
-.strip img{height:clamp(260px,34vw,470px);width:auto;flex:0 0 auto;scroll-snap-align:center;border-radius:4px;background:#1d1d1d}
-.strip::-webkit-scrollbar{height:6px}
-.strip::-webkit-scrollbar-thumb{background:#C72828;border-radius:3px}
-.strip::-webkit-scrollbar-track{background:#262626}
+/* ============================================================
+   PHIVE VOLUME, LINDSEY STREET VOICE — 2026-09-06 rebuild
+   One claim, one button, the name at fascia size. Flat black,
+   signal red, cream. No cards, no icons, no gradients as decoration.
+   ============================================================ */
 
-/* ============================= THE LID — content slides over the held film */
-.hero{position:sticky;top:0}
-.lid{position:relative;z-index:5;background:#0f0f0f;color:#F7F7F7;border-radius:26px 26px 0 0;box-shadow:0 -34px 80px rgba(0,0,0,.55)}
-.lid-band{padding:clamp(54px,8vw,110px) var(--gutter) clamp(30px,4.5vw,60px)}
-.lid-line{font-family:'Fjalla One',Impact,'Arial Narrow',sans-serif;text-transform:uppercase;font-size:var(--d4);line-height:1.02;margin:0;color:#F7F7F7}
-.lid-line .w{display:inline-block;overflow:hidden;vertical-align:top}
-html.motion .lid-line .w>span{display:inline-block;transform:translateY(112%);opacity:0}
+/* Chrome is on from the first paint now (the claim is, too). Pale sky → ink chrome. */
+.chrome[data-zone="lot"] { opacity: 1; visibility: visible; }
+.chrome[data-zone="lot"].on-light { color: var(--ink); }
+.wm-mark { width: 22px; height: 22px; background: var(--red); display: inline-block; align-self: center; }
+.wordmark { align-items: center; }
+.pill-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--red-hot); display: inline-block; margin-right: 8px; }
+.chrome[data-zone="in"] .pill-dot, .chrome.past .pill-dot { background: var(--cream); }
 
-/* ============================= ROOMS — numbered chapters, parallax figures */
-.rooms{padding:0 0 clamp(20px,3vw,40px);background:#0f0f0f}
-.room:nth-of-type(odd){background:#0c0c0c}
-.room:nth-of-type(even){background:#131313}
-.room{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:center;padding:clamp(26px,3.6vw,54px) var(--gutter)}
-.room:nth-of-type(even){grid-template-columns:minmax(0,1fr) minmax(0,1.45fr)}
-.room:nth-of-type(even) .room-fig{order:2}
-.room-fig{margin:0;overflow:hidden;border-radius:3px;aspect-ratio:3/2;position:relative;background:#1a1a1a;box-shadow:0 30px 70px rgba(0,0,0,.55)}
-.room-fig .plx{position:absolute;left:0;top:-12%;width:100%;height:124%;object-fit:cover}
-.room-copy{position:relative;padding:8px 0}
-.room-num{display:block;font-family:'Fjalla One',Impact,sans-serif;font-size:clamp(72px,8.5vw,132px);line-height:.82;margin:0 0 18px -4px;color:transparent;-webkit-text-stroke:1.5px #C72828;pointer-events:none;filter:drop-shadow(0 0 14px rgba(199,40,40,.28))}
-.room-tag{position:relative;z-index:1;display:inline-block;font-family:'Fjalla One',Impact,sans-serif;text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:#EB3D3D;margin-bottom:12px}
-.room h3{position:relative;z-index:1;font-family:'Fjalla One',Impact,sans-serif;text-transform:uppercase;font-size:var(--d2);line-height:1.02;margin:0 0 14px;color:#F7F7F7;text-wrap:balance}
-.room p{position:relative;z-index:1;max-width:40ch;color:#C9C9C9;font-size:clamp(14px,1.2vw,18px);line-height:1.55;margin:0}
-.room-dark .room-fig{box-shadow:inset 0 0 0 1px #2a2a2a}
-.amenities{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 34px;list-style:none;margin:0;padding:clamp(30px,4vw,52px) var(--gutter);border-top:1px solid #262626;color:#D4D4D4;font-family:'Fjalla One',Impact,sans-serif;text-transform:uppercase;letter-spacing:.12em;font-size:clamp(12px,1.05vw,15px)}
-.amenities li::before{content:"·  ";color:#C72828}
-@media (max-width:899px){.room,.room:nth-of-type(even){grid-template-columns:1fr}.room:nth-of-type(even) .room-fig{order:0}.room-num{font-size:84px}}
+/* THE CLAIM — static over the hero, on its own solid band (never text-shadow over video). */
+.band-claim { bottom: 0; height: 78vh; opacity: 1; background: linear-gradient(to top, rgba(0,0,0,.92) 0%, rgba(0,0,0,.66) 34%, rgba(0,0,0,.28) 62%, rgba(0,0,0,0) 100%); }
+.claim {
+  position: absolute; left: var(--gutter); right: var(--gutter); bottom: 25vh; z-index: 3;
+  color: var(--cream); display: flex; flex-direction: column; gap: 26px; max-width: 1000px;
+}
+.claim h1 { font-family: var(--display); font-weight: 400; text-transform: uppercase; letter-spacing: var(--track-large); line-height: .92; font-size: var(--d5); margin: 0; text-wrap: balance; }
+.claim-actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+.claim-addr { margin: 0; font-size: 17px; color: var(--g2); }
+.claim-addr a { text-decoration: none; }
+.claim-addr a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.claim-addr .hot { color: var(--red-hot); font-variant-numeric: tabular-nums; }
 
-/* ============================= MARQUEE */
-.marq{overflow:hidden;background:#C72828;padding:clamp(10px,1.6vw,20px) 0}
-.marq-track{display:inline-flex;white-space:nowrap;will-change:transform;font-family:'Fjalla One',Impact,sans-serif;text-transform:uppercase;font-size:clamp(22px,3.4vw,52px);color:#161616;letter-spacing:.02em}
+/* THE TICKER — CSS only, GPU transform, parks under reduced motion. */
+.ticker { position: absolute; left: 0; right: 0; bottom: 2vh; z-index: 2; overflow: hidden; pointer-events: none; }
+.ticker-track { display: flex; white-space: nowrap; width: max-content; will-change: transform; animation: tick 30s linear infinite; }
+.ticker-track span { font-family: var(--display); text-transform: uppercase; letter-spacing: var(--track-large); line-height: 1; font-size: clamp(64px, 13.5vw, 210px); color: var(--red); padding-right: .3em; }
+@keyframes tick { from { transform: translate3d(0,0,0); } to { transform: translate3d(-50%,0,0); } }
+html.static .ticker-track { animation: none; }
 
-/* settled fallback: everything visible with zero motion */
-html.sections-settled .lid-line .w>span{transform:none;opacity:1}
+/* PROOF — four numbers on the fascia red. */
+.proof { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); background: var(--red); color: var(--cream); }
+.proof-cell { display: flex; align-items: baseline; gap: 12px; padding: 26px var(--gutter); border-right: 1px solid rgba(0,0,0,.25); }
+.proof-cell:last-child { border-right: 0; }
+.proof-num { font-family: var(--display); font-size: var(--d2); line-height: 1; font-variant-numeric: tabular-nums; }
+.proof-lbl { font-family: var(--display); font-size: 13px; text-transform: uppercase; letter-spacing: var(--track-small); }
 
+/* THE FLOOR — the roll call. */
+.kicker { font-family: var(--display); font-size: 13px; text-transform: uppercase; letter-spacing: var(--track-small); color: var(--red-hot); margin: 0 0 18px; }
+.floor { background: var(--black); color: var(--cream); padding: clamp(72px, 9vw, 120px) var(--gutter) 40px; }
+.floor-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 36px; }
+.floor h2 { font-family: var(--display); font-weight: 400; text-transform: uppercase; letter-spacing: var(--track-large); font-size: var(--d1); color: var(--g1); }
+.floor-sub { margin: 0; font-family: var(--display); font-size: 13px; text-transform: uppercase; letter-spacing: var(--track-small); color: var(--g1); }
+.roll { list-style: none; margin: 0; padding: 0; }
+.roll-row { display: grid; grid-template-columns: 80px 1fr 420px; gap: 24px; align-items: baseline; padding: 26px 0; border-top: 1px solid #2A2A2A; }
+.roll-row:last-child { border-bottom: 1px solid #2A2A2A; }
+.roll-no { font-family: var(--display); font-size: 18px; letter-spacing: var(--track-small); color: var(--red-hot); }
+.roll-name { font-family: var(--display); text-transform: uppercase; letter-spacing: var(--track-large); line-height: .92; font-size: var(--d3); }
+.roll-sub { color: var(--g1); font-size: 17px; max-width: 42ch; }
 
-/* chapter numerals light up on hover */
-.room-num{transition:color .35s ease,-webkit-text-stroke-color .35s ease,filter .35s ease}
-.room:hover .room-num{-webkit-text-stroke-color:#EB3D3D;color:rgba(199,40,40,.16);filter:drop-shadow(0 0 26px rgba(235,61,61,.6))}
+/* THE STRIP — a seamless marquee of the real rooms (sections.js builds the track). */
+.strip { background: var(--black); padding: 40px 0 clamp(72px, 9vw, 120px); display: flex; overflow: hidden; }
+.strip, .strip-track { display: flex; gap: 8px; flex: none; }
+.strip img { height: clamp(220px, 36vh, 440px); width: auto; flex: none; object-fit: cover; display: block; }
 
-/* the strip is a self-driving marquee; hover pauses it */
-.strip{scroll-snap-type:none}
-.strip-track{display:inline-flex;gap:14px;will-change:transform}
+/* TRAINING */
+.train { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 72px); align-items: center; background: var(--black); color: var(--cream); padding: 0 var(--gutter) clamp(72px, 9vw, 120px); }
+.train-photo { overflow: hidden; }
+.train-photo img { width: 100%; height: clamp(320px, 52vh, 620px); object-fit: cover; display: block; }
+.train-copy { position: relative; max-width: 560px; }
+.train-rule { display: block; width: 88px; height: 4px; background: var(--red); margin-bottom: 26px; }
+.train h2 { font-family: var(--display); font-weight: 400; text-transform: uppercase; letter-spacing: var(--track-large); line-height: .92; font-size: var(--d4); margin: 0 0 .35em; }
+.train p { font-size: 19px; color: var(--g2); max-width: 44ch; margin: 0 0 1.4em; }
 
+/* REVIEWS */
+.reviews { background: var(--cream); color: var(--ink); padding: clamp(72px, 9vw, 120px) var(--gutter); }
+.reviews-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; margin-bottom: 48px; }
+.reviews h2 { font-size: var(--d4); max-width: 14ch; }
+.reviews .text-link { color: var(--red); white-space: nowrap; font-family: var(--display); font-size: 13px; text-transform: uppercase; letter-spacing: var(--track-small); text-decoration: none; }
+.reviews .text-link:hover { text-decoration: underline; text-underline-offset: 5px; }
+.rv-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px; }
+.rv { margin: 0; border-top: 3px solid var(--ink); padding-top: 22px; display: flex; flex-direction: column; gap: 16px; }
+.rv-stars { color: var(--red); letter-spacing: .1em; font-size: 16px; }
+.rv p { margin: 0; font-size: 19px; line-height: 1.4; }
+.rv footer { font-family: var(--display); font-size: 12px; text-transform: uppercase; letter-spacing: var(--track-small); color: #5A5654; }
 
-/* ============================= THE 24/7 PROMISE (replaces specials) */
-.promise{background:var(--red);color:#fff;text-align:center;padding:clamp(64px,9vw,132px) var(--gutter)}
-.promise-kicker{font-family:'Fjalla One',Impact,sans-serif;text-transform:uppercase;letter-spacing:.22em;font-size:clamp(11px,1vw,13px);margin:0 0 18px;color:#fff}
-.promise h2{font-family:'Fjalla One',Impact,sans-serif;text-transform:uppercase;font-size:var(--d5);line-height:.95;margin:0 0 20px}
-.promise-sub{max-width:52ch;margin:0 auto 30px;font-size:clamp(15px,1.3vw,19px);line-height:1.55;color:rgba(255,255,255,.92)}
-.promise .actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+/* WHY WEST LINDSEY */
+.why { display: grid; grid-template-columns: 1fr 1fr; background: var(--ink); color: var(--cream); }
+.why-photo img { width: 100%; height: 100%; min-height: 520px; object-fit: cover; display: block; }
+.why-copy { padding: clamp(56px, 7vw, 96px) var(--gutter); display: flex; flex-direction: column; justify-content: center; }
+.why h2 { font-family: var(--display); font-weight: 400; text-transform: uppercase; letter-spacing: var(--track-large); line-height: .92; font-size: var(--d3); margin: 0 0 .4em; max-width: 12ch; }
+.why p { font-size: 19px; color: var(--g2); max-width: 44ch; margin: 0 0 1.2em; }
+.why-tag { color: var(--g1); font-size: 17px; }
 
+/* VISIT + JOIN — one section, two halves. */
+.visit { background: var(--black); color: var(--cream); padding: clamp(72px, 9vw, 120px) var(--gutter); display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(40px, 5vw, 72px); align-items: start; }
+.visit h2 { font-size: var(--d6); color: var(--red); margin-bottom: .3em; }
+.facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 32px; margin: 0 0 40px; max-width: 640px; }
+.facts div { display: flex; flex-direction: column; gap: 6px; }
+.facts dt { font-family: var(--display); font-size: 12px; text-transform: uppercase; letter-spacing: var(--track-small); color: var(--g1); }
+.facts dd { margin: 0; font-size: 21px; line-height: 1.4; }
+.facts dd a { text-decoration: none; }
+.facts dd a:hover { text-decoration: underline; text-underline-offset: 5px; }
+.facts .tel-link { font-family: var(--display); font-size: 26px; letter-spacing: var(--track-large); }
+.facts-big { display: block; font-family: var(--display); text-transform: uppercase; font-size: var(--d2); line-height: .92; }
+.facts-sub { display: block; color: var(--g1); font-size: 16px; margin-top: 4px; }
+.visit-map { background: var(--ink); min-height: 300px; }
+.visit-map iframe { width: 100%; height: 100%; min-height: 300px; border: 0; display: block; filter: grayscale(1) contrast(1.05); }
 
-/* ============================= MOBILE: full-bleed rooms, bigger type, no inset */
-@media (max-width: 899px){
-  .room{padding:0 0 clamp(28px,7vw,44px)}
-  .room-fig{border-radius:0;aspect-ratio:4/3;box-shadow:none}
-  .room-copy{padding:22px clamp(20px,6vw,28px) 0}
-  .room-num{font-size:clamp(64px,20vw,92px);margin-bottom:10px}
-  .room h3{font-size:clamp(26px,7.6vw,36px)}
-  .room p{font-size:16px;max-width:34ch}
-  .amenities{justify-content:flex-start;font-size:12px;gap:10px 20px}
-  .lid{border-radius:18px 18px 0 0}
-  .promise h2{font-size:clamp(34px,10vw,52px)}
-  .strip img{height:clamp(210px,52vw,280px)}
-  .train-inner{padding:clamp(36px,9vw,56px) clamp(20px,6vw,28px)}
-  .train h2{font-size:clamp(28px,8.4vw,42px)}
+.join { background: var(--ink); padding: clamp(28px, 3vw, 40px); }
+.lead { display: grid; gap: 20px; }
+.lead h3 { font-family: var(--display); font-weight: 400; text-transform: uppercase; letter-spacing: var(--track-large); line-height: .92; font-size: var(--d2); margin: 0 0 6px; }
+.lead-row { display: grid; gap: 6px; }
+.lead label { font-family: var(--display); font-size: 12px; text-transform: uppercase; letter-spacing: var(--track-small); color: var(--g1); }
+.lead .opt { color: var(--g1); text-transform: none; letter-spacing: 0; font-family: var(--body); }
+.lead input, .lead select { width: 100%; height: 52px; background: transparent; border: 0; border-bottom: 2px solid var(--g1); color: var(--cream); font: 17px/1.2 var(--body); padding: 0 2px; border-radius: 0; }
+.lead select { appearance: none; -webkit-appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--g1) 50%), linear-gradient(135deg, var(--g1) 50%, transparent 50%); background-position: calc(100% - 16px) 50%, calc(100% - 10px) 50%; background-size: 6px 6px; background-repeat: no-repeat; }
+.lead select option { color: var(--ink); }
+.lead input:focus, .lead select:focus { outline: none; border-bottom-color: var(--red-hot); }
+.lead [aria-invalid="true"] { border-bottom-color: var(--red-hot); }
+.lead input::placeholder { color: #6B6B6B; }
+.lead .btn-xl { width: 100%; text-align: center; margin-top: 6px; }
+.lead-note { margin: 0; color: var(--g1); font-size: 15px; }
+.lead-done, .lead-err { margin: 0; font-size: 17px; }
+.lead-done { color: var(--cream); font-family: var(--display); text-transform: uppercase; letter-spacing: var(--track-small); }
+.lead-err { color: var(--red-hot); }
+.lead[data-state="sent"] .lead-row, .lead[data-state="sent"] .btn-xl, .lead[data-state="sent"] .lead-note { display: none; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+
+/* FOOTER — the tagline as a marquee on red (sections.js drives #marq), then the facts. */
+.foot { background: var(--black); color: var(--g1); padding: 0 0 8vh; text-align: center; }
+.marq-wrap { background: var(--red); color: var(--cream); overflow: hidden; padding: 14px 0; }
+.marq { display: flex; white-space: nowrap; width: max-content; will-change: transform; }
+.marq span { font-family: var(--display); text-transform: uppercase; letter-spacing: var(--track-large); font-size: var(--d2); line-height: 1; padding-right: .4em; }
+.foot-inner { padding: 6vh var(--gutter) 0; }
+
+/* Mobile */
+@media (max-width: 900px) {
+  .proof { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .proof-cell { padding: 18px 5vw; }
+  .proof-cell:nth-child(2n) { border-right: 0; }
+  .proof-cell:nth-child(-n+2) { border-bottom: 1px solid rgba(0,0,0,.25); }
+  .roll-row { grid-template-columns: 36px 1fr; gap: 6px 10px; padding: 18px 0; }
+  .roll-sub { grid-column: 2; }
+  .train, .why, .visit { grid-template-columns: 1fr; }
+  .train-photo img { height: 46vh; }
+  .why-photo img { min-height: 0; height: 52vh; }
+  .reviews-head { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .rv-grid { grid-template-columns: 1fr; gap: 32px; }
+  .facts { grid-template-columns: 1fr; gap: 18px; }
+  .floor-head { flex-direction: column; align-items: flex-start; gap: 8px; }
+}
+@media (max-width: 768px) {
+  .claim { bottom: 22vh; gap: 18px; }
+  .claim h1 { font-size: 13.5vw; }
+  .claim-actions { flex-direction: column; align-items: stretch; }
+  .claim-actions .btn { text-align: center; }
+  .claim-addr { font-size: 15px; }
+  .ticker { bottom: 1.5vh; }
+  .ticker-track span { font-size: 22vw; }
+  .band-claim { height: 84vh; }
+  .visit-map { min-height: 240px; }
+  .visit-map iframe { min-height: 240px; }
+  .nav .pill { display: inline-flex; }
 }
 
-
-/* ============================= REVIEWS as a band, not a monument */
-.reviews-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:6vw;align-items:center}
-.reviews-proof{display:flex;flex-direction:column;align-items:flex-start;gap:20px}
-.stars{display:flex;gap:6px;font-size:38px;line-height:1;color:var(--red-hot)}
-.reviews-note{margin:0;color:var(--g2);font-size:clamp(15px,1.25vw,18px);line-height:1.5;max-width:34ch}
-.lid-sub{margin:18px 0 0;color:#C9C9C9;font-size:clamp(15px,1.4vw,20px);line-height:1.5;max-width:46ch}
-@media (max-width:860px){.reviews-grid{grid-template-columns:1fr;gap:30px}}
-
-/* ============================= STORY — why this gym, in facts */
-.story{background:#0c0c0c;color:var(--cream);padding:clamp(72px,9vw,132px) var(--gutter)}
-.story-grid{max-width:760px;margin:0 auto}
-.story-kicker{font-family:var(--display);text-transform:uppercase;letter-spacing:.22em;font-size:clamp(11px,1vw,13px);color:var(--red-hot);margin:0 0 16px}
-.story h2{font-family:var(--display);text-transform:uppercase;font-size:var(--d4);line-height:.96;margin:0 0 22px}
-.story p{font-size:clamp(17px,1.35vw,21px);line-height:1.6;color:var(--g2);max-width:58ch;margin:0 0 18px}
-.story-proof{font-size:clamp(17px,1.35vw,21px);color:var(--cream)}
-.story-proof strong{color:var(--red-hot)}
-.story-fig{margin:0;aspect-ratio:4/5;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.55)}
-.story-fig img{width:100%;height:100%;object-fit:cover;display:block}
-@media (max-width:899px){.story{padding:clamp(48px,9vw,72px) var(--gutter)}.story-grid{grid-template-columns:1fr}.story-fig{aspect-ratio:3/2;order:-1}}
-
-/* ============================= JOIN — the page's one conversion */
-.join{background:var(--red);color:#fff;padding:clamp(72px,9vw,132px) var(--gutter)}
-.join-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,5vw,80px);align-items:center;max-width:1320px;margin:0 auto}
-.join-kicker{font-family:var(--display);text-transform:uppercase;letter-spacing:.22em;font-size:clamp(11px,1vw,13px);color:#fff;margin:0 0 16px}
-.join h2{font-family:var(--display);text-transform:uppercase;font-size:var(--d4);line-height:.96;margin:0 0 20px}
-.join-copy p{font-size:clamp(16px,1.25vw,19px);line-height:1.6;max-width:44ch;margin:0 0 14px}
-.join .text-link{color:#fff;font-weight:600;text-decoration:none;border-bottom:2px solid rgba(255,255,255,.55)}
-.join .text-link:hover{border-color:#fff}
-.lead{background:#fff;color:#111;padding:clamp(24px,3vw,44px);display:grid;gap:18px;box-shadow:0 30px 70px rgba(0,0,0,.35);width:100%}
-.lead-row{display:grid;gap:6px}
-.lead label{font-family:var(--display);text-transform:uppercase;letter-spacing:.1em;font-size:12px;color:#333}
-.lead label .opt{font-family:var(--body);text-transform:none;letter-spacing:0;color:#777;font-weight:400;margin-left:6px}
-.lead input,.lead select{font:inherit;font-size:18px;padding:15px 16px;border:1.5px solid #cfcfcf;border-radius:0;background:#fff;color:#111;width:100%;min-height:56px}
-.lead input:focus,.lead select:focus{outline:3px solid var(--red-hot);outline-offset:1px;border-color:var(--red)}
-.lead input[aria-invalid="true"],.lead select[aria-invalid="true"]{border-color:var(--red);background:#fff5f5}
-.lead .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
-.lead .btn{justify-self:stretch;text-align:center;padding:20px 28px;font-size:16px}
-.lead-note{margin:0;font-size:14px;color:#666}
-.lead-done{margin:0;font-size:18px;font-weight:600;color:#161616;padding:14px 16px;background:#f2f2f2;border-left:4px solid var(--red)}
-.lead-err{margin:0;font-size:15px;color:#a11;padding:12px 14px;background:#fff1f1}
-.lead-err a{color:#a11;font-weight:600}
-.lead[data-state="sent"] .lead-row,.lead[data-state="sent"] .btn,.lead[data-state="sent"] .lead-note{display:none}
-@media (max-width:899px){.join{padding:clamp(48px,9vw,72px) var(--gutter)}.join-grid{grid-template-columns:1fr}.lead .btn{justify-self:stretch}}
-
-/* ============================= REVIEWS — their words, verbatim */
-.reviews-head{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:clamp(20px,4vw,64px);align-items:end;margin-bottom:clamp(30px,4vw,56px)}
-.reviews-head .reviews-note{margin:0;font-size:clamp(16px,1.25vw,19px);color:var(--g2)}
-.reviews-head .text-link{color:var(--cream);margin-left:6px}
-.rv-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,1.6vw,24px)}
-.rv{margin:0;background:#1d1d1d;border-top:3px solid var(--red);padding:clamp(22px,2.2vw,32px);display:flex;flex-direction:column;gap:14px}
-.rv-stars{color:var(--red-hot);font-size:20px;letter-spacing:2px;line-height:1}
-.rv-text{margin:0;font-size:clamp(16px,1.2vw,18px);line-height:1.6;color:var(--g2);quotes:none}
-.rv-who{margin-top:auto;font-size:14px;color:var(--g1)}
-.rv-who strong{color:var(--cream);font-weight:600}
-@media (max-width:899px){.reviews-head{grid-template-columns:1fr;gap:12px}.rv-grid{grid-template-columns:1fr}}
-
-/* ============================= REVIEWS as drifting columns (21st.dev testimonials-columns, done natively) */
-.rv-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,1.6vw,24px);align-items:start}
-.rv-col{overflow:hidden}
-.rv-track{display:flex;flex-direction:column;gap:clamp(14px,1.6vw,24px);will-change:transform}
-.rv-cols.rolling .rv-col{-webkit-mask-image:linear-gradient(to bottom,transparent,#000 16%,#000 84%,transparent);mask-image:linear-gradient(to bottom,transparent,#000 16%,#000 84%,transparent)}
-.rv-cols.rolling .rv-track{padding-bottom:clamp(14px,1.6vw,24px)}
-@media (max-width:899px){.rv-cols{grid-template-columns:1fr}}
+/* dev contract: ?flat pins the hero to 900px so one tall headless capture shows the whole page */
+html.flat .hero { height: 900px; }
+html.flat .chrome { position: absolute; }
+html.flat .strip img { height: 300px; }
+html.flat .train-photo img, html.flat .why-photo img { height: 380px; min-height: 0; }

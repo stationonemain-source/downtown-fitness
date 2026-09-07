@@ -1,2 +1,4 @@
 .srv.pid
 *.bak
+
+verify/

@@ -4,27 +4,29 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Downtown Fitness · On West Lindsey · Open 24 Hours · Norman, OK</title>
-<meta name="description" content="Downtown Fitness, 1610 W Lindsey St, Norman, Oklahoma. Norman's neighborhood gym — open 24/7/365. Cardio hall, full selectorized floor, free-weight room with platforms, locker rooms, cedar sauna. Come on in.">
-<meta name="theme-color" content="#161616">
+<meta name="description" content="Downtown Fitness, 1610 W Lindsey St, Norman, Oklahoma. Norman's best-reviewed gym on Google, open 24/7/365. Cardio hall, full machine floor, free weights with platforms, locker rooms, cedar sauna. Come on in.">
+<meta name="theme-color" content="#000000">
+<link rel="canonical" href="https://stationonemain-source.github.io/downtown-fitness/">
 <meta property="og:title" content="Downtown Fitness · On West Lindsey">
-<meta property="og:description" content="Norman's neighborhood gym. Open every hour of every day. 1610 W Lindsey St · (405) 801-2929">
-<meta property="og:image" content="img/og.jpg?v=20260904o">
+<meta property="og:description" content="Norman's best-reviewed gym. Open every hour. 1610 W Lindsey St · (405) 801-2929">
+<meta property="og:image" content="https://stationonemain-source.github.io/downtown-fitness/img/og.jpg?v=20260906p">
+<meta property="og:url" content="https://stationonemain-source.github.io/downtown-fitness/">
 <meta property="og:type" content="website">
 
 <!-- flip the no-js gate before first paint so JS-only / no-JS-only copy never flashes;
-     under prefers-reduced-motion the page is poster + finale copy, no autoplay -->
+     under prefers-reduced-motion the page is poster + copy, no autoplay -->
 <script>
-  document.documentElement.className = 'js' + (matchMedia('(prefers-reduced-motion: reduce)').matches ? ' static' : '');
+  document.documentElement.className = 'js' + (matchMedia('(prefers-reduced-motion: reduce)').matches ? ' static' : '') + (/[?&]flat/.test(location.search) ? ' flat' : '');
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Source+Sans+Pro:wght@400;600&display=swap">
-<link rel="stylesheet" href="css/site.css?v=20260904o">
+<link rel="stylesheet" href="css/site.css?v=20260906p">
 <link rel="preload" as="image" href="media/open_1920.webp?v=20260904o" fetchpriority="high" media="(min-width: 900px)">
 <link rel="preload" as="image" href="media/open_1280.webp?v=20260904o" fetchpriority="high" media="(max-width: 899px)">
 
-<!-- ExerciseGym schema: only facts from the brief. 24-hour openingHours on every day. -->
+<!-- ExerciseGym schema: only facts from the brief and the Google listing. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -34,7 +36,7 @@
   "slogan": "Kickstarting Healthy Lifestyles.",
   "url": "https://dfnorman.com",
   "telephone": "+1-405-801-2929",
-  "image": "img/og.jpg",
+  "image": "https://stationonemain-source.github.io/downtown-fitness/img/og.jpg",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "1610 W Lindsey St",
@@ -49,7 +51,6 @@
     "closes": "23:59"
   }],
   "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.7", "reviewCount": "83" },
-  "review": [{"@type": "Review", "author": {"@type": "Person", "name": "wade bow"}, "reviewRating": {"@type": "Rating", "ratingValue": 5, "bestRating": 5}, "reviewBody": "Downtown Fitness is hands down the best gym in Norman. I’ve been going there since the beginning. Mark (the owner) and his staff keep the place spotless. The gym has a family feel to it where you get to know people. Mark keeps very modern equipment and maintains it. They also have saunas, tanning, and personal trainers available.\nI’ve been to plenty of other gyms and this one has them all beat!!"}, {"@type": "Review", "author": {"@type": "Person", "name": "Curtis Minnis"}, "reviewRating": {"@type": "Rating", "ratingValue": 5, "bestRating": 5}, "reviewBody": "Absolutely love the environment they created.   The staff and owner make you feel right at home.  The cleanliness of the gym is second to none."}, {"@type": "Review", "author": {"@type": "Person", "name": "Tyler Brahic"}, "reviewRating": {"@type": "Rating", "ratingValue": 5, "bestRating": 5}, "reviewBody": "CLEAN AND FRIENDLY. I’ve been to every gym in Norman and this takes FIRST PLACE. Never have I once felt like a dollar nor unwanted here. The staff and owner are EXTREMELY friendly and want to make sure you have a great gym experience. It may not be a large gym, but it has every necessary piece of equipment to workout efficiently and effectively. The saunas are hot and the tanning beds are clean and new! The gym community is great and I highly recommend this place. I would go here for the rest of my life if I didn’t have to move."}, {"@type": "Review", "author": {"@type": "Person", "name": "Koda Devildog"}, "reviewRating": {"@type": "Rating", "ratingValue": 5, "bestRating": 5}, "reviewBody": "Very nice, clean and welcoming fitness center. Ben is superb, warm and engaging. This gym doesn’t fill clutter or cramped which some gyms do. The bathrooms are clean, has shower stalls, lockers, hot sauna and complimentary towels and toiletries (wipes) to wipe off with.\nThey have nice shirts for sell at the counter along with some variety of drinks.\nIf you’re thinking about starting a healthy lifestyle and gym membership, check this place out and ask for Ben."}],
   "amenityFeature": [
     {"@type":"LocationFeatureSpecification","name":"24-hour access","value":true},
     {"@type":"LocationFeatureSpecification","name":"Cardio hall","value":true},
@@ -62,26 +63,20 @@
 </script>
 </head>
 <body>
+<a class="skip" href="#floor">Skip to content</a>
 
-<a class="skip" href="#after">Skip the film</a>
-
-<!-- ============================================================
-     CHROME — the fixed header. Hidden on the lot (the sign on the
-     building is the logo). Appears near-black at the moment the fascia
-     sign leaves the top of frame (~6.7 s), flips to white + red pill on
-     the mullion crossing (16.2 s). data-zone is set by film.js from
-     video.currentTime, so it flips with the picture.
-     ============================================================ -->
 <header class="chrome" data-zone="lot" id="chrome">
   <a class="wordmark" href="#top" aria-label="Downtown Fitness, On West Lindsey — top of page">
+    <span class="wm-mark" aria-hidden="true"></span>
     <span class="wm-name">Downtown Fitness</span>
-    <span class="wm-dot" aria-hidden="true">·</span>
-    <span class="wm-sub">On West Lindsey</span>
   </a>
   <nav class="nav" aria-label="Site">
-    <a href="#rooms">The Gym</a>
+    <a href="#floor">The floor</a>
+    <a href="#training">Training</a>
+    <a href="#reviews">Reviews</a>
     <a href="#visit">Visit</a>
     <a class="pill cta" href="#visit" aria-label="Open now — come on in">
+      <span class="pill-dot" aria-hidden="true"></span>
       <span class="status-word">Open</span><span class="pill-sep" aria-hidden="true"> · </span><time class="clock" aria-live="off">&nbsp;</time>
     </a>
   </nav>
@@ -90,27 +85,20 @@
 <main>
 
 <!-- ============================================================
-     THE HERO — one unbroken 30 s walk, a real video that plays once
-     and holds its last frame. The concept's beats ride on
-     video.currentTime (data-tin / data-tpeak / data-thold / data-tout,
-     seconds). The grade wipe outside→inside is in the footage itself;
-     the page chrome flips with it.
+     THE HERO — the real walk in: a 4K still of the storefront pushes in,
+     then the film takes over and holds its last frame. The claim and the
+     two buttons are on screen from the first paint. The wordmark ticker
+     runs along the bottom, the way a sign runs along a fascia.
      ============================================================ -->
-<section class="hero" id="top" aria-label="A walk into Downtown Fitness">
-  <!-- The visible headline is the sign on the building; this is the page's h1 for structure. -->
-  <h1 class="sr-only">Downtown Fitness — On West Lindsey. Norman's neighborhood gym, open 24 hours.</h1>
-
+<section class="hero" id="top" aria-label="Downtown Fitness, the walk in">
   <video class="hero-video" id="hero" muted playsinline preload="metadata"
          poster="media/poster.jpg?v=20260904o"
          disablepictureinpicture disableremoteplayback
-         aria-label="A walk up to the doors of Downtown Fitness and down the centre aisle inside — all real footage">
-    <!-- no-JS fallback selection; with JS the src is chosen below (media on <source> is not universal) -->
+         aria-label="A walk up to the doors of Downtown Fitness and down the centre aisle inside, all real footage">
     <source src="media/hero_960.mp4?v=20260904o" type="video/mp4" media="(max-width: 899px)">
     <source src="media/hero.mp4?v=20260904o" type="video/mp4">
   </video>
   <script>
-    // Runs synchronously right after the element: picks the size for this viewport.
-    // Playback is started by film.js when the opening still finishes its push.
     (function () {
       var v = document.getElementById('hero');
       if (document.documentElement.classList.contains('static')) { v.preload = 'none'; }
@@ -118,9 +106,6 @@
     })();
   </script>
 
-  <!-- THE OPENING — 0–4.6 s. A 4K photograph of the storefront, pushed in by code
-       (GPU transform: zero decode artifacts, zero interpolation). The sign IS the
-       logo. film.js swaps to the film the instant the push lands. -->
   <div class="pre" id="pre" aria-hidden="true">
     <picture>
       <source media="(max-width: 899px)" srcset="media/open_1280.webp?v=20260904o">
@@ -128,166 +113,141 @@
     </picture>
   </div>
 
-  <!-- Solid gradient bands behind copy (never text-shadow, never backdrop-filter over video).
-       Opacity follows the copy that needs them. -->
   <div class="band band-light" id="bandLight" aria-hidden="true"></div>
   <div class="band band-dark" id="bandDark" aria-hidden="true"></div>
   <div class="band band-top" id="bandTop" aria-hidden="true"></div>
+  <div class="band band-claim" aria-hidden="true"></div>
 
-  <!-- Shown only if autoplay is refused: one play affordance over the poster. -->
   <button class="play" id="play" type="button" hidden>
     <span class="play-icon" aria-hidden="true">&#9654;</span><span>Watch the walk in</span>
   </button>
 
-  <!-- All beat times are on the UNIFIED hero clock: 0–4.6 s is the still push,
-       4.6 + video.currentTime after that. The hard cut (outside → inside, the
-       grade change, the chrome flip) lands at 7.8. -->
-
-  <!-- 1. THE LOT — the photograph, pushing in. No headline: the sign on the building is the logo. -->
-
-  <!-- 2. THE NAME — lands on the concrete while the still pushes. -->
-  <div class="beat beat-out" id="b-sign" data-tin="1.0" data-tpeak="1.6" data-thold="4.8" data-tout="5.5">
-    <h2>Downtown Fitness.</h2>
-    <p>1610 W Lindsey St, Norman.</p>
+  <!-- THE CLAIM — one headline, one button, one fallback. Static; not a beat. -->
+  <div class="claim">
+    <h1>Norman's best-reviewed gym.<br>Open every hour.</h1>
+    <div class="claim-actions">
+      <a class="btn btn-red btn-xl cta" href="#visit">Come on in</a>
+      <a class="btn btn-outline-cream btn-xl" href="#join">Call me back</a>
+    </div>
+    <p class="claim-addr">1610 W Lindsey St, Norman · <a href="tel:4058012929" data-track="call_hero">(405) 801-2929</a> · <span class="js-only">It's <time class="clock hot">&nbsp;</time>. <span class="open-line">We're open.</span><span class="closed-line">We're closed right now.</span></span><span class="no-js-only">Open 24 hours.</span></p>
   </div>
 
-  <!-- 3. THE GLASS — the film starts at 4.6: real footage, walking at the doors. -->
-  <div class="beat beat-in" id="b-glass" data-tin="6.3" data-tpeak="6.8" data-thold="8.3" data-tout="9.0">
-    <h2>Open 24 hours.<br>Every day.</h2>
-    
+  <!-- THE TICKER — the name, at fascia size, in signal red. -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Downtown Fitness&nbsp;·&nbsp;On West Lindsey&nbsp;·&nbsp;</span><span>Downtown Fitness&nbsp;·&nbsp;On West Lindsey&nbsp;·&nbsp;</span>
+    </div>
   </div>
-
-  <!-- 4. THE CUT — 7.8 s: outside becomes inside. NOTHING on screen. The chrome flips with it. -->
-  <div class="beat beat-in beat-first" id="b-in" data-tin="9.2" data-tpeak="9.7" data-thold="10.9" data-tout="11.4">
-    <h2>Cardio hall.</h2>
-    <p>Treadmills, bikes, ellipticals, rowers.</p>
-  </div>
-
-  <!-- 5. THE HALL — the walk-through tour. -->
-  <div class="beat beat-in" id="b-hall" data-tin="11.7" data-tpeak="12.2" data-thold="13.4" data-tout="13.9">
-    <h2>Machine floor.</h2>
-    <p>Full selectorized circuit behind the glass.</p>
-  </div>
-
-  <!-- 5b. THE MACHINE CORRIDOR — the third room the film walks. -->
-  <div class="beat beat-in" id="b-machines" data-tin="14.1" data-tpeak="14.6" data-thold="15.8" data-tout="16.3">
-    <h2>Free weights.</h2>
-    <p>Racks, platforms, dumbbells to 100&nbsp;lb.</p>
-  </div>
-  <!-- 6. THE FREE-WEIGHT FLOOR. -->
-  <div class="beat beat-in" id="b-aisle" data-tin="16.5" data-tpeak="17.0" data-thold="17.9" data-tout="18.3">
-    <h2>Locker rooms.<br>Cedar sauna.</h2>
-    <p>At the back. Earn it.</p>
-  </div>
-
-  <!-- FINALE — rises into the hold on the last frame. Never fades (no data-tout). -->
-  <div class="beat beat-in beat-finale" id="b-finale" data-tin="18.0" data-tpeak="18.8">
-    <h2>
-      <span class="js-only">It's <time class="clock hot" aria-live="off">&nbsp;</time> in Norman.</span>
-      <span class="no-js-only">Open 24 hours.</span>
-      <br>
-      <span class="open-line">We're open.</span>
-      <span class="closed-line">We're closed right now.</span>
-    </h2>
-    <a class="btn btn-red cta" href="#visit">Come on in</a>
-    <p class="addr">1610 W Lindsey St · <a href="tel:4058012929">(405) 801-2929</a></p>
-  </div>
-
 </section>
 
-<!-- The seam under the hero: everything below slides OVER the held last frame (the lid). -->
 <div id="after" class="seam-anchor" aria-hidden="true"></div>
 <div class="lid">
-<section class="lid-band" aria-label="There's more through the glass">
-  <h2 class="lid-line" data-split>The rooms.</h2>
-  <p class="lid-sub reveal">Five rooms. One floor. No closing time.</p>
+
+<!-- PROOF — four numbers, said once, in the fascia red. -->
+<section class="proof" aria-label="The numbers">
+  <div class="proof-cell"><span class="proof-num" data-count="4.7">4.7</span><span class="proof-lbl">stars on Google</span></div>
+  <div class="proof-cell"><span class="proof-num" data-count="83">83</span><span class="proof-lbl">reviews</span></div>
+  <div class="proof-cell"><span class="proof-num">24</span><span class="proof-lbl">hours, every day</span></div>
+  <div class="proof-cell"><span class="proof-num">1</span><span class="proof-lbl">floor, one owner</span></div>
 </section>
 
-<!-- ============================================================
-     THE ROOMS — the client's own photographs, retouched (photographer
-     removed, cleaned, graded to the film's look). Real rooms, real people.
-     ============================================================ -->
-<section class="rooms" id="rooms" aria-labelledby="rooms-h">
-  <h2 class="sr-only" id="rooms-h">The gym</h2>
-
-  <article class="room room-img reveal-clip">
-    <figure class="room-fig"><img class="plx" src="img/g2/P082.webp?v=20260904o" srcset="img/g2/P082_s.webp?v=20260904o 800w, img/g2/P082.webp?v=20260904o 1600w"
-         sizes="(max-width: 899px) 100vw, 72vw" loading="lazy" decoding="async"
-         alt="The cardio hall: a runner mid-stride on a treadmill, the row of machines receding under the TVs"></figure>
-    <div class="room-copy">
-      <span class="room-num" aria-hidden="true">01</span>
-      <span class="room-tag">The cardio hall</span>
-      <h3>The long room on the&nbsp;left.</h3>
-      <p>Treadmills, bikes and ellipticals under the TVs — and somebody's always on one. It's that kind of gym.</p>
-    </div>
-  </article>
-
-  <article class="room room-img reveal-clip">
-    <figure class="room-fig"><img class="plx" src="img/g2/P096.webp?v=20260904o" srcset="img/g2/P096_s.webp?v=20260904o 800w, img/g2/P096.webp?v=20260904o 1600w"
-         sizes="(max-width: 899px) 100vw, 72vw" loading="lazy" decoding="async"
-         alt="The machine floor behind the glass: cable towers, plate-loaded machines and dumbbell racks across the room"></figure>
-    <div class="room-copy">
-      <span class="room-num" aria-hidden="true">02</span>
-      <span class="room-tag">Through the glass, on the right</span>
-      <h3>The machine floor.</h3>
-      <p>That room you pass walking the aisle — a full selectorized floor, every station, behind the glass.</p>
-    </div>
-  </article>
-
-  
-
-  <article class="room room-img reveal-clip">
-    <figure class="room-fig"><img class="plx" src="img/g2/P002.webp?v=20260904o" srcset="img/g2/P002_s.webp?v=20260904o 800w, img/g2/P002.webp?v=20260904o 1600w"
-         sizes="(max-width: 899px) 100vw, 72vw" loading="lazy" decoding="async"
-         alt="Squat racks loaded with green, yellow and blue bumper plates on wood platforms against the black wall"></figure>
-    <div class="room-copy">
-      <span class="room-num" aria-hidden="true">03</span>
-      <span class="room-tag">The iron</span>
-      <h3>The only color in the building is on the&nbsp;plates.</h3>
-      <p>Racks, platforms, bumpers. Come lift.</p>
-    </div>
-  </article>
-
-  <article class="room room-img reveal-clip">
-    <figure class="room-fig"><img class="plx" src="img/g2/P004.webp?v=20260904o" srcset="img/g2/P004_s.webp?v=20260904o 800w, img/g2/P004.webp?v=20260904o 1600w"
-         sizes="(max-width: 899px) 100vw, 72vw" loading="lazy" decoding="async"
-         alt="A two-tier dumbbell rack running away down the full-height mirror wall"></figure>
-    <div class="room-copy">
-      <span class="room-num" aria-hidden="true">04</span>
-      <span class="room-tag">Free weights</span>
-      <h3>Where the work gets&nbsp;done.</h3>
-      <p>Benches, bars, plates and open floor — the room you came for.</p>
-    </div>
-  </article>
-
-  <article class="room room-img room-dark reveal-clip">
-    <figure class="room-fig"><img class="plx" src="img/g2/P097.webp?v=20260904o" srcset="img/g2/P097_s.webp?v=20260904o 800w, img/g2/P097.webp?v=20260904o 1600w"
-         sizes="(max-width: 899px) 100vw, 72vw" loading="lazy" decoding="async"
-         alt="Inside the cedar sauna: warm timber benches and walls"></figure>
-    <div class="room-copy">
-      <span class="room-num" aria-hidden="true">05</span>
-      <span class="room-tag">The sauna</span>
-      <h3>There's a cedar sauna. Really.</h3>
-      <p>Past the locker rooms. Earn it first.</p>
-    </div>
-  </article>
+<!-- THE FLOOR — the roll call. Five rooms, no cards, no icons. -->
+<section class="floor" id="floor" aria-labelledby="floor-h">
+  <div class="floor-head">
+    <h2 id="floor-h" class="reveal">What's on the floor</h2>
+    <p class="floor-sub reveal">Five rooms. One floor. No closing time.</p>
+  </div>
+  <ol class="roll">
+    <li class="roll-row reveal"><span class="roll-no">01</span><span class="roll-name">The cardio hall</span><span class="roll-sub">Treadmills, bikes and ellipticals under the TVs. Somebody's always on one.</span></li>
+    <li class="roll-row reveal"><span class="roll-no">02</span><span class="roll-name">The machine floor</span><span class="roll-sub">A full selectorized circuit, every station, behind the glass on the right.</span></li>
+    <li class="roll-row reveal"><span class="roll-no">03</span><span class="roll-name">The iron</span><span class="roll-sub">Racks, platforms, bumpers. The only color in the building is on the plates.</span></li>
+    <li class="roll-row reveal"><span class="roll-no">04</span><span class="roll-name">Free weights</span><span class="roll-sub">Benches, bars, plates and open floor. Dumbbells to 100&nbsp;lb.</span></li>
+    <li class="roll-row reveal"><span class="roll-no">05</span><span class="roll-name">The cedar sauna</span><span class="roll-sub">Past the locker rooms. Earn it first.</span></li>
+  </ol>
 </section>
 
-<!-- Velocity marquee divider -->
+<!-- THE STRIP — the actual room, rolling past. sections.js turns it into a seamless marquee. -->
+<div class="strip" aria-label="Photographs of the gym">
+  <img src="img/cardio-900.webp?v=20260906p" srcset="img/cardio-900.webp?v=20260906p 900w, img/cardio-1600.webp?v=20260906p 1600w" sizes="(max-width: 768px) 80vw, 40vw" width="900" height="506" alt="Members on the treadmills in the cardio hall" loading="lazy" decoding="async">
+  <img src="img/plates-900.webp?v=20260906p" srcset="img/plates-900.webp?v=20260906p 900w, img/plates-1600.webp?v=20260906p 1600w" sizes="(max-width: 768px) 60vw, 26vw" width="675" height="900" alt="Yellow and green bumper plates racked beside the lifting platforms" loading="lazy" decoding="async">
+  <img src="img/machines-900.webp?v=20260906p" srcset="img/machines-900.webp?v=20260906p 900w, img/machines-1600.webp?v=20260906p 1600w" sizes="(max-width: 768px) 80vw, 40vw" width="900" height="638" alt="The selectorized machine floor" loading="lazy" decoding="async">
+  <img src="img/sauna-900.webp?v=20260906p" srcset="img/sauna-900.webp?v=20260906p 900w, img/sauna-1600.webp?v=20260906p 1600w" sizes="(max-width: 768px) 60vw, 26vw" width="675" height="900" alt="Inside the cedar sauna" loading="lazy" decoding="async">
+  <img src="img/hall-900.webp?v=20260906p" srcset="img/hall-900.webp?v=20260906p 900w, img/hall-1600.webp?v=20260906p 1600w" sizes="(max-width: 768px) 80vw, 40vw" width="900" height="600" alt="The long cardio hall, treadmills on the left" loading="lazy" decoding="async">
+  <img src="img/lobby-900.webp?v=20260906p" srcset="img/lobby-900.webp?v=20260906p 900w, img/lobby-1600.webp?v=20260906p 1600w" sizes="(max-width: 768px) 60vw, 26vw" width="675" height="900" alt="The entry, red chairs and balloons by the door" loading="lazy" decoding="async">
+  <img src="img/iron-900.webp?v=20260906p" srcset="img/iron-900.webp?v=20260906p 900w, img/iron-1600.webp?v=20260906p 1600w" sizes="(max-width: 768px) 80vw, 40vw" width="900" height="506" alt="The free-weight room, racks and benches" loading="lazy" decoding="async">
+</div>
 
-<!-- ============================================================
-     TRAINING — the owner's flag on the hill: nationally certified
-     personal training. A statement band, the film's red on near-black.
-     ============================================================ -->
-<section class="join" id="join" aria-labelledby="join-h">
-  <div class="join-grid">
-    <div class="join-copy">
-      <p class="join-kicker reveal">Come on in</p>
-      <h2 id="join-h" class="reveal">Leave your number.<br>We'll call you back.</h2>
-      <p class="reveal">Or skip the form and walk in. The desk is staffed during the day and the door is open all night.</p>
-      <p class="reveal"><a class="text-link" href="tel:4058012929" data-track="call_join">Call (405) 801-2929<span aria-hidden="true"> &rarr;</span></a></p>
+<!-- TRAINING -->
+<section class="train" id="training" aria-labelledby="train-h">
+  <div class="train-photo">
+    <img src="img/merch-900.webp?v=20260906p" srcset="img/merch-900.webp?v=20260906p 900w, img/merch-1600.webp?v=20260906p 1600w" sizes="(max-width: 768px) 100vw, 50vw" width="900" height="675" alt="Downtown Fitness shirts on the shelf at the front desk" loading="lazy" decoding="async">
+  </div>
+  <div class="train-copy">
+    <span class="train-rule" aria-hidden="true"></span>
+    <p class="kicker reveal">Training</p>
+    <h2 id="train-h" class="reveal">Nationally certified.<br>On this floor.</h2>
+    <p class="reveal">One-on-one coaching, programmed for you, from trainers who hold national certification. Ask at the desk, or call and we'll set it up.</p>
+    <p class="reveal"><a class="btn btn-red" href="tel:4058012929" data-track="call_training">Call the desk about training</a></p>
+  </div>
+</section>
+
+<!-- REVIEWS — their words, verbatim, from Google. -->
+<section class="reviews" id="reviews" aria-labelledby="reviews-h">
+  <div class="reviews-head">
+    <h2 id="reviews-h" class="reveal">4.7 stars from people who actually go here.</h2>
+    <a class="text-link reveal" href="https://www.google.com/maps/search/?api=1&query=Downtown+Fitness+1610+W+Lindsey+St+Norman+OK" rel="noopener" target="_blank">Read all 83 on Google</a>
+  </div>
+  <div class="rv-grid">
+    <blockquote class="rv reveal">
+      <span class="rv-stars" aria-label="Five stars">★★★★★</span>
+      <p>Absolutely love the environment they created. The staff and owner make you feel right at home. The cleanliness of the gym is second to none.</p>
+      <footer>Curtis Minnis · on Google</footer>
+    </blockquote>
+    <blockquote class="rv reveal">
+      <span class="rv-stars" aria-label="Five stars">★★★★★</span>
+      <p>Downtown Fitness is hands down the best gym in Norman. I've been going there since the beginning. Mark (the owner) and his staff keep the place spotless. The gym has a family feel to it where you get to know people. Mark keeps very modern equipment and maintains it. They also have saunas, tanning, and personal trainers available. I've been to plenty of other gyms and this one has them all beat!!</p>
+      <footer>wade bow · on Google</footer>
+    </blockquote>
+    <blockquote class="rv reveal">
+      <span class="rv-stars" aria-label="Five stars">★★★★★</span>
+      <p>CLEAN AND FRIENDLY. I've been to every gym in Norman and this takes FIRST PLACE. Never have I once felt like a dollar nor unwanted here. The staff and owner are EXTREMELY friendly and want to make sure you have a great gym experience. It may not be a large gym, but it has every necessary piece of equipment to workout efficiently and effectively.</p>
+      <footer>Tyler Brahic · on Google</footer>
+    </blockquote>
+  </div>
+</section>
+
+<!-- WHY WEST LINDSEY -->
+<section class="why" id="why" aria-labelledby="why-h">
+  <div class="why-photo">
+    <img src="img/lobby-900.webp?v=20260906p" srcset="img/lobby-900.webp?v=20260906p 900w, img/lobby-1600.webp?v=20260906p 1600w" sizes="(max-width: 768px) 100vw, 50vw" width="675" height="900" alt="The entry at Downtown Fitness, red chairs by the glass" loading="lazy" decoding="async">
+  </div>
+  <div class="why-copy">
+    <p class="kicker reveal">Why West Lindsey</p>
+    <h2 id="why-h" class="reveal">A neighborhood gym, not a franchise.</h2>
+    <p class="reveal">One floor a few minutes from campus. Open every hour of every day, because the people who train here do not keep the same hours. The door is never locked.</p>
+    <p class="why-tag reveal">Kickstarting Healthy Lifestyles.</p>
+  </div>
+</section>
+
+<!-- VISIT + THE FORM — the page's one conversion. -->
+<section class="visit" id="visit" aria-labelledby="visit-h">
+  <div class="visit-copy">
+    <h2 id="visit-h" class="reveal">Come on in.</h2>
+    <dl class="facts reveal">
+      <div><dt>Address</dt><dd><a class="addr-link" href="https://www.google.com/maps/dir/?api=1&destination=1610+W+Lindsey+St,+Norman,+OK" rel="noopener" target="_blank">1610 W Lindsey St<br>Norman, Oklahoma</a></dd></div>
+      <div><dt>Phone</dt><dd><a class="tel-link" href="tel:4058012929" data-track="call_visit">(405) 801-2929</a></dd></div>
+      <div><dt>Hours</dt><dd><span class="facts-big">All of them.</span><span class="facts-sub">Open 24 / 7 / 365</span></dd></div>
+      <div><dt>The desk</dt><dd>Staffed during the day. The door is open all night.</dd></div>
+    </dl>
+    <div class="visit-map reveal">
+      <iframe title="Map: Downtown Fitness, 1610 W Lindsey St, Norman, OK" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=1610+W+Lindsey+St,+Norman,+OK&output=embed" allowfullscreen></iframe>
     </div>
+  </div>
+
+  <div class="join" id="join">
     <form class="lead reveal" id="lead" novalidate>
+      <h3 id="join-h">Leave your number.<br>We'll call you back.</h3>
       <div class="lead-row">
         <label for="lead-name">Name</label>
         <input id="lead-name" name="name" type="text" autocomplete="name" required>
@@ -310,7 +270,7 @@
       </div>
       <div class="lead-row">
         <label for="lead-goal">What are you after? <span class="opt">optional</span></label>
-        <input id="lead-goal" name="goal" type="text" placeholder="Training, a tour, a question&hellip;">
+        <input id="lead-goal" name="goal" type="text" placeholder="Membership, training, a question&hellip;">
       </div>
       <input type="hidden" name="referrer" id="lead-ref">
       <input type="hidden" name="utm" id="lead-utm">
@@ -324,109 +284,16 @@
   </div>
 </section>
 
-<section class="train" id="training" aria-labelledby="train-h">
-  <div class="train-inner">
-    <span class="train-rule" aria-hidden="true"></span>
-    <h2 id="train-h" class="reveal">Nationally certified<br>personal&nbsp;training.</h2>
-    <p class="reveal">Real coaching on a real floor — one-on-one, programmed for you, from trainers who hold national certification. Call the desk and ask about training.</p>
-    <p class="reveal"><a class="btn btn-red" href="tel:4058012929" data-track="call_training">Call the desk about training</a></p>
-  </div>
-  <figure class="train-photo reveal" aria-hidden="true">
-    <img src="img/g2/N5.webp?v=20260904o" srcset="img/g2/N5_s.webp?v=20260904o 800w, img/g2/N5.webp?v=20260904o 1600w"
-         sizes="(max-width: 899px) 100vw, 46vw" loading="lazy" decoding="async" alt="Three of the Downtown Fitness crew flexing at the front desk"></figure>
-</section>
-
-<!-- ============================================================
-     THE FLOOR — a filmstrip of the client's own photographs.
-     scroll-snap, lazy, cheap.
-     ============================================================ -->
-
-<!-- ============================================================
-     THE 24/7 PROMISE — replaces the specials block. The gym is not
-     running published offers or online booking yet: nothing here
-     asks for either.
-     ============================================================ -->
-
-
-
-
-<!-- ============================================================
-     4.7&#9733; — the badge only. No quotes: none may be written.
-     ============================================================ -->
-<section class="reviews" id="reviews" aria-labelledby="reviews-h">
-  <div class="reviews-head">
-    <h2 id="reviews-h" class="reveal">4.7 stars from <span data-count="83">83</span> people who actually go&nbsp;here.</h2>
-    <p class="reviews-note reveal">Their words, unedited, from Google. <a class="text-link" href="https://maps.google.com/?cid=16693687600243704829" rel="noopener" target="_blank">Read all 83<span aria-hidden="true"> &rarr;</span></a></p>
-  </div>
-  <div class="rv-cols" id="rvcols">
-    <div class="rv-col" data-speed="30"><div class="rv-track">
-      <figure class="rv">
-        <div class="rv-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <blockquote class="rv-text">Downtown Fitness is hands down the best gym in Norman. I’ve been going there since the beginning. Mark (the owner) and his staff keep the place spotless. The gym has a family feel to it where you get to know people. Mark keeps very modern equipment and maintains it. They also have saunas, tanning, and personal trainers available.<br>I’ve been to plenty of other gyms and this one has them all beat!!</blockquote>
-        <figcaption class="rv-who"><strong>wade bow</strong> <span>&middot; a year ago &middot; on Google</span></figcaption>
-      </figure>
-      <figure class="rv">
-        <div class="rv-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <blockquote class="rv-text">Absolutely love the environment they created.   The staff and owner make you feel right at home.  The cleanliness of the gym is second to none.</blockquote>
-        <figcaption class="rv-who"><strong>Curtis Minnis</strong> <span>&middot; 9 months ago &middot; on Google</span></figcaption>
-      </figure>
-    </div></div>
-    <div class="rv-col" data-speed="36"><div class="rv-track">
-      <figure class="rv">
-        <div class="rv-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <blockquote class="rv-text">CLEAN AND FRIENDLY. I’ve been to every gym in Norman and this takes FIRST PLACE. Never have I once felt like a dollar nor unwanted here. The staff and owner are EXTREMELY friendly and want to make sure you have a great gym experience. It may not be a large gym, but it has every necessary piece of equipment to workout efficiently and effectively. The saunas are hot and the tanning beds are clean and new! The gym community is great and I highly recommend this place. I would go here for the rest of my life if I didn’t have to move.</blockquote>
-        <figcaption class="rv-who"><strong>Tyler Brahic</strong> <span>&middot; 3 years ago &middot; on Google</span></figcaption>
-      </figure>
-      <figure class="rv">
-        <div class="rv-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <blockquote class="rv-text">Very nice, clean and welcoming fitness center. Ben is superb, warm and engaging. This gym doesn’t fill clutter or cramped which some gyms do. The bathrooms are clean, has shower stalls, lockers, hot sauna and complimentary towels and toiletries (wipes) to wipe off with.<br>They have nice shirts for sell at the counter along with some variety of drinks.<br>If you’re thinking about starting a healthy lifestyle and gym membership, check this place out and ask for Ben.</blockquote>
-        <figcaption class="rv-who"><strong>Koda Devildog</strong> <span>&middot; 4 years ago &middot; on Google</span></figcaption>
-      </figure>
-    </div></div>
-  </div>
-</section>
-
-<!-- ============================================================
-     VISIT
-     ============================================================ -->
-<section class="story" id="story" aria-labelledby="story-h">
-  <div class="story-grid">
-    <div class="story-copy">
-      <p class="story-kicker reveal">Why West Lindsey</p>
-      <h2 id="story-h" class="reveal">A neighborhood gym,<br>not a franchise.</h2>
-      <p class="reveal">One floor on West Lindsey, a few minutes from campus. A cardio hall, a full machine floor, a free-weight room with platforms, locker rooms and a cedar sauna. Nationally certified trainers on the floor.</p>
-      <p class="reveal">Open every hour of every day, because the people who train here do not keep the same hours. The door is never locked.</p>
-      <p class="story-proof reveal"><strong>4.7 stars</strong> from 83 members on Google.</p>
-    </div>
-  </div>
-</section>
-
-<section class="visit" id="visit" aria-labelledby="visit-h">
-  <div class="visit-grid">
-    <div class="visit-copy">
-      <h2 id="visit-h" class="reveal">Hours:<br>all of them.</h2>
-      <p class="visit-lead reveal">Open 24/7/365.</p>
-      <address class="reveal">
-        <a class="addr-link" href="https://www.google.com/maps/dir/?api=1&destination=1610+W+Lindsey+St,+Norman,+OK" rel="noopener" target="_blank">1610 W Lindsey St<br>Norman, Oklahoma</a>
-        <a class="tel-link" href="tel:4058012929" data-track="call_visit">(405) 801-2929</a>
-      </address>
-      <p class="reveal"><a class="btn btn-red btn-xl" href="#join">Come on in</a></p>
-      <p class="tagline reveal">
-        <img class="badge" src="img/logo.png?v=20260904o" width="250" height="108" alt="Downtown Fitness — On West Lindsey" loading="lazy">
-        <span>Kickstarting Healthy Lifestyles.</span>
-      </p>
-    </div>
-    <div class="visit-map reveal">
-      <iframe title="Map: Downtown Fitness, 1610 W Lindsey St, Norman, OK" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-              src="https://www.google.com/maps?q=1610+W+Lindsey+St,+Norman,+OK&output=embed" allowfullscreen></iframe>
-    </div>
-  </div>
-</section>
-
 <footer class="foot">
-  <img class="badge badge-foot" src="img/logo.png?v=20260904o" width="250" height="108" alt="" loading="lazy">
-  <p class="foot-line">Downtown Fitness <span aria-hidden="true">·</span> On West Lindsey <span aria-hidden="true">·</span> <a href="https://dfnorman.com" rel="noopener">dfnorman.com</a></p>
-  <p class="foot-sub"><a href="tel:4058012929">(405) 801-2929</a> <span aria-hidden="true">·</span> 1610 W Lindsey St, Norman, OK <span aria-hidden="true">·</span> <span class="status-word">Open</span> <time class="clock">&nbsp;</time></p>
+  <div class="marq-wrap" aria-hidden="true">
+    <div class="marq" id="marq">
+      <span>Kickstarting healthy lifestyles&nbsp;·&nbsp;1610 W Lindsey St&nbsp;·&nbsp;(405) 801-2929&nbsp;·&nbsp;Open 24 hours&nbsp;·&nbsp;</span><span>Kickstarting healthy lifestyles&nbsp;·&nbsp;1610 W Lindsey St&nbsp;·&nbsp;(405) 801-2929&nbsp;·&nbsp;Open 24 hours&nbsp;·&nbsp;</span>
+    </div>
+  </div>
+  <div class="foot-inner">
+    <p class="foot-line">Downtown Fitness <span aria-hidden="true">·</span> On West Lindsey <span aria-hidden="true">·</span> <a href="https://dfnorman.com" rel="noopener">dfnorman.com</a></p>
+    <p class="foot-sub"><a href="tel:4058012929" data-track="call_footer">(405) 801-2929</a> <span aria-hidden="true">·</span> 1610 W Lindsey St, Norman, OK <span aria-hidden="true">·</span> <span class="status-word">Open</span> <time class="clock">&nbsp;</time></p>
+  </div>
 </footer>
 </div><!-- /.lid -->
 
@@ -438,7 +305,7 @@
   <a class="btn btn-red cta" href="#visit">Come on in</a>
 </nav>
 
-<!-- Mobile: the two-button sheet behind every COME ON IN. tel: is the only working conversion. -->
+<!-- Mobile: the sheet behind every COME ON IN. -->
 <dialog class="sheet" id="sheet" aria-labelledby="sheet-h">
   <form method="dialog" class="sheet-inner">
     <h2 id="sheet-h">Come on in.</h2>
@@ -450,12 +317,10 @@
   </form>
 </dialog>
 
-<!-- Pinned: GSAP 3.12.5 + ScrollTrigger from cdnjs. Lenis is NOT hosted on cdnjs (verified 2026-09-03), so it is
-     pinned on jsdelivr. All three are optional: film.js runs without them. -->
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
-<script defer src="js/film.js?v=20260904o"></script>
-<script defer src="js/sections.js?v=20260904o"></script>
+<script defer src="js/film.js?v=20260906p"></script>
+<script defer src="js/sections.js?v=20260906p"></script>
 </body>
 </html>
