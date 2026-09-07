@@ -22,7 +22,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Source+Sans+Pro:wght@400;600&display=swap">
-<link rel="stylesheet" href="css/site.css?v=20260906p">
+<link rel="stylesheet" href="css/site.css?v=20260906q">
 <link rel="preload" as="image" href="media/open_1920.webp?v=20260904o" fetchpriority="high" media="(min-width: 900px)">
 <link rel="preload" as="image" href="media/open_1280.webp?v=20260904o" fetchpriority="high" media="(max-width: 899px)">
 
@@ -75,9 +75,9 @@
     <a href="#training">Training</a>
     <a href="#reviews">Reviews</a>
     <a href="#visit">Visit</a>
-    <a class="pill cta" href="#visit" aria-label="Open now — come on in">
+    <a class="pill cta" href="#visit">
       <span class="pill-dot" aria-hidden="true"></span>
-      <span class="status-word">Open</span><span class="pill-sep" aria-hidden="true"> · </span><time class="clock" aria-live="off">&nbsp;</time>
+      <span class="status-word">Open</span><span class="pill-sep" aria-hidden="true"> · </span><span class="clock" aria-live="off">&nbsp;</span>
     </a>
   </nav>
 </header>
@@ -129,7 +129,7 @@
       <a class="btn btn-red btn-xl cta" href="#visit">Come on in</a>
       <a class="btn btn-outline-cream btn-xl" href="#join">Call me back</a>
     </div>
-    <p class="claim-addr">1610 W Lindsey St, Norman · <a href="tel:4058012929" data-track="call_hero">(405) 801-2929</a> · <span class="js-only">It's <time class="clock hot">&nbsp;</time>. <span class="open-line">We're open.</span><span class="closed-line">We're closed right now.</span></span><span class="no-js-only">Open 24 hours.</span></p>
+    <p class="claim-addr">1610 W Lindsey St, Norman · <a href="tel:4058012929" data-track="call_hero">(405) 801-2929</a> · <span class="js-only">It's <span class="clock hot">&nbsp;</span>. <span class="open-line">We're open.</span><span class="closed-line">We're closed right now.</span></span><span class="no-js-only">Open 24 hours.</span></p>
   </div>
 
   <!-- THE TICKER — the name, at fascia size, in signal red. -->
@@ -158,16 +158,16 @@
     <p class="floor-sub reveal">Five rooms. One floor. No closing time.</p>
   </div>
   <ol class="roll">
-    <li class="roll-row reveal"><span class="roll-no">01</span><span class="roll-name">The cardio hall</span><span class="roll-sub">Treadmills, bikes and ellipticals under the TVs. Somebody's always on one.</span></li>
-    <li class="roll-row reveal"><span class="roll-no">02</span><span class="roll-name">The machine floor</span><span class="roll-sub">A full selectorized circuit, every station, behind the glass on the right.</span></li>
-    <li class="roll-row reveal"><span class="roll-no">03</span><span class="roll-name">The iron</span><span class="roll-sub">Racks, platforms, bumpers. The only color in the building is on the plates.</span></li>
-    <li class="roll-row reveal"><span class="roll-no">04</span><span class="roll-name">Free weights</span><span class="roll-sub">Benches, bars, plates and open floor. Dumbbells to 100&nbsp;lb.</span></li>
-    <li class="roll-row reveal"><span class="roll-no">05</span><span class="roll-name">The cedar sauna</span><span class="roll-sub">Past the locker rooms. Earn it first.</span></li>
+    <li class="roll-row"><span class="roll-no">01</span><span class="roll-name">The cardio hall</span><span class="roll-sub">Treadmills, bikes and ellipticals under the TVs. Somebody's always on one.</span></li>
+    <li class="roll-row"><span class="roll-no">02</span><span class="roll-name">The machine floor</span><span class="roll-sub">A full selectorized circuit, every station, behind the glass on the right.</span></li>
+    <li class="roll-row"><span class="roll-no">03</span><span class="roll-name">The iron</span><span class="roll-sub">Racks, platforms, bumpers. The only color in the building is on the plates.</span></li>
+    <li class="roll-row"><span class="roll-no">04</span><span class="roll-name">Free weights</span><span class="roll-sub">Benches, bars, plates and open floor. Dumbbells to 100&nbsp;lb.</span></li>
+    <li class="roll-row"><span class="roll-no">05</span><span class="roll-name">The cedar sauna</span><span class="roll-sub">Past the locker rooms. Earn it first.</span></li>
   </ol>
 </section>
 
 <!-- THE STRIP — the actual room, rolling past. sections.js turns it into a seamless marquee. -->
-<div class="strip" aria-label="Photographs of the gym">
+<section class="strip" role="region" aria-label="Photographs of the gym" tabindex="0">
   <img src="img/cardio-900.webp?v=20260906p" srcset="img/cardio-900.webp?v=20260906p 900w, img/cardio-1600.webp?v=20260906p 1600w" sizes="(max-width: 768px) 80vw, 40vw" width="900" height="506" alt="Members on the treadmills in the cardio hall" loading="lazy" decoding="async">
   <img src="img/plates-900.webp?v=20260906p" srcset="img/plates-900.webp?v=20260906p 900w, img/plates-1600.webp?v=20260906p 1600w" sizes="(max-width: 768px) 60vw, 26vw" width="675" height="900" alt="Yellow and green bumper plates racked beside the lifting platforms" loading="lazy" decoding="async">
   <img src="img/machines-900.webp?v=20260906p" srcset="img/machines-900.webp?v=20260906p 900w, img/machines-1600.webp?v=20260906p 1600w" sizes="(max-width: 768px) 80vw, 40vw" width="900" height="638" alt="The selectorized machine floor" loading="lazy" decoding="async">
@@ -175,7 +175,7 @@
   <img src="img/hall-900.webp?v=20260906p" srcset="img/hall-900.webp?v=20260906p 900w, img/hall-1600.webp?v=20260906p 1600w" sizes="(max-width: 768px) 80vw, 40vw" width="900" height="600" alt="The long cardio hall, treadmills on the left" loading="lazy" decoding="async">
   <img src="img/lobby-900.webp?v=20260906p" srcset="img/lobby-900.webp?v=20260906p 900w, img/lobby-1600.webp?v=20260906p 1600w" sizes="(max-width: 768px) 60vw, 26vw" width="675" height="900" alt="The entry, red chairs and balloons by the door" loading="lazy" decoding="async">
   <img src="img/iron-900.webp?v=20260906p" srcset="img/iron-900.webp?v=20260906p 900w, img/iron-1600.webp?v=20260906p 1600w" sizes="(max-width: 768px) 80vw, 40vw" width="900" height="506" alt="The free-weight room, racks and benches" loading="lazy" decoding="async">
-</div>
+</section>
 
 <!-- TRAINING -->
 <section class="train" id="training" aria-labelledby="train-h">
@@ -199,17 +199,17 @@
   </div>
   <div class="rv-grid">
     <blockquote class="rv reveal">
-      <span class="rv-stars" aria-label="Five stars">★★★★★</span>
+      <span class="rv-stars" role="img" aria-label="Five stars">★★★★★</span>
       <p>Absolutely love the environment they created. The staff and owner make you feel right at home. The cleanliness of the gym is second to none.</p>
       <footer>Curtis Minnis · on Google</footer>
     </blockquote>
     <blockquote class="rv reveal">
-      <span class="rv-stars" aria-label="Five stars">★★★★★</span>
+      <span class="rv-stars" role="img" aria-label="Five stars">★★★★★</span>
       <p>Downtown Fitness is hands down the best gym in Norman. I've been going there since the beginning. Mark (the owner) and his staff keep the place spotless. The gym has a family feel to it where you get to know people. Mark keeps very modern equipment and maintains it. They also have saunas, tanning, and personal trainers available. I've been to plenty of other gyms and this one has them all beat!!</p>
       <footer>wade bow · on Google</footer>
     </blockquote>
     <blockquote class="rv reveal">
-      <span class="rv-stars" aria-label="Five stars">★★★★★</span>
+      <span class="rv-stars" role="img" aria-label="Five stars">★★★★★</span>
       <p>CLEAN AND FRIENDLY. I've been to every gym in Norman and this takes FIRST PLACE. Never have I once felt like a dollar nor unwanted here. The staff and owner are EXTREMELY friendly and want to make sure you have a great gym experience. It may not be a large gym, but it has every necessary piece of equipment to workout efficiently and effectively.</p>
       <footer>Tyler Brahic · on Google</footer>
     </blockquote>
@@ -279,10 +279,12 @@
       <button class="btn btn-red btn-xl" type="submit">Call me back</button>
       <p class="lead-note">No newsletter. Someone at the desk calls, that is it.</p>
       <p class="lead-done" hidden>Got it. Someone from the desk will call you.</p>
-      <p class="lead-err" hidden>That did not send. Call the desk instead: <a href="tel:4058012929">(405) 801-2929</a>.</p>
+      <p class="lead-err" role="alert" hidden>That did not send. Call the desk instead: <a href="tel:4058012929">(405) 801-2929</a>.</p>
     </form>
   </div>
 </section>
+</div><!-- /.lid -->
+</main>
 
 <footer class="foot">
   <div class="marq-wrap" aria-hidden="true">
@@ -292,16 +294,13 @@
   </div>
   <div class="foot-inner">
     <p class="foot-line">Downtown Fitness <span aria-hidden="true">·</span> On West Lindsey <span aria-hidden="true">·</span> <a href="https://dfnorman.com" rel="noopener">dfnorman.com</a></p>
-    <p class="foot-sub"><a href="tel:4058012929" data-track="call_footer">(405) 801-2929</a> <span aria-hidden="true">·</span> 1610 W Lindsey St, Norman, OK <span aria-hidden="true">·</span> <span class="status-word">Open</span> <time class="clock">&nbsp;</time></p>
+    <p class="foot-sub"><a href="tel:4058012929" data-track="call_footer">(405) 801-2929</a> <span aria-hidden="true">·</span> 1610 W Lindsey St, Norman, OK <span aria-hidden="true">·</span> <span class="status-word">Open</span> <span class="clock">&nbsp;</span></p>
   </div>
 </footer>
-</div><!-- /.lid -->
-
-</main>
 
 <!-- Mobile: sticky bottom bar, shown only after the hero. -->
 <nav class="mbar" id="mbar" aria-label="Quick actions">
-  <span class="mbar-status"><span class="status-word">Open</span> · <time class="clock">&nbsp;</time></span>
+  <span class="mbar-status"><span class="status-word">Open</span> · <span class="clock">&nbsp;</span></span>
   <a class="btn btn-red cta" href="#visit">Come on in</a>
 </nav>
 
@@ -309,7 +308,7 @@
 <dialog class="sheet" id="sheet" aria-labelledby="sheet-h">
   <form method="dialog" class="sheet-inner">
     <h2 id="sheet-h">Come on in.</h2>
-    <p class="sheet-sub"><span class="status-word">Open</span> · <time class="clock">&nbsp;</time> in Norman</p>
+    <p class="sheet-sub"><span class="status-word">Open</span> · <span class="clock">&nbsp;</span> in Norman</p>
     <a class="btn btn-red" href="https://www.google.com/maps/dir/?api=1&destination=1610+W+Lindsey+St,+Norman,+OK" rel="noopener" target="_blank">Get directions</a>
     <a class="btn btn-ink" href="tel:4058012929" data-track="call_sheet">Call the desk</a>
     <a class="btn btn-ink" href="#join" data-sheet-jump>Leave your number</a>

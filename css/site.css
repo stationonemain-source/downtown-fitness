@@ -388,6 +388,7 @@ html.static .pre img{transform:none}
 .ticker-track span { font-family: var(--display); text-transform: uppercase; letter-spacing: var(--track-large); line-height: 1; font-size: clamp(64px, 13.5vw, 210px); color: var(--red); padding-right: .3em; }
 @keyframes tick { from { transform: translate3d(0,0,0); } to { transform: translate3d(-50%,0,0); } }
 html.static .ticker-track { animation: none; }
+@media (prefers-reduced-motion: reduce) { .ticker-track { animation: none; } }
 
 /* PROOF — four numbers on the fascia red. */
 .proof { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); background: var(--red); color: var(--cream); }
@@ -410,7 +411,7 @@ html.static .ticker-track { animation: none; }
 .roll-sub { color: var(--g1); font-size: 17px; max-width: 42ch; }
 
 /* THE STRIP — a seamless marquee of the real rooms (sections.js builds the track). */
-.strip { background: var(--black); padding: 40px 0 clamp(72px, 9vw, 120px); display: flex; overflow: hidden; }
+.strip { background: var(--black); padding: 40px 0 clamp(72px, 9vw, 120px); display: flex; overflow-x: auto; scrollbar-width: none; }   /* no JS: a plain horizontal scroll; sections.js switches it to a marquee */
 .strip, .strip-track { display: flex; gap: 8px; flex: none; }
 .strip img { height: clamp(220px, 36vh, 440px); width: auto; flex: none; object-fit: cover; display: block; }
 
@@ -467,9 +468,10 @@ html.static .ticker-track { animation: none; }
 .lead input, .lead select { width: 100%; height: 52px; background: transparent; border: 0; border-bottom: 2px solid var(--g1); color: var(--cream); font: 17px/1.2 var(--body); padding: 0 2px; border-radius: 0; }
 .lead select { appearance: none; -webkit-appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--g1) 50%), linear-gradient(135deg, var(--g1) 50%, transparent 50%); background-position: calc(100% - 16px) 50%, calc(100% - 10px) 50%; background-size: 6px 6px; background-repeat: no-repeat; }
 .lead select option { color: var(--ink); }
-.lead input:focus, .lead select:focus { outline: none; border-bottom-color: var(--red-hot); }
+.lead input:focus:not(:focus-visible), .lead select:focus:not(:focus-visible) { outline: none; }
+.lead input:focus, .lead select:focus { border-bottom-color: var(--cream); border-bottom-width: 3px; }
 .lead [aria-invalid="true"] { border-bottom-color: var(--red-hot); }
-.lead input::placeholder { color: #6B6B6B; }
+.lead input::placeholder { color: #8E8E8E; }
 .lead .btn-xl { width: 100%; text-align: center; margin-top: 6px; }
 .lead-note { margin: 0; color: var(--g1); font-size: 15px; }
 .lead-done, .lead-err { margin: 0; font-size: 17px; }
@@ -480,6 +482,10 @@ html.static .ticker-track { animation: none; }
 
 /* FOOTER — the tagline as a marquee on red (sections.js drives #marq), then the facts. */
 .foot { background: var(--black); color: var(--g1); padding: 0 0 8vh; text-align: center; }
+.clock { font-variant-numeric: tabular-nums; }
+.proof-num { min-width: 2.2ch; }
+.floor h2, .train h2, .reviews h2, .why h2, .lead h3, .visit h2 { text-wrap: balance; }
+.roll-sub, .train p, .why p, .rv p, .facts dd { text-wrap: pretty; }
 .marq-wrap { background: var(--red); color: var(--cream); overflow: hidden; padding: 14px 0; }
 .marq { display: flex; white-space: nowrap; width: max-content; will-change: transform; }
 .marq span { font-family: var(--display); text-transform: uppercase; letter-spacing: var(--track-large); font-size: var(--d2); line-height: 1; padding-right: .4em; }
@@ -512,7 +518,10 @@ html.static .ticker-track { animation: none; }
   .band-claim { height: 84vh; }
   .visit-map { min-height: 240px; }
   .visit-map iframe { min-height: 240px; }
-  .nav .pill { display: inline-flex; }
+  .nav .pill { display: inline-flex; min-height: 44px; }
+  .sheet-close { min-height: 44px; }
+  .claim-addr a, .foot-sub a { display: inline-block; padding: 10px 0; }
+  .foot { padding-bottom: calc(10vh + 72px); }   /* room for the sticky bar; must sit after the .foot base rule */
 }
 
 /* dev contract: ?flat pins the hero to 900px so one tall headless capture shows the whole page */
