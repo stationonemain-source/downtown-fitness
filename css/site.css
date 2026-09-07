@@ -375,20 +375,20 @@ html.static .pre img{transform:none}
   position: absolute; left: var(--gutter); right: var(--gutter); bottom: 25vh; z-index: 3;
   color: var(--cream); display: flex; flex-direction: column; gap: 26px; max-width: 1000px;
 }
-.claim h1 { font-family: var(--display); font-weight: 400; text-transform: uppercase; letter-spacing: var(--track-large); line-height: .92; font-size: var(--d5); margin: 0; text-wrap: balance; }
+.claim h1 { font-family: var(--display); font-weight: 400; text-transform: uppercase; letter-spacing: var(--track-large); line-height: .92; font-size: var(--d4); margin: 0; text-wrap: balance; }
 .claim-actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
 .claim-addr { margin: 0; font-size: 17px; color: var(--g2); }
 .claim-addr a { text-decoration: none; }
 .claim-addr a:hover { text-decoration: underline; text-underline-offset: 4px; }
 .claim-addr .hot { color: var(--red-hot); font-variant-numeric: tabular-nums; }
 
-/* THE TICKER — CSS only, GPU transform, parks under reduced motion. */
+/* THE NAME — one static line at fascia size, cut by the frame edge the way a sign is. No motion. */
 .ticker { position: absolute; left: 0; right: 0; bottom: 2vh; z-index: 2; overflow: hidden; pointer-events: none; }
-.ticker-track { display: flex; white-space: nowrap; width: max-content; will-change: transform; animation: tick 30s linear infinite; }
-.ticker-track span { font-family: var(--display); text-transform: uppercase; letter-spacing: var(--track-large); line-height: 1; font-size: clamp(64px, 13.5vw, 210px); color: var(--red); padding-right: .3em; }
-@keyframes tick { from { transform: translate3d(0,0,0); } to { transform: translate3d(-50%,0,0); } }
-html.static .ticker-track { animation: none; }
-@media (prefers-reduced-motion: reduce) { .ticker-track { animation: none; } }
+.ticker-track { display: flex; white-space: nowrap; width: max-content; }
+.ticker-track span { font-family: var(--display); text-transform: uppercase; letter-spacing: var(--track-large); line-height: 1; font-size: clamp(48px, 8.5vw, 132px); color: var(--red); padding-left: var(--gutter); }
+
+/* The walk-in ends: the film fades to flat black and the claim sits on a calm ground. */
+.hero.done .hero-video, .hero.done .pre, .hero.done .band-claim { opacity: 0; transition: opacity 1.6s ease; }
 
 /* PROOF — four numbers on the fascia red. */
 .proof { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); background: var(--red); color: var(--cream); }
@@ -487,8 +487,8 @@ html.static .ticker-track { animation: none; }
 .floor h2, .train h2, .reviews h2, .why h2, .lead h3, .visit h2 { text-wrap: balance; }
 .roll-sub, .train p, .why p, .rv p, .facts dd { text-wrap: pretty; }
 .marq-wrap { background: var(--red); color: var(--cream); overflow: hidden; padding: 14px 0; }
-.marq { display: flex; white-space: nowrap; width: max-content; will-change: transform; }
-.marq span { font-family: var(--display); text-transform: uppercase; letter-spacing: var(--track-large); font-size: var(--d2); line-height: 1; padding-right: .4em; }
+.marq { display: flex; justify-content: center; padding: 0 var(--gutter); }
+.marq span { font-family: var(--display); text-transform: uppercase; letter-spacing: var(--track-large); font-size: var(--d2); line-height: 1; text-align: center; }
 .foot-inner { padding: 6vh var(--gutter) 0; }
 
 /* Mobile */
@@ -514,7 +514,7 @@ html.static .ticker-track { animation: none; }
   .claim-actions .btn { text-align: center; }
   .claim-addr { font-size: 15px; }
   .ticker { bottom: 1.5vh; }
-  .ticker-track span { font-size: 22vw; }
+  .ticker-track span { font-size: 13vw; }
   .band-claim { height: 84vh; }
   .visit-map { min-height: 240px; }
   .visit-map iframe { min-height: 240px; }
