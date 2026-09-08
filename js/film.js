@@ -127,6 +127,26 @@
     }, { rootMargin: '0px 0px -40% 0px' }).observe(seam);
   }
 
+  /* ------------------------------------------------- QUIET RISE (no library)
+     One reveal per SECTION, once, and it can never leave content parked at
+     opacity 0: no IntersectionObserver, or reduced motion, and everything is
+     marked risen immediately. */
+  (function () {
+    var rise = $$('[data-rise]');
+    if (!rise.length) return;
+    var show = function (el) { el.classList.add('risen'); };
+    if (STATIC || JUMP !== null || !('IntersectionObserver' in window)) { rise.forEach(show); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        show(en.target); io.unobserve(en.target);
+      });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
+    rise.forEach(function (el) { io.observe(el); });
+    // belt and braces: anything still hidden after 4s is shown anyway
+    setTimeout(function () { rise.forEach(function (el) { if (!el.classList.contains('risen')) show(el); }); }, 4000);
+  })();
+
   /* ---------------------------------------------- GSAP reveals below the hero */
   const gsapOk = typeof window.gsap !== 'undefined' && typeof window.ScrollTrigger !== 'undefined';
   if (gsapOk && JUMP === null && !STATIC && !params.has('nogsap')) {

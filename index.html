@@ -9,7 +9,7 @@
 <link rel="canonical" href="https://stationonemain-source.github.io/downtown-fitness/">
 <meta property="og:title" content="Downtown Fitness · On West Lindsey">
 <meta property="og:description" content="Norman's best-reviewed gym. Open every hour. 1610 W Lindsey St · (405) 801-2929">
-<meta property="og:image" content="https://stationonemain-source.github.io/downtown-fitness/img/og.jpg?v=20260908w">
+<meta property="og:image" content="https://stationonemain-source.github.io/downtown-fitness/img/og.jpg?v=20260908x">
 <meta property="og:url" content="https://stationonemain-source.github.io/downtown-fitness/">
 <meta property="og:type" content="website">
 
@@ -22,7 +22,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Source+Sans+Pro:wght@400;600&display=swap">
-<link rel="stylesheet" href="css/site.css?v=20260908w">
+<link rel="stylesheet" href="css/site.css?v=20260908x">
 <link rel="preload" as="image" href="media/open_1920.webp?v=20260904o" fetchpriority="high" media="(min-width: 900px)">
 <link rel="preload" as="image" href="media/open_1280.webp?v=20260904o" fetchpriority="high" media="(max-width: 899px)">
 
@@ -67,7 +67,7 @@
 
 <header class="chrome" data-zone="lot" id="chrome">
   <a class="wordmark" href="#top" aria-label="Downtown Fitness, On West Lindsey — top of page">
-    <img src="img/logo-mark.png?v=20260908w" width="225" height="101" alt="" decoding="async" fetchpriority="high">
+    <img src="img/logo-mark.png?v=20260908x" width="225" height="101" alt="" decoding="async" fetchpriority="high">
   </a>
   <nav class="nav" aria-label="Site">
     <a href="#floor">The floor</a>
@@ -112,6 +112,12 @@
     </picture>
   </div>
 
+  <!-- The film settles here: the doorway, seen from the sidewalk. Loaded at low
+       priority during the ~14 s film so the cross-fade never pops. -->
+  <img class="hero-end" src="img/heroend-1280.webp?v=20260908x"
+       srcset="img/heroend-1280.webp?v=20260908x 1280w, img/heroend-1920.webp?v=20260908x 1920w"
+       sizes="100vw" width="1920" height="1080" alt="" aria-hidden="true"
+       decoding="async" fetchpriority="low">
   <div class="band band-light" id="bandLight" aria-hidden="true"></div>
   <div class="band band-dark" id="bandDark" aria-hidden="true"></div>
   <div class="band band-top" id="bandTop" aria-hidden="true"></div>
@@ -149,7 +155,7 @@
 </section>
 
 <!-- THE FLOOR — the roll call. Five rooms, no cards, no icons. -->
-<section class="floor" id="floor" aria-labelledby="floor-h">
+<section data-rise class="floor" id="floor" aria-labelledby="floor-h">
   <div class="floor-head">
     <h2 id="floor-h">What's on the floor</h2>
     <p class="floor-sub">Five rooms. One floor. No closing time.</p>
@@ -182,7 +188,7 @@
 </section>
 
 <!-- TRAINING -->
-<section class="train" id="training" aria-labelledby="train-h">
+<section data-rise class="train" id="training" aria-labelledby="train-h">
   <div class="train-photo">
     <img src="img/merch-900.webp?v=20260906p" srcset="img/merch-900.webp?v=20260906p 900w, img/merch-1600.webp?v=20260906p 1600w" sizes="(max-width: 768px) 100vw, 50vw" width="900" height="675" alt="Downtown Fitness shirts on the shelf at the front desk" loading="lazy" decoding="async">
   </div>
@@ -196,7 +202,7 @@
 </section>
 
 <!-- REVIEWS — their words, verbatim, from Google. -->
-<section class="reviews" id="reviews" aria-labelledby="reviews-h">
+<section data-rise class="reviews" id="reviews" aria-labelledby="reviews-h">
   <div class="reviews-head">
     <h2 id="reviews-h">4.7 stars from people who actually go here.</h2>
     <a class="text-link" href="https://www.google.com/maps/search/?api=1&query=Downtown+Fitness+1610+W+Lindsey+St+Norman+OK" rel="noopener" target="_blank">Read all 83 on Google</a>
@@ -221,7 +227,7 @@
 </section>
 
 <!-- WHY WEST LINDSEY -->
-<section class="why" id="why" aria-labelledby="why-h">
+<section data-rise class="why" id="why" aria-labelledby="why-h">
   <div class="why-photo">
     <img src="img/lobby-900.webp?v=20260906p" srcset="img/lobby-900.webp?v=20260906p 900w, img/lobby-1600.webp?v=20260906p 1600w" sizes="(max-width: 768px) 100vw, 50vw" width="675" height="900" alt="The entry at Downtown Fitness, red chairs by the glass" loading="lazy" decoding="async">
   </div>
@@ -234,7 +240,7 @@
 </section>
 
 <!-- VISIT + THE FORM — the page's one conversion. -->
-<section class="visit" id="visit" aria-labelledby="visit-h">
+<section data-rise class="visit" id="visit" aria-labelledby="visit-h">
   <div class="visit-copy">
     <h2 id="visit-h">Come on in.</h2>
     <dl class="facts">
@@ -319,6 +325,44 @@
 </dialog>
 
 <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
-<script defer src="js/film.js?v=20260906r"></script>
+
+<!-- THE DESK — a message box, not live chat. Nobody is on the other end, so it
+     never claims anyone is. Posts to the same endpoint as the page's form. -->
+<aside class="desk" id="desk" aria-label="Message the desk">
+  <button class="desk-btn" type="button" aria-expanded="false" aria-controls="desk-panel" aria-label="Message the desk">
+    <span class="desk-ico" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9.9 9.9 0 0 1-4.2-.9L3 21l1.9-4.3A8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5z"/></svg>
+    </span>
+    <span class="desk-btn-txt">Message the desk</span>
+  </button>
+
+  <div class="desk-panel" id="desk-panel" role="dialog" aria-label="Message the desk at Downtown Fitness" hidden>
+    <div class="desk-head">
+      <img src="img/logo-mark.png?v=20260908x" width="225" height="101" alt="Downtown Fitness" class="desk-logo">
+      <button class="desk-close" type="button" aria-label="Close">&times;</button>
+    </div>
+    <p class="desk-intro">The desk is staffed during the day and the door is open all night.
+      Leave a number and someone here calls you back. No bots, no newsletter.</p>
+
+    <form class="desk-form" novalidate>
+      <label for="desk-name">Name</label>
+      <input id="desk-name" name="name" type="text" autocomplete="name" required>
+      <label for="desk-phone">Phone</label>
+      <input id="desk-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required>
+      <label for="desk-msg">What do you need?</label>
+      <textarea id="desk-msg" name="message" rows="3" placeholder="Membership, a tour, training, hours&hellip;"></textarea>
+      <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn btn-red" type="submit">Send it</button>
+      <p class="desk-err" role="alert" hidden>That did not send. Call the desk instead:
+        <a href="tel:4058012929">(405) 801-2929</a>.</p>
+    </form>
+
+    <p class="desk-done" hidden>Got it. Someone from the desk will call you back.<br>
+      <a href="tel:4058012929">Or call now: (405) 801-2929</a></p>
+  </div>
+</aside>
+
+<script defer src="js/film.js?v=20260908x"></script>
+<script defer src="js/chat.js?v=20260908x"></script>
 </body>
 </html>

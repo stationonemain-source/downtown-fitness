@@ -395,7 +395,87 @@ html.static .pre img{transform:none}
 .ticker-track span { font-family: var(--display); text-transform: uppercase; letter-spacing: var(--track-large); line-height: 1; font-size: clamp(48px, 8.5vw, 132px); color: var(--red); padding-left: var(--gutter); }
 
 /* The walk-in ends: the film fades to flat black and the claim sits on a calm ground. */
-.hero.done .hero-video, .hero.done .pre, .hero.done .band-claim { opacity: 0; transition: opacity 1.6s ease; }
+/* The film settles on the doorway rather than on black: the page keeps a face,
+   and the claim keeps its scrim. */
+.hero-end { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  object-position: center; opacity: 0; z-index: 0; transition: opacity 1.8s ease; }
+.hero.done .hero-video, .hero.done .pre { opacity: 0; transition: opacity 1.8s ease; }
+.hero.done .hero-end { opacity: 1; }
+
+/* ---- quiet motion. Everything here is small, once, and off under reduced motion. ---- */
+@media (prefers-reduced-motion: no-preference) {
+  [data-rise] { opacity: 0; transform: translate3d(0, 14px, 0);
+    transition: opacity .7s ease, transform .7s cubic-bezier(.22,.61,.36,1); }
+  [data-rise].risen { opacity: 1; transform: none; }
+  .pill-dot { animation: breathe 2.8s ease-in-out infinite; }
+  @keyframes breathe { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: .55; transform: scale(.82); } }
+}
+.no-js [data-rise] { opacity: 1; transform: none; }
+
+/* the nav underline grows from the left */
+.nav a:not(.pill) { position: relative; }
+.nav a:not(.pill)::after { content: ''; position: absolute; left: 0; right: 0; bottom: -6px; height: 1px;
+  background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform .3s ease; }
+.nav a:not(.pill):hover::after, .nav a:not(.pill):focus-visible::after { transform: scaleX(1); }
+
+/* the strip lifts the frame you are looking at, instead of scaling it out of its box */
+.strip img { filter: brightness(.86); transition: filter .45s ease; }
+.strip img:hover { filter: brightness(1.02); }
+
+/* roll call: the row you point at steps toward you */
+.roll-row { transition: transform .35s cubic-bezier(.22,.61,.36,1), border-color .35s ease; }
+.roll-row:hover { transform: translateX(8px); border-top-color: #4A4A4A; }
+.roll-row .roll-no { transition: color .35s ease; }
+.roll-row:hover .roll-no { color: var(--red-hot); }
+
+/* buttons lift a little on hover */
+.btn { will-change: transform; }
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(1px); }
+
+/* ---- THE DESK widget ---- */
+.desk { position: fixed; right: 20px; bottom: 20px; z-index: 40; display: flex;
+  flex-direction: column; align-items: flex-end; gap: 12px; }
+.desk-btn { display: inline-flex; align-items: center; gap: 10px; cursor: pointer;
+  font-family: var(--display); font-size: 15px; text-transform: uppercase; letter-spacing: var(--track-small);
+  color: var(--cream); background: var(--red); border: 2px solid var(--red); border-radius: 999px;
+  padding: 13px 20px 12px 16px; box-shadow: 0 10px 30px rgba(0,0,0,.45);
+  transition: background-color .25s ease, transform .25s ease; }
+.desk-btn:hover { background: #A61F1F; border-color: #A61F1F; transform: translateY(-2px); }
+.desk-ico { display: grid; place-items: center; width: 20px; height: 20px; }
+.desk-ico svg { width: 20px; height: 20px; }
+.desk.is-open .desk-btn-txt { display: none; }
+.desk.is-open .desk-btn { padding: 13px 16px 12px; }
+
+.desk-panel { width: min(340px, calc(100vw - 40px)); background: var(--ink); color: var(--cream);
+  border: 1px solid #2E2E2E; border-radius: 4px; padding: 18px 18px 20px;
+  box-shadow: 0 24px 70px rgba(0,0,0,.6); order: -1; }
+.desk-panel[hidden] { display: none; }
+.desk-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+.desk-logo { height: 34px; width: auto; max-width: none; }
+.desk-close { background: none; border: 0; color: var(--g1); font-size: 26px; line-height: 1;
+  cursor: pointer; padding: 0 4px; }
+.desk-close:hover { color: var(--cream); }
+.desk-intro { margin: 0 0 16px; font-size: 15px; line-height: 1.45; color: var(--g2); }
+.desk-form { display: grid; gap: 6px; }
+.desk-form label { font-family: var(--display); font-size: 12px; text-transform: uppercase;
+  letter-spacing: var(--track-small); color: var(--g1); margin-top: 8px; }
+.desk-form input, .desk-form textarea { width: 100%; background: transparent; border: 0;
+  border-bottom: 2px solid var(--g1); color: var(--cream); font: 16px/1.35 var(--body);
+  padding: 8px 2px; border-radius: 0; resize: vertical; }
+.desk-form input:focus, .desk-form textarea:focus { outline: none; border-bottom-color: var(--cream); border-bottom-width: 3px; }
+.desk-form [aria-invalid="true"] { border-bottom-color: var(--red-hot); }
+.desk-form ::placeholder { color: #8E8E8E; }
+.desk-form .btn { margin-top: 16px; text-align: center; }
+.desk-err { margin: 10px 0 0; font-size: 14px; color: var(--red-hot); }
+.desk-done { margin: 0; font-size: 16px; line-height: 1.5; }
+.desk-done a { color: var(--red-hot); }
+
+@media (max-width: 768px) {
+  .desk { right: 14px; bottom: calc(72px + env(safe-area-inset-bottom)); }   /* clear of the sticky bar */
+  .desk-btn-txt { display: none; }
+  .desk-btn { padding: 14px; }
+}
 
 /* PROOF — four numbers on the fascia red. */
 .proof { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); background: var(--red); color: var(--cream); }
