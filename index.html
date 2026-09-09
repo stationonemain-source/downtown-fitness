@@ -8,10 +8,10 @@
 <meta name="theme-color" content="#000000">
 <link rel="canonical" href="https://stationonemain-source.github.io/downtown-fitness/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23000'/%3E%3Cellipse cx='32' cy='32' rx='27' ry='16' fill='none' stroke='%23F7F7F7' stroke-width='3'/%3E%3Ctext x='32' y='30' font-family='Impact,Haettenschweiler,Arial Narrow,sans-serif' font-size='15' fill='%23F7F7F7' text-anchor='middle'%3EDT%3C/text%3E%3Ctext x='32' y='43' font-family='Impact,Haettenschweiler,Arial Narrow,sans-serif' font-size='15' fill='%23C72828' text-anchor='middle'%3EFIT%3C/text%3E%3C/svg%3E">
-<link rel="apple-touch-icon" href="img/logo-mark.png?v=20260909c">
+<link rel="apple-touch-icon" href="img/logo-mark.png?v=20260909f">
 <meta property="og:title" content="Downtown Fitness · On West Lindsey">
 <meta property="og:description" content="Norman's best-reviewed gym. Open every hour. 1610 W Lindsey St · (405) 801-2929">
-<meta property="og:image" content="https://stationonemain-source.github.io/downtown-fitness/img/og.jpg?v=20260909c">
+<meta property="og:image" content="https://stationonemain-source.github.io/downtown-fitness/img/og.jpg?v=20260909f">
 <meta property="og:url" content="https://stationonemain-source.github.io/downtown-fitness/">
 <meta property="og:type" content="website">
 
@@ -24,9 +24,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Source+Sans+Pro:wght@400;600&display=swap">
-<link rel="stylesheet" href="css/site.css?v=20260909e">
-<link rel="preload" as="image" href="media/open_1920.webp?v=20260909c" fetchpriority="high" media="(min-width: 900px)">
-<link rel="preload" as="image" href="media/open_1280.webp?v=20260909c" fetchpriority="high" media="(max-width: 899px)">
+<link rel="stylesheet" href="css/site.css?v=20260909f">
+<link rel="preload" as="image" href="media/open_1920.webp?v=20260909f" fetchpriority="high" media="(min-width: 900px)">
+<link rel="preload" as="image" href="media/open_1280.webp?v=20260909f" fetchpriority="high" media="(max-width: 899px)">
 
 <!-- ExerciseGym schema: only facts from the brief and the Google listing. -->
 <script type="application/ld+json">
@@ -69,7 +69,7 @@
 
 <header class="chrome" data-zone="lot" id="chrome">
   <a class="wordmark" href="#top" aria-label="Downtown Fitness, On West Lindsey — top of page">
-    <img src="img/logo-mark.png?v=20260909c" width="225" height="101" alt="" decoding="async" fetchpriority="high">
+    <img src="img/logo-mark.png?v=20260909f" width="225" height="101" alt="" decoding="async" fetchpriority="high">
   </a>
   <nav class="nav" aria-label="Site">
     <a href="#floor">The floor</a>
@@ -93,24 +93,25 @@
      ============================================================ -->
 <section class="hero" id="top" aria-label="Downtown Fitness, the walk in">
   <video class="hero-video" id="hero" muted playsinline preload="metadata"
-         poster="media/poster.jpg?v=20260909c"
+         poster="media/poster.jpg?v=20260909f"
          disablepictureinpicture disableremoteplayback
          aria-label="A walk up to the doors of Downtown Fitness and down the centre aisle inside, all real footage">
-    <source src="media/hero_960.mp4?v=20260909c" type="video/mp4" media="(max-width: 899px)">
-    <source src="media/hero.mp4?v=20260909c" type="video/mp4">
+    <source src="media/hero_960.mp4?v=20260909f" type="video/mp4" media="(max-width: 899px)">
+    <source src="media/hero.mp4?v=20260909f" type="video/mp4">
   </video>
   <script>
     (function () {
       var v = document.getElementById('hero');
       if (document.documentElement.classList.contains('static')) { v.preload = 'none'; }
-      v.src = (window.innerWidth < 900 ? 'media/hero_960.mp4' : 'media/hero.mp4') + '?v=20260909c';
+      if (window.innerWidth <= 768) { v.preload = 'none'; v.removeAttribute('src'); }   // phones: photograph only, no 1.8 MB film
+      else v.src = 'media/hero.mp4?v=20260909f';
     })();
   </script>
 
   <div class="pre" id="pre" aria-hidden="true">
     <picture>
-      <source media="(max-width: 899px)" srcset="media/open_1280.webp?v=20260909c">
-      <img id="preImg" src="media/open_1920.webp?v=20260909c" alt="" decoding="async" fetchpriority="high">
+      <source media="(max-width: 899px)" srcset="media/open_1280.webp?v=20260909f">
+      <img id="preImg" src="media/open_1920.webp?v=20260909f" alt="" decoding="async" fetchpriority="high">
     </picture>
   </div>
 
@@ -218,6 +219,34 @@
       <span class="rv-stars" role="img" aria-label="Five stars">★★★★★</span>
       <p>CLEAN AND FRIENDLY. I've been to every gym in Norman and this takes FIRST PLACE. Never have I once felt like a dollar nor unwanted here. The staff and owner are EXTREMELY friendly and want to make sure you have a great gym experience. It may not be a large gym, but it has every necessary piece of equipment to workout efficiently and effectively.</p>
       <footer>Tyler Brahic · on Google</footer>
+    </blockquote>
+  </div>
+</section>
+
+<!-- FROM THE OWNER — Mark's own words, verbatim from dfnorman.com. The one thing the
+     reference sites had that this page did not: the person behind the place. -->
+<section class="owner" id="owner" data-rise aria-labelledby="owner-h">
+  <figure class="owner-photo">
+    <img src="img/mark-700.webp?v=20260909f" srcset="img/mark-700.webp?v=20260909f 700w, img/mark-1200.webp?v=20260909f 1200w"
+         sizes="(max-width: 900px) 100vw, 42vw" width="560" height="700"
+         alt="Mark Floyd, owner of Downtown Fitness, wearing the size 44 jeans from 2017 and pulling the waistband out to show the gap" loading="lazy" decoding="async">
+    <figcaption>Mark, in the old size 44s.</figcaption>
+  </figure>
+  <div class="owner-copy">
+    <p class="kicker">From the owner</p>
+    <h2 id="owner-h">310 pounds. Then 200.</h2>
+    <blockquote class="owner-quote">
+      <p>In December 2017, I weighed around 310 pounds and am the face of Downtown Fitness on West Lindsey.
+        I was honestly uncomfortable within my own skin and it hurt physically and mentally to workout.</p>
+      <p>This particular pair of jeans are size 44 waist, but I could never fit into them because they were
+        too <em>small</em>. I have been on a mission to get my health as well as my life back. I&rsquo;m currently
+        at around 200 pounds, wearing a size 32 waist and I&rsquo;m back in the gym, feeling the energy that
+        I&rsquo;ve missed for far too long.</p>
+      <p>I have had so much encouragement from friends, family and the Downtown Fitness family and I thank
+        all of you. Most importantly I thank God for guiding my path.</p>
+      <p>For those of you out there that are where I was: you <em>can</em> do it.</p>
+      <p class="owner-cta">Come join me and the Downtown Fitness family.</p>
+      <footer>Mark Floyd <span class="sep">&middot;</span> Owner, Downtown Fitness</footer>
     </blockquote>
   </div>
 </section>
@@ -334,6 +363,14 @@
     <div class="marq"><span>Kickstarting healthy lifestyles.</span></div>
   </div>
   <div class="foot-inner">
+    <ul class="social" aria-label="Downtown Fitness on social media">
+      <li><a href="https://www.facebook.com/downtownfitnessonwestlindsey" rel="noopener" target="_blank" aria-label="Downtown Fitness on Facebook">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.3c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.4H7.4V14h2.8v8h3.3z"/></svg></a></li>
+      <li><a href="https://www.instagram.com/downtownfitnessnorman/" rel="noopener" target="_blank" aria-label="Downtown Fitness on Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 7.3a4.7 4.7 0 1 0 0 9.4 4.7 4.7 0 0 0 0-9.4zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm6-7.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0zM21 8.2c-.1-1.5-.4-2.8-1.5-3.9S17.3 2.9 15.8 2.8c-1.5-.1-6.1-.1-7.6 0-1.5.1-2.8.4-3.9 1.5S2.9 6.7 2.8 8.2c-.1 1.5-.1 6.1 0 7.6.1 1.5.4 2.8 1.5 3.9s2.4 1.4 3.9 1.5c1.5.1 6.1.1 7.6 0 1.5-.1 2.8-.4 3.9-1.5s1.4-2.4 1.5-3.9c.1-1.5.1-6.1 0-7.6zm-2 9.2a3 3 0 0 1-1.7 1.7c-1.2.5-4 .4-5.3.4s-4.1.1-5.3-.4a3 3 0 0 1-1.7-1.7c-.5-1.2-.4-4-.4-5.3s-.1-4.1.4-5.3A3 3 0 0 1 6.7 5c1.2-.5 4-.4 5.3-.4s4.1-.1 5.3.4A3 3 0 0 1 19 6.7c.5 1.2.4 4 .4 5.3s.1 4.1-.4 5.3z"/></svg></a></li>
+      <li><a href="https://www.twitter.com/dfnorman" rel="noopener" target="_blank" aria-label="Downtown Fitness on X, formerly Twitter">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.5 3h3l-6.8 7.8L21.7 21h-6.2l-4.9-6.4L5 21H2l7.3-8.3L1.6 3h6.4l4.4 5.8L17.5 3zm-1.1 16.2h1.7L7 4.7H5.2l11.2 14.5z"/></svg></a></li>
+    </ul>
     <p class="foot-line">Downtown Fitness <span aria-hidden="true">·</span> On West Lindsey <span aria-hidden="true">·</span> <a href="https://dfnorman.com" rel="noopener">dfnorman.com</a></p>
     <p class="foot-sub"><a href="tel:4058012929" data-track="call_footer">(405) 801-2929</a> <span aria-hidden="true">·</span> 1610 W Lindsey St, Norman, OK <span aria-hidden="true">·</span> <span class="status-word">Open</span> <span class="clock">&nbsp;</span></p>
   </div>
@@ -371,7 +408,7 @@
 
   <div class="desk-panel" id="desk-panel" role="dialog" aria-label="Ask the desk at Downtown Fitness" hidden>
     <div class="desk-head">
-      <img src="img/logo-mark.png?v=20260909c" width="225" height="101" alt="Downtown Fitness" class="desk-logo">
+      <img src="img/logo-mark.png?v=20260909f" width="225" height="101" alt="Downtown Fitness" class="desk-logo">
       <button class="desk-close" type="button" aria-label="Close">&times;</button>
     </div>
     <p class="desk-sub">An assistant, not a person. A real one is on
@@ -396,7 +433,7 @@
   </div>
 </aside>
 
-<script defer src="js/film.js?v=20260909c"></script>
-<script defer src="js/chat.js?v=20260909c"></script>
+<script defer src="js/film.js?v=20260909f"></script>
+<script defer src="js/chat.js?v=20260909f"></script>
 </body>
 </html>

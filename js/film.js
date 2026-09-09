@@ -55,6 +55,9 @@
   const params = new URLSearchParams(location.search);
   const JUMP = params.get('jump');                            // dev contract
   const STATIC = html.classList.contains('static');           // prefers-reduced-motion (set in <head>)
+  // Phones get the photograph and the push, never the film: a 16:9 walking take cover-fit to a
+  // portrait screen is a sliver of aisle and stools. The still holds, pushed in; nothing ends.
+  const PHONE = matchMedia('(max-width: 768px)').matches;
   const DEBUG = params.has('debug');
 
   if (!CONFIG.WE_ARE_OPEN) html.classList.add('closed');
@@ -264,15 +267,15 @@
     if (preDone) return;
     preDone = true;
     clearTimeout(preTimer);
-    if (!params.has('nofilm')) hero.classList.add('film');
-    if (!params.has('noplay2') && video.paused && !video.ended) {                        // early start missed (slow network): start now
+    if (!params.has('nofilm') && !PHONE) hero.classList.add('film');
+    if (!params.has('noplay2') && !PHONE && video.paused && !video.ended) {                        // early start missed (slow network): start now
       const p = video.play();
       if (p && typeof p.then === 'function') p.then(() => { forceFinale = false; wake(); }).catch(blocked);
     }
     wake();
   }
   function rollEarly() {                                       // the decoder's spin-up happens under the photograph
-    if (params.has('noplay2') || preDone || video.ended || !video.paused) return;
+    if (params.has('noplay2') || PHONE || preDone || video.ended || !video.paused) return;
     const p = video.play();
     if (p && typeof p.then === 'function') p.then(() => { forceFinale = false; }).catch(() => {});
   }

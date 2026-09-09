@@ -706,7 +706,7 @@ html.flat .train-photo img, html.flat .why-photo img { height: 380px; min-height
 @media (max-width: 768px) {
   /* a landscape plate cover-fit to a portrait box already fills the height, so object-position-y is inert;
      zoom it a little and lift it with the individual translate property (never transform: the push animates that) */
-  .pre img, .hero-video { height: 124%; translate: 0 -12%; }
+  .pre img { height: 124%; translate: 0 -12%; }
   .band-claim { height: 92vh; background: linear-gradient(to top, rgba(0,0,0,.96) 0%, rgba(0,0,0,.78) 34%, rgba(0,0,0,.42) 62%, rgba(0,0,0,0) 100%); }
   .claim { bottom: 6vh; gap: 16px; }
   .claim h1 { font-size: 11vw; }
@@ -715,4 +715,37 @@ html.flat .train-photo img, html.flat .why-photo img { height: 380px; min-height
   .ticker { display: none; }
   .desk { bottom: 18px; }
   .claim-addr .sep { display: none; }
+}
+
+/* ---- FROM THE OWNER ---- */
+.owner { background: var(--cream); color: var(--ink); padding: clamp(72px,9vw,120px) var(--gutter);
+  display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(36px,6vw,96px); align-items: start;
+  border-top: 1px solid #E4E0DC; }
+.owner-photo { margin: 0; position: sticky; top: 90px; }
+.owner-photo img { width: 100%; height: auto; display: block; border-radius: 6px; }
+.owner-photo figcaption { margin-top: 12px; font-family: var(--display); font-size: 12px; text-transform: uppercase;
+  letter-spacing: var(--track-small); color: #5A5654; }
+.owner h2 { font-family: var(--display); font-weight: 400; text-transform: uppercase; letter-spacing: var(--track-large);
+  line-height: .92; font-size: var(--d4); margin: 0 0 .45em; }
+.owner-quote { margin: 0; padding-left: 22px; border-left: 4px solid var(--red); }
+.owner-quote p { margin: 0 0 1em; font-size: clamp(17px,1.5vw,20px); line-height: 1.55; max-width: 58ch; }
+.owner-quote em { font-style: normal; text-transform: uppercase; font-family: var(--display); letter-spacing: var(--track-small); }
+.owner-cta { font-family: var(--display); text-transform: uppercase; letter-spacing: var(--track-small); font-size: clamp(19px,1.8vw,24px) !important; }
+.owner-quote footer { margin-top: 18px; font-family: var(--display); font-size: 13px; text-transform: uppercase;
+  letter-spacing: var(--track-small); color: #5A5654; }
+.owner-quote .sep { margin: 0 .4em; }
+
+/* ---- SOCIAL, in the footer ---- */
+.social { list-style: none; margin: 0 0 22px; padding: 0; display: flex; justify-content: center; gap: 14px; }
+.social a { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%;
+  background: var(--cream); color: var(--ink); transition: background-color .25s ease, color .25s ease, transform .25s ease; }
+.social a:hover, .social a:focus-visible { background: var(--red); color: var(--cream); transform: translateY(-2px); }
+.social svg { width: 22px; height: 22px; }
+
+@media (max-width: 900px) {
+  .owner { grid-template-columns: 1fr; }
+  .owner-photo { position: static; max-width: 420px; }
+}
+@media (max-width: 768px) {
+  .owner { padding: 56px 5vw; }
 }
