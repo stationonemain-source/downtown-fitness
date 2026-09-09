@@ -697,3 +697,22 @@ html.flat .train-photo img, html.flat .why-photo img { height: 380px; min-height
   .mbar.show ~ .desk { bottom: calc(74px + env(safe-area-inset-bottom)); }
   .desk-panel { width: calc(100vw - 28px); }
 }
+
+/* MOBILE HERO (2026-09-09 pass 2). The portrait crop put the fascia sign dead centre and the
+   claim straight under it, so sign, headline and banner all stacked. Lift the plate so the sign
+   sits in the top third, park the claim in the bottom third over the dark lot, deepen the band,
+   give the status its own line, and drop the ticker: cut to two words with a button on it, it
+   was noise, not a signature. */
+@media (max-width: 768px) {
+  /* a landscape plate cover-fit to a portrait box already fills the height, so object-position-y is inert;
+     zoom it a little and lift it with the individual translate property (never transform: the push animates that) */
+  .pre img, .hero-video { height: 124%; translate: 0 -12%; }
+  .band-claim { height: 92vh; background: linear-gradient(to top, rgba(0,0,0,.96) 0%, rgba(0,0,0,.78) 34%, rgba(0,0,0,.42) 62%, rgba(0,0,0,0) 100%); }
+  .claim { bottom: 6vh; gap: 16px; }
+  .claim h1 { font-size: 11vw; }
+  .claim-addr { font-size: 14px; line-height: 1.45; }
+  .claim-addr .js-only { display: block; margin-top: 4px; color: var(--cream); }
+  .ticker { display: none; }
+  .desk { bottom: 18px; }
+  .claim-addr .sep { display: none; }
+}
