@@ -268,6 +268,10 @@
     preDone = true;
     clearTimeout(preTimer);
     if (!params.has('nofilm') && !PHONE) hero.classList.add('film');
+    if (PHONE && !STATIC) {                                    // the photograph sequence: door in, then back out front
+      setTimeout(function () { hero.classList.add('m2'); }, 400);
+      setTimeout(function () { hero.classList.remove('m2'); hero.classList.add('m3'); }, 8400);
+    }
     if (!params.has('noplay2') && !PHONE && video.paused && !video.ended) {                        // early start missed (slow network): start now
       const p = video.play();
       if (p && typeof p.then === 'function') p.then(() => { forceFinale = false; wake(); }).catch(blocked);

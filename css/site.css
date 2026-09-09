@@ -749,3 +749,16 @@ html.flat .train-photo img, html.flat .why-photo img { height: 380px; min-height
 @media (max-width: 768px) {
   .owner { padding: 56px 5vw; }
 }
+
+/* ---- PHONE HERO SEQUENCE: storefront push -> doorway drift -> back to the storefront ---- */
+.pre2 { position: absolute; inset: 0; opacity: 0; pointer-events: none; overflow: hidden; }
+.pre2 img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 38%; display: block; }
+@media (max-width: 768px) {
+  .pre2 { transition: opacity 1.5s ease; }
+  .pre2 img { transform: scale(1); transform-origin: 50% 45%; transition: transform 8.5s cubic-bezier(.25,.1,.5,1); }
+  .hero.m2 .pre2 { opacity: 1; }
+  .hero.m2 .pre2 img { transform: scale(1.09); }
+  .hero.m3 .pre2 { opacity: 0; transition: opacity 1.8s ease; }
+  .hero.m3 .pre2 img { transform: scale(1.09); transition: none; }
+}
+html.static .pre2 { display: none; }
