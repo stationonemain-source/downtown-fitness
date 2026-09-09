@@ -668,3 +668,32 @@ html.flat .hero { height: 900px; }
 html.flat .chrome { position: absolute; }
 html.flat .strip img { height: 300px; }
 html.flat .train-photo img, html.flat .why-photo img { height: 380px; min-height: 0; }
+
+
+/* ============================================================
+   MOBILE PASS (2026-09-09). Lives at the END of the file on purpose:
+   media queries add no specificity, so a phone rule only wins if
+   nothing later in the file restates the same selector.
+   ============================================================ */
+@media (max-width: 768px) {
+  .hero { height: 100svh; }
+  .claim { bottom: 13vh; gap: 14px; left: 5vw; right: 5vw; }
+  .claim h1 { font-size: 11.6vw; line-height: .9; }
+  .claim-actions { gap: 10px; }
+  .claim-actions .btn-xl { font-size: 19px; padding: 17px 22px; }
+  .claim-addr { font-size: 14px; line-height: 1.5; }
+  .claim-addr .clock, .claim-addr a { white-space: nowrap; }
+  .band-claim { height: 90vh; }
+  .ticker { bottom: 1.2vh; }
+  .ticker-track span { font-size: 10.5vw; padding-left: 5vw; }
+  .why-photo img { height: 46vh; min-height: 0; }
+  .faq { padding: 56px 5vw; }
+  .faq h2 { font-size: 11vw; }
+  .faq-item summary { font-size: 16px; padding: 16px 30px 16px 0; }
+  .reviews, .visit, .train, .floor { padding-left: 5vw; padding-right: 5vw; }
+  .rv-grid { gap: 18px; }
+  /* the desk button sits low until the sticky bar appears, then rides above it */
+  .desk { bottom: 18px; right: 14px; }
+  .mbar.show ~ .desk { bottom: calc(74px + env(safe-area-inset-bottom)); }
+  .desk-panel { width: calc(100vw - 28px); }
+}
