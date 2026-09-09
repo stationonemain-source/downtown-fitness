@@ -317,7 +317,7 @@
   /* -------------------------------------------------------------- VIDEO */
   for (const ev of ['play', 'playing', 'seeked', 'timeupdate', 'pause', 'ended', 'loadeddata']) video.addEventListener(ev, wake);
   video.addEventListener('ended', wake);                       // settle the finale beat on the held frame
-  video.addEventListener('ended', () => { const pre = $('#pre'); if (pre) pre.style.display = 'none'; }, { once: true });  // tear the still's layer down at the hold, never mid-film
+  // the still is NOT torn down any more: the film ends by fading back to it (the front of the building)
   video.addEventListener('ended', () => hero.classList.add('done'), { once: true });   // the film fades to flat black; the claim stays
   video.addEventListener('error', () => { forceFinale = true; hero.classList.add('noplay'); wake(); });
 

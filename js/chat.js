@@ -1,31 +1,41 @@
 /* ============================================================================
-   Downtown Fitness — the desk widget.
-   NOT live chat. Nobody is sitting on the other end, so it never says anyone
-   is. It takes a name, a number and a message, posts them to the same endpoint
-   the page's form uses, and says the desk will call back. If the endpoint is
-   not set it still thanks the visitor and logs, exactly like the main form.
+   Downtown Fitness — ask the desk.
+   A real assistant: the page posts the conversation to an n8n webhook, which
+   holds the model key server-side and answers from a fixed set of facts about
+   this gym. It is NOT a person and never claims to be. Anything it does not
+   know (prices, contracts, anything invented) it hands to the phone.
+   Falls back to a plain call-the-desk panel if the endpoint cannot be reached.
    ============================================================================ */
 (function () {
   'use strict';
-  var CFG = window.__DF_CONFIG || {};
-  var ENDPOINT = CFG.LEAD_ENDPOINT || '';
+  var ENDPOINT = 'https://n8n.srv1748596.hstgr.cloud/webhook/downtown-fitness-desk';
+  var PHONE = '(405) 801-2929';
   var root = document.getElementById('desk');
   if (!root) return;
 
-  var btn    = root.querySelector('.desk-btn');
-  var panel  = root.querySelector('.desk-panel');
-  var form   = root.querySelector('.desk-form');
-  var close  = root.querySelector('.desk-close');
-  var done   = root.querySelector('.desk-done');
-  var err    = root.querySelector('.desk-err');
-  var submit = form.querySelector('button[type="submit"]');
-  var open   = false;
+  var btn   = root.querySelector('.desk-btn');
+  var panel = root.querySelector('.desk-panel');
+  var close = root.querySelector('.desk-close');
+  var log   = root.querySelector('.desk-log');
+  var form  = root.querySelector('.desk-form');
+  var input = root.querySelector('.desk-input');
+  var send  = root.querySelector('.desk-send');
+  var chips = root.querySelector('.desk-chips');
+  var open = false, busy = false, greeted = false;
+  var history = [];
 
   window.dataLayer = window.dataLayer || [];
   function track(ev, data) {
-    var row = Object.assign({ event: ev }, data || {});
-    window.dataLayer.push(row);
-    if (new URLSearchParams(location.search).has('debug')) console.log('[df:track]', row);
+    window.dataLayer.push(Object.assign({ event: ev }, data || {}));
+  }
+
+  function bubble(role, text, cls) {
+    var el = document.createElement('div');
+    el.className = 'desk-msg desk-' + role + (cls ? ' ' + cls : '');
+    el.textContent = text;
+    log.appendChild(el);
+    log.scrollTop = log.scrollHeight;
+    return el;
   }
 
   function setOpen(v) {
@@ -33,88 +43,85 @@
     root.classList.toggle('is-open', v);
     btn.setAttribute('aria-expanded', v ? 'true' : 'false');
     panel.hidden = !v;
-    if (v) {
-      track('desk_open', {});
-      var f = form.querySelector('input, textarea');
-      if (f) setTimeout(function () { f.focus({ preventScroll: true }); }, 60);
-    } else {
-      btn.focus({ preventScroll: true });
+    if (!v) { btn.focus({ preventScroll: true }); return; }
+    track('desk_open', {});
+    if (!greeted) {
+      greeted = true;
+      bubble('bot', "Hey. Ask me anything about the gym — hours, the floor, training, where we are. I'm an assistant, so for prices or anything I can't answer, the desk is on " + PHONE + '.');
     }
+    setTimeout(function () { input.focus({ preventScroll: true }); }, 60);
   }
 
   btn.addEventListener('click', function () { setOpen(!open); });
   close.addEventListener('click', function () { setOpen(false); });
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && open) setOpen(false);
-  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && open) setOpen(false); });
 
-  // keep focus inside the panel while it is open
   panel.addEventListener('keydown', function (e) {
     if (e.key !== 'Tab') return;
-    var f = panel.querySelectorAll('button, input, textarea, a[href]');
+    var f = panel.querySelectorAll('button, input, a[href]');
     if (!f.length) return;
     var first = f[0], last = f[f.length - 1];
     if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
     else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
   });
 
-  function valid() {
-    var ok = true;
-    var fields = form.querySelectorAll('[required]');
-    for (var i = 0; i < fields.length; i++) {
-      var f = fields[i];
-      var bad = !f.value.trim() || (f.type === 'tel' && f.value.replace(/\D/g, '').length < 10);
-      f.setAttribute('aria-invalid', bad ? 'true' : 'false');
-      if (bad && ok) { f.focus(); ok = false; }
-    }
-    return ok;
+  if (chips) {
+    chips.addEventListener('click', function (e) {
+      var c = e.target.closest('.desk-chip');
+      if (!c || busy) return;
+      chips.remove();
+      ask(c.textContent.trim());
+    });
   }
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    err.hidden = true;
-    if (form.querySelector('.hp').value) { finish(); return; }   // bot
-    if (!valid()) return;
-
-    var data = {};
-    new FormData(form).forEach(function (v, k) { data[k] = v; });
-    delete data.website;
-    data.source = 'Desk widget';
-    data.page = location.pathname + location.search;
-    data.sent_at = new Date().toISOString();
-    try {
-      var land = JSON.parse(sessionStorage.getItem('df_land') || '{}');
-      data.referrer = land.ref || '';
-      data.utm = land.utm || '';
-    } catch (x) {}
-
-    submit.disabled = true;
-    submit.textContent = 'Sending…';
-    track('desk_submit', { has_message: !!data.message });
-
-    var settle = function (sent) {
-      submit.disabled = false;
-      submit.textContent = 'Send it';
-      if (sent) { finish(); track('desk_sent', {}); }
-      else { err.hidden = false; track('desk_error', {}); }
-    };
-
-    if (!ENDPOINT) {
-      console.warn('[df] LEAD_ENDPOINT is empty — desk message not delivered:', data);
-      settle(true);
-      return;
-    }
-    fetch(ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify(data)
-    }).then(function (r) { settle(r.ok); }).catch(function () { settle(false); });
+    var t = input.value.trim();
+    if (!t || busy) return;
+    if (chips && chips.parentNode) chips.remove();
+    ask(t);
   });
 
-  function finish() {
-    form.hidden = true;
-    done.hidden = false;
-    done.setAttribute('tabindex', '-1');
-    done.focus({ preventScroll: true });
+  function ask(text) {
+    bubble('you', text);
+    history.push({ role: 'user', content: text });
+    input.value = '';
+    busy = true;
+    send.disabled = true;
+    var think = bubble('bot', 'Typing…', 'is-thinking');
+    track('desk_ask', {});
+
+    var done = function (reply, ok) {
+      think.remove();
+      busy = false;
+      send.disabled = false;
+      if (ok) {
+        bubble('bot', reply);
+        history.push({ role: 'assistant', content: reply });
+        track('desk_reply', {});
+      } else {
+        var el = bubble('bot', "I can't reach the desk assistant right now. Call " + PHONE + " and someone will pick up, or just walk in — the door is open.", 'is-err');
+        var a = document.createElement('a');
+        a.href = 'tel:4058012929'; a.className = 'desk-callnow'; a.textContent = 'Call ' + PHONE;
+        el.appendChild(document.createElement('br')); el.appendChild(a);
+        track('desk_error', {});
+      }
+      input.focus({ preventScroll: true });
+    };
+
+    var timer = setTimeout(function () { done('', false); }, 25000);
+    fetch(ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ messages: history.slice(-10) })
+    }).then(function (r) {
+      return r.ok ? r.json() : null;
+    }).then(function (d) {
+      clearTimeout(timer);
+      if (busy) done(d && d.reply ? d.reply : '', !!(d && d.reply));
+    }).catch(function () {
+      clearTimeout(timer);
+      if (busy) done('', false);
+    });
   }
 })();
