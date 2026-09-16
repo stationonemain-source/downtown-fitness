@@ -977,3 +977,7 @@ html.flat .train-photo img { height: 520px; }
   .pg-faq { margin: 0 -5vw; }
   .subpage .foot { padding-bottom: 10vh; }
 }
+
+.pg-photo-inline { max-width: 560px; margin: 8px 0 1.4em; }
+.pg-photo-inline img { max-height: none; }
+@media (min-width: 769px) { .badges li { font-size: clamp(12px, 1vw, 15px); } .badges li + li::before { margin: 0 clamp(10px, 1vw, 16px); } }

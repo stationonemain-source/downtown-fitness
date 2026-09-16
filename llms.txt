@@ -1,6 +1,6 @@
 # Downtown Fitness on West Lindsey
 
-> A private, locally owned and operated gym at 1610 W Lindsey St, Norman, OK 73069, a few minutes from the University of Oklahoma campus. Rated 4.7 stars from 83 Google reviews (checked 16 September 2026).
+> A 24-hour private gym, locally owned and operated, at 1610 W Lindsey St, Norman, OK 73069, a few minutes from the University of Oklahoma campus. Rated 4.7 stars from 83 Google reviews (checked 16 September 2026).
 
 ## Facts
 - Name: Downtown Fitness on West Lindsey (also called Downtown Fitness)
@@ -8,24 +8,26 @@
 - Phone: (405) 801-2929
 - Website: https://dfnorman.com
 - Owner: Mark Floyd
-- Staffed hours: Monday to Friday 8am to 8pm; Saturday and Sunday 12pm to 5pm (America/Chicago)
+- Member access: 24 hours a day, every day
+- Front desk staffed: Monday to Friday 8am to 8pm; Saturday and Sunday 12pm to 5pm (America/Chicago)
 - Type: private gym, locally owned and operated, not a franchise
 - Google rating: 4.7 from 83 reviews
 
 ## What is in the building
-- Nationally trained personal training, one-on-one
+- Nationally trained personal training, one-on-one, from NASM-certified trainers (National Academy of Sports Medicine)
 - Cardio hall: treadmills, bikes and ellipticals
 - Full selectorized machine floor
 - Free-weight room with racks, lifting platforms, bumper plates and dumbbells to 100 lb
 - Locker rooms
 - Dry saunas
-- High-pressure tanning booths
+- Stand-up high-pressure tanning booths
 
 ## Not published here
 - Membership and training prices: call the desk on (405) 801-2929.
 - There is no public email address.
 
 ## Pages
+- [24-hour gym](https://stationonemain-source.github.io/downtown-fitness/24-hour-gym-norman/): Downtown Fitness on West Lindsey gives members 24-hour access, every day, at 1610 W Lindsey St, Norman, OK.
 - [Personal training](https://stationonemain-source.github.io/downtown-fitness/personal-training/): Nationally trained personal training in Norman, OK. One-on-one coaching in a private, locally owned gym at 1610 W Lindsey St. Call (405) 801-2929 to set it up.
 - [Private gym in Norman](https://stationonemain-source.github.io/downtown-fitness/private-gym-norman/): A private, locally owned and operated gym in Norman, OK: personal training, cardio, machines, free weights, dry saunas and high-pressure tanning. 1610 W Lindsey St.
 - [Gym near OU](https://stationonemain-source.github.io/downtown-fitness/gym-near-ou/): A private, locally owned gym about a mile west of the University of Oklahoma campus in Norman. Personal training, free weights, dry saunas, tanning. 1610 W Lindsey St.

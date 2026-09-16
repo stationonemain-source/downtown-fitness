@@ -15,14 +15,13 @@
     if (mins >= o * 60 && mins < c * 60) return { open: true, long: 'The desk is staffed until ' + hLabel(c) + '.', short: 'Desk open until ' + hLabel(c) };
     var when = 'today', no = o;
     if (mins >= o * 60) { no = STAFFED[(day + 1) % 7][0]; when = 'tomorrow'; }
-    return { open: false, long: 'The desk opens ' + when + ' at ' + hLabel(no) + '.', short: 'Desk opens ' + hLabel(no) + ' ' + when };
+    return { open: false, long: 'Members are in 24 hours; the desk opens ' + when + ' at ' + hLabel(no) + '.', short: 'Members 24/7 · desk opens ' + hLabel(no) };
   }
   function tick() {
     var d = state(), t = clockFmt.format(new Date());
     document.querySelectorAll('.clock').forEach(function (el) { if (el.textContent !== t) el.textContent = t; });
-    document.querySelectorAll('.status-word').forEach(function (el) { el.textContent = d.open ? 'Desk open' : 'Desk closed'; });
+    document.querySelectorAll('.status-word').forEach(function (el) { el.textContent = d.open ? 'Desk open' : 'Open 24/7'; });
     document.querySelectorAll('.desk-now').forEach(function (el) { var s = el.classList.contains('short') ? d.short : d.long; if (el.textContent !== s) el.textContent = s; });
-    document.documentElement.classList.toggle('closed', !d.open);
   }
   tick(); setInterval(tick, 15000);
 

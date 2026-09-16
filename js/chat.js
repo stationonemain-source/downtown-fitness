@@ -100,7 +100,7 @@
         history.push({ role: 'assistant', content: reply });
         track('desk_reply', {});
       } else {
-        var el = bubble('bot', "I can't reach the desk assistant right now. Call the desk on " + PHONE + ", or come by while it's staffed: Mon–Fri 8am–8pm, Sat–Sun 12–5pm.", 'is-err');
+        var el = bubble('bot', "I can't reach the desk assistant right now. Call the desk on " + PHONE + ", or come by while the desk is staffed: Mon–Fri 8am–8pm, Sat–Sun 12–5pm.", 'is-err');
         var a = document.createElement('a');
         a.href = 'tel:4058012929'; a.className = 'desk-callnow'; a.textContent = 'Call ' + PHONE;
         el.appendChild(document.createElement('br')); el.appendChild(a);
