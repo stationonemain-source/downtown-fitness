@@ -60,7 +60,6 @@
   const PHONE = matchMedia('(max-width: 768px)').matches;
   const DEBUG = params.has('debug');
 
-  if (!CONFIG.WE_ARE_OPEN) html.classList.add('closed');
   if (JUMP !== null) history.scrollRestoration = 'manual';
 
   /* ---------------------------------------------------------------- CLOCK */
@@ -70,9 +69,31 @@
     const t = fmt.format(new Date());
     for (const el of clocks) if (el.textContent !== t) el.textContent = t;
   }
-  for (const w of $$('.status-word')) w.textContent = CONFIG.WE_ARE_OPEN ? 'Open' : 'Closed';
-  tickClock();
-  setInterval(tickClock, 15000);
+  // STAFFED HOURS: Mon-Fri 8am-8pm, Sat-Sun 12-5pm, Norman time. Every .status-word and
+  // .desk-now reads off this one table, so changing the hours is a one-line edit here
+  // (and the copy + schema in index.html).
+  const STAFFED = { 1: [8, 20], 2: [8, 20], 3: [8, 20], 4: [8, 20], 5: [8, 20], 6: [12, 17], 0: [12, 17] };
+  const partsFmt = new Intl.DateTimeFormat('en-US', { weekday: 'short', hour: 'numeric', minute: 'numeric', hour12: false, timeZone: CONFIG.TIMEZONE });
+  const DAYS = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
+  const hLabel = h => (h % 12 || 12) + (h < 12 ? 'am' : 'pm');
+  function deskState() {
+    const p = {}; for (const x of partsFmt.formatToParts(new Date())) p[x.type] = x.value;
+    const day = DAYS[p.weekday], mins = (parseInt(p.hour, 10) % 24) * 60 + parseInt(p.minute, 10);
+    const [o, c] = STAFFED[day];
+    if (CONFIG.WE_ARE_OPEN && mins >= o * 60 && mins < c * 60) return { open: true, long: 'The desk is staffed until ' + hLabel(c) + '.', short: 'Desk open until ' + hLabel(c) };
+    // next opening: later today, or the next day's open
+    let nd = day, no = o, when = 'today';
+    if (mins >= o * 60) { nd = (day + 1) % 7; no = STAFFED[nd][0]; when = 'tomorrow'; }
+    return { open: false, long: 'The desk opens ' + when + ' at ' + hLabel(no) + '.', short: 'Desk opens ' + hLabel(no) + ' ' + when };
+  }
+  function tickDesk() {
+    const d = deskState();
+    for (const w of $$('.status-word')) w.textContent = d.open ? 'Desk open' : 'Desk closed';
+    for (const el of $$('.desk-now')) { const t = el.classList.contains('short') ? d.short : d.long; if (el.textContent !== t) el.textContent = t; }
+    html.classList.toggle('closed', !d.open);
+  }
+  tickClock(); tickDesk();
+  setInterval(() => { tickClock(); tickDesk(); }, 15000);
 
   /* ------------------------------------------------------------- ELEMENTS */
   const chrome = $('#chrome');
