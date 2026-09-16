@@ -1,0 +1,5 @@
+# Every crawler, AI assistants included, is welcome.
+User-agent: *
+Allow: /
+
+Sitemap: https://stationonemain-source.github.io/downtown-fitness/sitemap.xml

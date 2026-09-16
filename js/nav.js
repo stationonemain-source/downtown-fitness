@@ -93,3 +93,24 @@
     targets.forEach(function (t) { io.observe(t); });
   }
 })();
+
+/* THE STRIP CONTROLS — a mouse has no sideways scroll, so photos 3 to 14 were unreachable on desktop. */
+(function () {
+  var strip = document.getElementById('strip');
+  if (!strip) return;
+  var btns = document.querySelectorAll('.strip-btn');
+  function sync() {
+    var max = strip.scrollWidth - strip.clientWidth - 2;
+    btns[0].disabled = strip.scrollLeft <= 2;
+    btns[1].disabled = strip.scrollLeft >= max;
+  }
+  Array.prototype.forEach.call(btns, function (b) {
+    b.addEventListener('click', function () {
+      var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      strip.scrollBy({ left: +b.getAttribute('data-dir') * strip.clientWidth * 0.8, behavior: reduce ? 'auto' : 'smooth' });
+    });
+  });
+  strip.addEventListener('scroll', sync, { passive: true });
+  window.addEventListener('resize', sync);
+  sync();
+})();

@@ -33,7 +33,7 @@
     WE_ARE_OPEN: true,
 
     TIMEZONE: 'America/Chicago',
-    ASSET_V: '20260903u',
+    ASSET_V: '20260916b',
 
     // Hero timings on the UNIFIED clock: 0..PRE_S is the still push (page-driven),
     // PRE_S + video.currentTime after that. Beat envelopes live on the .beat elements.
@@ -288,7 +288,24 @@
     if (preDone) return;
     preDone = true;
     clearTimeout(preTimer);
-    if (!params.has('nofilm') && !PHONE) hero.classList.add('film');
+    // Only hand over to the film once it can actually play. On a slow connection the 8 MB film
+    // is not buffered at 6 s, and fading the still out then left a BLACK hero until it arrived.
+    // Wait for canplay up to 8 s more; if it never comes, the storefront simply stays.
+    if (!params.has('nofilm') && !PHONE) {
+      if (video.readyState >= 3) hero.classList.add('film');
+      else {
+        let gaveUp = false;
+        const giveUp = setTimeout(() => { gaveUp = true; try { video.pause(); } catch (e) {} hero.classList.add('noplay'); }, 8000);
+        video.addEventListener('canplay', () => {
+          if (gaveUp) return;
+          clearTimeout(giveUp);
+          hero.classList.add('film');
+          const p = video.play(); if (p && p.catch) p.catch(blocked);
+          wake();
+        }, { once: true });
+        return;
+      }
+    }
     if (PHONE && !STATIC) {                                    // the photograph sequence: door in, then back out front
       setTimeout(function () { hero.classList.add('m2'); }, 400);
       setTimeout(function () { hero.classList.remove('m2'); hero.classList.add('m3'); }, 8400);

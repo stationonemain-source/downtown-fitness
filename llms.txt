@@ -1,0 +1,34 @@
+# Downtown Fitness on West Lindsey
+
+> A private, locally owned and operated gym at 1610 W Lindsey St, Norman, OK 73069, a few minutes from the University of Oklahoma campus. Rated 4.7 stars from 83 Google reviews (checked 16 September 2026).
+
+## Facts
+- Name: Downtown Fitness on West Lindsey (also called Downtown Fitness)
+- Address: 1610 W Lindsey St, Norman, OK 73069
+- Phone: (405) 801-2929
+- Website: https://dfnorman.com
+- Owner: Mark Floyd
+- Staffed hours: Monday to Friday 8am to 8pm; Saturday and Sunday 12pm to 5pm (America/Chicago)
+- Type: private gym, locally owned and operated, not a franchise
+- Google rating: 4.7 from 83 reviews
+
+## What is in the building
+- Nationally trained personal training, one-on-one
+- Cardio hall: treadmills, bikes and ellipticals
+- Full selectorized machine floor
+- Free-weight room with racks, lifting platforms, bumper plates and dumbbells to 100 lb
+- Locker rooms
+- Dry saunas
+- High-pressure tanning booths
+
+## Not published here
+- Membership and training prices: call the desk on (405) 801-2929.
+- There is no public email address.
+
+## Links
+- [Home page](https://stationonemain-source.github.io/downtown-fitness/)
+- [Personal training](https://stationonemain-source.github.io/downtown-fitness/#training)
+- [Questions and answers](https://stationonemain-source.github.io/downtown-fitness/#faq)
+- [Visit and directions](https://stationonemain-source.github.io/downtown-fitness/#visit)
+- [Facebook](https://www.facebook.com/downtownfitnessonwestlindsey)
+- [Instagram](https://www.instagram.com/downtownfitnessnorman/)
