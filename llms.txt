@@ -14,7 +14,7 @@
 - Google rating: 4.7 from 83 reviews
 
 ## What is in the building
-- Nationally trained personal training, one-on-one, from NASM-certified trainers (National Academy of Sports Medicine)
+- Nationally certified personal training, one-on-one, from NASM-certified trainers (National Academy of Sports Medicine)
 - Cardio hall: treadmills, bikes and ellipticals
 - Full selectorized machine floor
 - Free-weight room with racks, lifting platforms, bumper plates and dumbbells to 100 lb
@@ -28,7 +28,7 @@
 
 ## Pages
 - [24-hour gym](https://stationonemain-source.github.io/downtown-fitness/24-hour-gym-norman/): Downtown Fitness on West Lindsey gives members 24-hour access, every day, at 1610 W Lindsey St, Norman, OK.
-- [Personal training](https://stationonemain-source.github.io/downtown-fitness/personal-training/): Nationally trained personal training in Norman, OK. One-on-one coaching in a private, locally owned gym at 1610 W Lindsey St. Call (405) 801-2929 to set it up.
+- [Personal training](https://stationonemain-source.github.io/downtown-fitness/personal-training/): Nationally certified personal training in Norman, OK. One-on-one coaching in a private, locally owned gym at 1610 W Lindsey St. Call (405) 801-2929 to set it up.
 - [Private gym in Norman](https://stationonemain-source.github.io/downtown-fitness/private-gym-norman/): A private, locally owned and operated gym in Norman, OK: personal training, cardio, machines, free weights, dry saunas and high-pressure tanning. 1610 W Lindsey St.
 - [Gym near OU](https://stationonemain-source.github.io/downtown-fitness/gym-near-ou/): A private, locally owned gym about a mile west of the University of Oklahoma campus in Norman. Personal training, free weights, dry saunas, tanning. 1610 W Lindsey St.
 - [Dry saunas](https://stationonemain-source.github.io/downtown-fitness/sauna/): Dry saunas at Downtown Fitness on West Lindsey, a private, locally owned gym at 1610 W Lindsey St, Norman, OK. Train, then sit in the heat.
