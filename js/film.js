@@ -33,7 +33,7 @@
     WE_ARE_OPEN: true,
 
     TIMEZONE: 'America/Chicago',
-    ASSET_V: '20260916e',
+    ASSET_V: '20260916f',
 
     // Hero timings on the UNIFIED clock: 0..PRE_S is the still push (page-driven),
     // PRE_S + video.currentTime after that. Beat envelopes live on the .beat elements.
@@ -84,11 +84,11 @@
     // next opening: later today, or the next day's open
     let nd = day, no = o, when = 'today';
     if (mins >= o * 60) { nd = (day + 1) % 7; no = STAFFED[nd][0]; when = 'tomorrow'; }
-    return { open: false, long: 'Members are in 24 hours; the desk opens ' + when + ' at ' + hLabel(no) + '.', short: 'Members 24/7 · desk opens ' + hLabel(no) };
+    return { open: false, long: 'Members have 24-hour access; the desk opens ' + when + ' at ' + hLabel(no) + '.', short: 'Members 24/7 · desk opens ' + hLabel(no) };
   }
   function tickDesk() {
     const d = deskState();
-    for (const w of $$('.status-word')) w.textContent = d.open ? 'Desk open' : 'Open 24/7';
+    for (const w of $$('.status-word')) w.textContent = d.open ? 'Desk open' : 'Members 24/7';
     for (const el of $$('.desk-now')) { const t = el.classList.contains('short') ? d.short : d.long; if (el.textContent !== t) el.textContent = t; }
   }
   tickClock(); tickDesk();
