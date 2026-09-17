@@ -941,6 +941,7 @@ html.flat .train-photo img { height: 520px; }
 .pg-facts h2.kicker { margin-bottom: 24px; }
 .pg-facts .facts { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: none; margin: 0; }
 .pg-facts .facts dd { font-size: 19px; }
+.pg-facts .facts .js-only { grid-column: 1 / -1; border-top: 1px solid #232323; padding-top: 20px; }
 .pg-map { margin-top: 36px; min-height: 320px; background: var(--ink); }
 .pg-map iframe { width: 100%; min-height: 320px; border: 0; display: block; filter: grayscale(1) contrast(1.05); }
 .pg-body { padding: clamp(48px, 6vw, 88px) 0; max-width: 760px; }
