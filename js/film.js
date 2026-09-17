@@ -33,7 +33,7 @@
     WE_ARE_OPEN: true,
 
     TIMEZONE: 'America/Chicago',
-    ASSET_V: '20260916g',
+    ASSET_V: '20260916h',
 
     // Hero timings on the UNIFIED clock: 0..PRE_S is the still push (page-driven),
     // PRE_S + video.currentTime after that. Beat envelopes live on the .beat elements.
