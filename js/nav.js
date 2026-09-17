@@ -114,3 +114,15 @@
   window.addEventListener('resize', sync);
   sync();
 })();
+
+/* A mouse click or a tap on an FAQ question was drawing the keyboard focus ring (a red box).
+   Pointer focus hides it; the first key press brings it back for keyboard users. */
+(function () {
+  document.addEventListener('pointerdown', function (e) {
+    var s = e.target.closest && e.target.closest('summary');
+    if (s) s.classList.add('by-pointer');
+  });
+  document.addEventListener('keydown', function () {
+    Array.prototype.forEach.call(document.querySelectorAll('summary.by-pointer'), function (s) { s.classList.remove('by-pointer'); });
+  });
+})();
