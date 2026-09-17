@@ -989,3 +989,9 @@ html.flat .train-photo img { height: 520px; }
 .pg-hero h1 { line-height: .96; }
 
 summary.by-pointer:focus-visible { outline: none; }
+
+/* subpage H1: long words ("NATIONALLY CERTIFIED", "HIGH-PRESSURE") ran off the edge between ~700
+   and ~1000px. Size to the column, never past it. */
+.pg-hero h1 { font-size: clamp(34px, 5vw, 92px); overflow-wrap: break-word; }
+@media (max-width: 900px) { .pg-hero h1 { font-size: 8.4vw; } }
+@media (max-width: 768px) { .pg-hero h1 { font-size: 9.6vw; } }
